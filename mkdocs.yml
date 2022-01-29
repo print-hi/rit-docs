@@ -1,0 +1,45 @@
+site_name: Retirement Income Toolkit
+theme:
+  name: material
+  palette:
+    scheme: deep purple
+  features:
+    - navigation.tabs
+    - content.code.annotate
+repo_url: https://github.com/print-hi/retirement-toolkit
+
+
+nav:
+- Home: 
+  - 'Home/overview.md'
+  - 'Home/start.md'
+  - 'Home/log.md'
+  - 'Home/about.md'
+- Policy Valuation:
+  - 'Policy Valuation/overview.md'
+  - 'Policy Valuation/top1.md'
+  - 'Policy Valuation/top2.md'
+  - 'Policy Valuation/top3.md'
+- Aggregate Mortality:
+  - 'Aggregate Mortality/overview.md'
+  - 'Aggregate Mortality/top1.md'
+  - 'Aggregate Mortality/top2.md'
+  - 'Aggregate Mortality/top3.md'
+- Health State:
+  - 'Health State/overview.md'
+  - 'Health State/top1.md'
+  - 'Health State/top2.md'
+  - 'Health State/top3.md'
+- Economic Scenario Generator:
+  - 'Economic Scenario Generator/overview.md'
+  - 'Economic Scenario Generator/top1.md'
+  - 'Economic Scenario Generator/top2.md'
+  - 'Economic Scenario Generator/top3.md'
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
