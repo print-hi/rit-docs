@@ -12,7 +12,7 @@ ui = dashboardPage(
             title = "Retirement Toolkit",
             color = "indigo",
             href = "https://github.com/print-hi/retirement-toolkit",
-            image = "https://raw.githubusercontent.com/print-hi/toolkit-webapp/main/img/25231.png",
+            image = "https://raw.githubusercontent.com/print-hi/toolkit-live/main/img/25231.png",
         ),
         tags$head(tags$style(HTML('* {font-family: "Helvetica Neue"};')))
     ),
