@@ -5,7 +5,7 @@ library(shinyWidgets)
 
 table1 <- c("good", "bad", "ok")
 
-ui = dashboardPage(
+ui <- dashboardPage(
     dark = NULL,
     header = dashboardHeader(
         title = dashboardBrand(
@@ -117,7 +117,22 @@ ui = dashboardPage(
     )
 )
 
-server = function(input, output, session) {
+server <- function(input, output, session) {
+
+    observe({
+        updateSliderInput(
+            session = session,
+            inputId = "age1",
+            value = input$age2
+        )
+    })
+    observe({
+        updateSliderInput(
+            session = session,
+            inputId = "age2",
+            value = input$age1
+        )
+    })
 
     output$corr_plot1 <- renderPlotly({
 
@@ -151,23 +166,6 @@ server = function(input, output, session) {
                                 linecolor = 'rgb(180,180,180)',
                                 gridcolor = 'rgb(220,220,220)'))
 
-    })
-
-    observe({
-        updateSliderInput(
-            session = session,
-            inputId = "age1",
-            value = input$age2
-        )
-    })
-
-
-    observe({
-        updateSliderInput(
-            session = session,
-            inputId = "age2",
-            value = input$age1
-        )
     })
 
 }
