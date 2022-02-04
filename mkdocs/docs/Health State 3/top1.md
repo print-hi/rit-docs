@@ -1,17 +1,9 @@
-# Topic 1
+# Cox Hazard Model 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## General Principle
 
-## Commands
+The Cox Proportional Hazards Model is used to estimate the hazard rate or transition
+intensity for different transitions. The general form of the transition intensities for 
+an individual $k$ and transition type $s$ is:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+$$\lambda_{k, s}(t) = \text{exp}(\mathbf{\beta})$$
