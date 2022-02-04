@@ -11,12 +11,12 @@ repo_url: https://github.com/print-hi/retirement-toolkit
 
 nav:
 - Home: 
-  - 'Home/overview.md'
+  - 'Home/index.md'
   - 'Home/start.md'
   - 'Home/log.md'
   - 'Home/about.md'
 - Policy Valuation:
-  - 'Policy Valuation/index.md'
+  - 'Policy Valuation/overview.md'
   - 'Policy Valuation/top1.md'
   - 'Policy Valuation/top2.md'
   - 'Policy Valuation/top3.md'
