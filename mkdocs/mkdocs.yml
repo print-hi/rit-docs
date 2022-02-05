@@ -28,7 +28,8 @@ nav:
 - Health State 3:
   - 'Health State 3/overview.md'
   - 'Health State 3/top1.md'
-  - 'Health State 3/top2.md'
+  - Methodology:
+      - 'Health State 3/top2.md'
   - 'Health State 3/top3.md'
 - Health State 5:
   - 'Health State 5/overview.md'

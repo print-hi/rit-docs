@@ -42,3 +42,13 @@ $$
 
 where $\psi(t)$ captures the stochastic latent factor. In our model, we use a random walk:
 $\psi(t) = \psi(t-1) + \epsilon$ with $\epsilon \sim \text{N}(0, 1)$.
+
+### Parameters
+
+The module uses cox hazard model parameters estimated from external research studies. The parameters
+of the two following studies are included in the package: 
+
+* US Health and Retirement Study (parameter name: US_HRS)
+
+* China Chinese Longitudinal Healthy Longevity Survey (parameter name: china_CLHLS)
+

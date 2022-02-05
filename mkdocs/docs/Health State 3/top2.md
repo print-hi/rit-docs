@@ -1,17 +1,8 @@
-# Topic 2
+# Transition Probability Matrix
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Cox Hazard model produces continuous hazard rates, which we discretise by
+integrating the rates over a year to produce piecewise constant transition rates. 
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This process is repeated for each of the 4 transitions. The transition rates for each age are then
+put into a transition rate matrix, which can be transformed a transition probabilty matrix by
+taking the matarix exponential. 
