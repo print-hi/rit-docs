@@ -27,9 +27,9 @@ nav:
   - 'Aggregate Mortality/top3.md'
 - Health State 3:
   - 'Health State 3/overview.md'
-  - 'Health State 3/top1.md'
+  - 'Health State 3/cox_model.md'
   - Methodology:
-      - 'Health State 3/top2.md'
+      - 'Health State 3/trans_probs.md'
   - 'Health State 3/top3.md'
 - Health State 5:
   - 'Health State 5/overview.md'
@@ -51,6 +51,7 @@ markdown_extensions:
   - pymdownx.superfences  
   - pymdownx.arithmatex:
       generic: true
+  - codehilite
       
 extra_javascript:
   - javascripts/mathjax.js
