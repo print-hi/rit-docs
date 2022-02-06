@@ -7,7 +7,13 @@ This process is repeated for each of the 4 transitions. The transition rates for
 put into a transition rate matrix, which can be transformed a transition probabilty matrix by
 taking the matrix exponential. 
 
+!!! note
+    The transition probability matrices are deterministic for each individual with the 
+    Static and Trend models, but stochastic with the Frailty model. 
+
 This process is executed by the function 'get_trans_probs'.
+
+---
 
 ### `get_trans_probs`:
 
