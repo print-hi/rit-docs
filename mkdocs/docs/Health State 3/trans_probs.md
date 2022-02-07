@@ -15,7 +15,7 @@ This process is executed by the function 'get_trans_probs'.
 
 ---
 
-### `get_trans_probs`:
+### `get_trans_probs`
 
 The usage of the function for a certain individual could look like:
 

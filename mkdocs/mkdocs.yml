@@ -31,6 +31,8 @@ nav:
   - Getting Started:
       - 'Health State 3/trans_probs.md'
       - 'Health State 3/lifetable.md'
+      - 'Health State 3/simulation.md'
+  - 'Health State 3/stats.md'
 - Health State 5:
   - 'Health State 5/overview.md'
   - 'Health State 5/top1.md'
@@ -55,6 +57,7 @@ markdown_extensions:
   - pymdownx.details
   - admonition
       
+# for pymdown.arithmatex 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6

@@ -12,7 +12,7 @@ deterministic; it is generated off of expected values and not simulation.
 One can also specify the initial state that the cohort is in for the life table: healthy (default)
 or disabled. 
 
-### `create_life_table`:
+### `create_life_table`
 
 Given a set of transition probability matrices, the usage of the function is:
 
@@ -26,3 +26,6 @@ trans_probs <- get_trans_probs('T', US_HRS, 65, 0, 2021)
 # cohort of 10,000 (default)
 life_table <- create_life_table(trans_probs, 65, 0)
 ```
+
+!!! note
+    The lifetable ends at 110, and everyone still alive is assumed to die during age 110-111.
