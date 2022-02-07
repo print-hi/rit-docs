@@ -28,7 +28,7 @@ nav:
 - Health State 3:
   - 'Health State 3/overview.md'
   - 'Health State 3/cox_model.md'
-  - Methodology:
+  - Getting Started:
       - 'Health State 3/trans_probs.md'
       - 'Health State 3/top3.md'
 - Health State 5:
