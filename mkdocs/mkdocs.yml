@@ -30,7 +30,7 @@ nav:
   - 'Health State 3/cox_model.md'
   - Getting Started:
       - 'Health State 3/trans_probs.md'
-      - 'Health State 3/top3.md'
+      - 'Health State 3/lifetable.md'
 - Health State 5:
   - 'Health State 5/overview.md'
   - 'Health State 5/top1.md'
