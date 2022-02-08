@@ -15,7 +15,8 @@ Hence, there is a stochastic component to these results.
 Each function comes with a frailty version, which has the same name with an 'F' attached to it (eg. 
 `afl` -> `aflF`). The frailty version simulates 'n' unique latent paths, which adds another
 level of randomness in the statistic. It also requires the same parameters needed to produce a new
-set of transition probability matrices (see below examples).
+set of transition probability matrices (see below examples). By default, frailty functions
+simulate 1000 unique latent factors. 
 
 For all code examples below, we will use an male individual aged 65 in year 2022.
 
@@ -27,7 +28,7 @@ The function calculates the average future lifetime for a given individual, and 
 # trend model
 trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
 
-# calculate afl
+# calculate average future lifetime
 afl(65, init_state = 0, trans_probs)
 
 # frailty model
@@ -42,7 +43,7 @@ This function calculates the average future lifetime spent in the healthy state,
 # trend model
 trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
 
-# calculate afl
+# calculate healthy future lifetime
 hfl(65, init_state = 0, trans_probs)
 
 # frailty model
@@ -61,7 +62,7 @@ This function calculates the average future lifetime spent in the disabled state
 # trend model
 trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
 
-# calculate afl
+# calculate average future lifetime in disabled state
 afld(65, init_state = 0, trans_probs)
 
 # frailty model
@@ -81,16 +82,33 @@ individual becomes disabled.
 # trend model
 trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
 
-# calculate afl
+# calculate time until onset of disability
 time_to_disabled(65, trans_probs)
 
 # frailty model
 time_to_disabledF(65, female = 0, 2022, US_HRS)
 ```
 
+#### All Survival Stats: `survival_stats` (`survival_statsF`)
 
+A combination of all the above functions. If transition probabilities are provided, then
+one simulation is run and all the statistics are calculated from that simulation (this is 
+to keep results consistent). A simulated pathway can also be provided.
 
+Time until onset of disability is not returned if initial state is set to 1 as it is trivial. 
 
+The function returns all the information (mean and variance of each statistic) as a dataframe.
+
+```r
+# trend model
+trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+
+# calculate all statistics
+survival_stats(65, init_state = 0, trans_probs)
+
+# frailty model
+survival_statsF(65, init_state = 0, female = 0, 2022, US_HRS)
+```
 
 
 
