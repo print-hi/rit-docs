@@ -11,7 +11,7 @@ repo_url: https://github.com/print-hi/retirement-toolkit
 
 nav:
 - Home: 
-  - 'Home/overview.md'
+  - 'Home/index.md'
   - 'Home/start.md'
   - 'Home/log.md'
   - 'Home/about.md'
@@ -27,9 +27,12 @@ nav:
   - 'Aggregate Mortality/top3.md'
 - Health State 3:
   - 'Health State 3/overview.md'
-  - 'Health State 3/top1.md'
-  - 'Health State 3/top2.md'
-  - 'Health State 3/top3.md'
+  - 'Health State 3/cox_model.md'
+  - Getting Started:
+      - 'Health State 3/trans_probs.md'
+      - 'Health State 3/lifetable.md'
+      - 'Health State 3/simulation.md'
+  - 'Health State 3/stats.md'
 - Health State 5:
   - 'Health State 5/overview.md'
   - 'Health State 5/top1.md'
@@ -47,4 +50,15 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences  
+  - pymdownx.arithmatex:
+      generic: true
+  - codehilite
+  - pymdownx.details
+  - admonition
+      
+# for pymdown.arithmatex 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
