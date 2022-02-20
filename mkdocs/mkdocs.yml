@@ -39,6 +39,7 @@ nav:
   - Getting Started:
       - 'Health State 5/trans_probs.md'
       - 'Health State 5/lifetable.md'
+      - 'Health State 5/simulation.md'
 - Economic Scenario Generator:
   - 'Economic Scenario Generator/overview.md'
   - 'Economic Scenario Generator/top1.md'
