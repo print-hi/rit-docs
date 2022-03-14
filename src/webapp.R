@@ -4,6 +4,10 @@ library(plotly)
 library(shinyWidgets)
 library(timevis)
 
+# install package: 
+# install.packages("C:/Users/Alex/Documents/GitHub/retirement-toolkit/_health/3-state", repo = NULL, type = 'source')
+
+
 table1 <- c("good", "bad", "ok")
 
 ui <- dashboardPage(
