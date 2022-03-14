@@ -22,8 +22,8 @@ nav:
   - 'Policy Valuation/top3.md'
 - Aggregate Mortality:
   - 'Aggregate Mortality/overview.md'
-  - 'Aggregate Mortality/top1.md'
-  - 'Aggregate Mortality/top2.md'
+  - 'Aggregate Mortality/age_completion.md'
+  - 'Aggregate Mortality/risk_neutral.md'
   - 'Aggregate Mortality/top3.md'
 - Health State 3:
   - 'Health State 3/overview.md'

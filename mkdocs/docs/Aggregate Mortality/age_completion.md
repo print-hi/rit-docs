@@ -151,6 +151,9 @@ The Kannisto model is based on the logistic model, and the constrained nature of
 2 free parameters makes mortality projections very consistent. Hence, it is advantangeous 
 for the purpose of making extrapolations. 
 
+It fits a model on the tail end of ages where the mortality rates are more accurate. It then 
+extrapolates this to older ages. 
+
 **kannisto(rates, ages, old_ages, fitted_ages, type = 'force', closure_age = 130, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
@@ -169,7 +172,7 @@ for the purpose of making extrapolations.
 
 &nbsp;&nbsp;&nbsp;&nbsp; fitted_ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *YET TO COMPLETE* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector containing ages to fit initial model* 
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
@@ -194,7 +197,16 @@ for the purpose of making extrapolations.
 # consider a rate matrix generated from StoMoMo saved
 # under the variable 'mortality_rates'
 
-* YET TO COMPLETE
+# accurate ages
+ages <- 30:90
+
+# fit model on tail end of ages where mortality is still accurate 
+fitted_ages <- 76:90
+
+# old ages
+old_ages <- 91:130
+
+completed_rates <- kannisto(mortality_rates, ages, old_ages, fitted_ages)
 ```
 
 **References:**
