@@ -23,15 +23,26 @@ allowing for more robust pricing methods.
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"simulate_individual_path"*
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting which state we are entering*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting which state we are entering or leaving*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 for first time leaving H state, only used when initial state is 0
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 for first time entering M state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 for first time entering D state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 for first time entering MD state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -1 for first time entering the dead state
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; column matrix of first time entering the specified state
+&nbsp;&nbsp;&nbsp;&nbsp; column vector of first time entering the specified state
 
 &nbsp;&nbsp; **Usage:**
 
@@ -60,11 +71,23 @@ print(mean(time_to_1, na.rm = TRUE))
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting which state we are entering*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting which state we are counting*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 for total time in H state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 for total time in M state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 for total time in D state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 for total time in MD state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -1 for total time in dead state
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 for total time alive or not in dead state
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; column matrix of total times spent in specified state
+&nbsp;&nbsp;&nbsp;&nbsp; column vector of total times spent in specified state
 
 &nbsp;&nbsp; **Usage:**
 
@@ -72,7 +95,7 @@ print(mean(time_to_1, na.rm = TRUE))
 # simulation of males aged 65 initially healthy under the trend model
 simulated_path <- simulate_individual_path(65, 0, params, 0, 19, model = 2)
 
-# total time spent in state 3, ill health and functionally disabled 
+# total time spent in MD state, ill health and functionally disabled 
 total_state3 <- total_time_stats(simulated_path, 3)
 
 # average time spent in state 3
@@ -104,16 +127,16 @@ previous functions to create the mean and variance of those statistics.
 # simulation of males aged 65 initially healthy under the trend model 
 simulated_path <- simulate_individual_path(65, 0, params, 0, 19, model = 2)
 
-# time until entering ill health but not functionally disabled
+# time until entering M state, ill health but not functionally disabled
 time_to_1 <- first_time_stats(simulated_path, 1)
 
-# total time spent in state 3, ill health and functionally disabled 
+# total time spent in MD state, ill health and functionally disabled 
 total_state3 <- total_time_stats(simulated_path, 3)
 
-# produce mean and variance of first time into state 1
+# produce mean and variance of first time into M state
 time1_stats <- stats_produce(time_to_1)
 
-# produce mean and variance of time spent in state 3
+# produce mean and variance of time spent in MD state
 timein3_stats <- stats_produce(total_state3)
 ```
 

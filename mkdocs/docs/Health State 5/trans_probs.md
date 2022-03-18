@@ -33,7 +33,7 @@ transition probability matrices.
 
 &nbsp;&nbsp;&nbsp;&nbsp; i : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index (=current year - 1998 + 1)*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index wave index = (interview year - 1998)/2 + 1*
 
 &nbsp;&nbsp;&nbsp;&nbsp; model : numeric
 
@@ -47,7 +47,7 @@ transition probability matrices.
 
 ```r
 # for male aged 65 at wave index i, using the trend model with some parameters 'param'
-trans_probs <- get_full_trans_prob_matrix(params, 65, 0, 20, 2)
+trans_probs <- get_full_trans_prob_matrixfunction(params, init_age=65, gender=0, i, model=2)
 ```
 
 
