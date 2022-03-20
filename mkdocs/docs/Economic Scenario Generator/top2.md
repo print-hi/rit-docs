@@ -1,17 +1,35 @@
-# Topic 2
+# Continuous Economic Scenario Generator
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+placeholder
 
-## Commands
+---
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### Generate zero coupon bond interest rate structure
 
-## Project layout
+**get_zcp_simulation(num_years = 5, num_paths = 10000, frequency = 'month')**
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+&nbsp;&nbsp; **Paramters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 2021-06-01*
+
+&nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting the number of simulation paths*
+
+&nbsp;&nbsp;&nbsp;&nbsp; frequency : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; a list of 40 dataframes containing simulated trajectories
+
+&nbsp;&nbsp; **Usage:**
+
+```r
+# simulate zero-coupon interest structure for 10 years
+sim <- get_zcp_simulation(num_years = 10, num_paths = 10000, frequency = 'year')
+```
+

@@ -22,8 +22,8 @@ nav:
   - 'Policy Valuation/top3.md'
 - Aggregate Mortality:
   - 'Aggregate Mortality/overview.md'
-  - 'Aggregate Mortality/top1.md'
-  - 'Aggregate Mortality/top2.md'
+  - 'Aggregate Mortality/age_completion.md'
+  - 'Aggregate Mortality/risk_neutral.md'
   - 'Aggregate Mortality/top3.md'
 - Health State 3:
   - 'Health State 3/overview.md'
@@ -43,7 +43,7 @@ nav:
   - 'Health State 5/stats.md'
 - Economic Scenario Generator:
   - 'Economic Scenario Generator/overview.md'
-  - 'Economic Scenario Generator/top1.md'
+  - 'Economic Scenario Generator/discrete_esg.md'
   - 'Economic Scenario Generator/top2.md'
   - 'Economic Scenario Generator/top3.md'
 
