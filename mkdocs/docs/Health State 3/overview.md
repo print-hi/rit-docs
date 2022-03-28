@@ -3,7 +3,7 @@
 This module conducts mortality analysis using the 3 state model with the following transitions: 
 
 <figure markdown>
-  ![Image title](/img/3_state_model.png){ width="400"}
+  ![3_state_model](/img/3_state_model.png){width="400"}
 </figure>
 
 The three states are: 
@@ -30,3 +30,9 @@ Functionalities of the module includes:
 
 These functions can be helpful in conducting mortality studies, as well as applications in 
 insurance pricing. 
+
+The general overview and usage of the module can be seen in the following flowchart: 
+
+<figure markdown>
+  ![3_state_flowchart](/img/3_state_flowchart.png){width="750"}
+</figure>

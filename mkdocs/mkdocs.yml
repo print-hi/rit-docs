@@ -23,8 +23,9 @@ nav:
 - Aggregate Mortality:
   - 'Aggregate Mortality/overview.md'
   - 'Aggregate Mortality/age_completion.md'
+  - 'Aggregate Mortality/rate_change.md'
   - 'Aggregate Mortality/risk_neutral.md'
-  - 'Aggregate Mortality/top3.md'
+  - 'Aggregate Mortality/stats_functions.md'
 - Health State 3:
   - 'Health State 3/overview.md'
   - 'Health State 3/cox_model.md'

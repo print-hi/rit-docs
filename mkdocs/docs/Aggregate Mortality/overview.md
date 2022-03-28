@@ -1,17 +1,25 @@
 # Overview
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+There is a popular package in R, StoMoMo, that is used for stochastic mortality modelling. It 
+includes functions that fit a wide range of models from Lee-Carter, CBD model, APC mode, and many
+others.
 
-## Commands
+The aggregate mortality module extends upon the functionality of the StoMoMo package, adding 
+methods for more accurate mortality estimation at older ages (age completion) and transformations
+from real world probability measure survival functions to risk free probability survival functions.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+These allow for applications in: 
 
-## Project layout
+* more accurate mortality studies at older ages (90+)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* pricing of a diverse range of insurance products 
+
+
+This module should be used in tandem with the StoMoMo package. Namely, the inputs of this module 
+will usually be the mortality rates outputted by the StoMoMo package. A general overview of the 
+module and the sequence of function executions can be visualised by the flowchart below:
+
+<figure markdown>
+  ![agg_mor_flowchart](/img/agg_mor_flowchart.png){width="700"}
+</figure>
+
