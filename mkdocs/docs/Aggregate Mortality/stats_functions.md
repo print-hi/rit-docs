@@ -118,10 +118,14 @@ plot_surv_sim(surv_func, 50, 2022)
 
 ```r
 # need to use `exp_cfl` function to create expected curtate future lifetimes on historical 
-# years and simulated years
+# years and simulated years (which are derived from previous workflow)
 
-
+ecfl_historical <- exp_cfl(q_hist, ages)
+ecfl_sim <- exp_cfl(q_sim, ages)
+plot_exp_cfl(ecfl_historical, years_hist, ecfl_sim, years_sim)
 ```
+
+
 
 
 
