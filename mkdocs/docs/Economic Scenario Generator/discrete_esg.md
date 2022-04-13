@@ -31,7 +31,7 @@ coefficients of the fitted model are used in the following simulation funtions.
 
 ### Simulate discrete economic and financial variables
 
-**get_var_simulations(num_years = 5, num_paths = 10000, frequency = 'quarter', per_change = FALSE, return_noise = FALSE)**
+**get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', per_change = FALSE, return_sdf = FALSE)**
 
 &nbsp;&nbsp; **Parameters:**
 
