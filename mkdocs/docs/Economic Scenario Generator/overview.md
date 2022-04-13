@@ -34,6 +34,5 @@ appliations in insurance pricing, loan/debt pricing, and project valuations.
 
 The module has a discrete economic scenario generator (ESG), and a continuous ESG. Discrete ESG
 is fit on discrete time intervals, whereas continuous ESG's can in theory be fit for any time 
-point. However, the module uses the same simulation frequencies for both ESG types. The 
-continuous ESG is in general more accurate. 
+point. However, the module uses the same simulation frequencies for both ESG types. 
 
