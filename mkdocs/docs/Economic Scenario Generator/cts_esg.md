@@ -9,7 +9,7 @@ in continuous time.
 
 ### Generate zero coupon bond interest rate structure
 
-**get_zcp_simulation(num_years = 5, num_paths = 10000, frequency = 'month')**
+**get_afns_simulation(num_years = 5, num_paths = 10, frequency = 'month', type = 'independent', model = 'interest_rate')**
 
 &nbsp;&nbsp; **Paramters:**
 
@@ -25,9 +25,17 @@ in continuous time.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency*
 
+&nbsp;&nbsp;&nbsp;&nbsp; type : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'independent' or 'correlated' denoting whether the latent factors are independent of each other*
+
+&nbsp;&nbsp;&nbsp;&nbsp; model : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'interest_rate' or 'interest_house_stock' denoting the output variables*
+
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; a list of 40 dataframes containing simulated trajectories
+&nbsp;&nbsp;&nbsp;&nbsp; a list of 40 dataframes containing simulated interest rates with maturities from 1 quarter up to 10 years, or 42 dataframes containing interest rate structure, NSW house value index, S&P/ASX200 closing prices if model is set to be interest_house_stock.  
 
 &nbsp;&nbsp; **Usage:**
 
