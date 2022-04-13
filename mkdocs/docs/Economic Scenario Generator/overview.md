@@ -7,9 +7,9 @@ characterise the economic envrionment for a specified amount of time into the fu
 
 The 10 economic factors that will be simulated are:
 
-1. 3-month zero coupon yields (in %)
+1. 3-month zero coupon yields 
 
-2. 10-year zero coupon spread (in %)
+2. 10-year zero coupon spread 
 
 3. NSW home value index
 
@@ -25,7 +25,7 @@ The 10 economic factors that will be simulated are:
 
 9. Australia mortgage rate
 
-10. NSW unemployment rate (in %)
+10. NSW unemployment rate 
 
 These 10 factors can provide a comprehensive picture of the economic environment in the 
 future, which is useful for projecting investments/financial products into the future, as well 
