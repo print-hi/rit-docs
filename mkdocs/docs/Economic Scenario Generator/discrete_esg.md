@@ -3,9 +3,9 @@
 The discrete time economic scenario generator simulates the trajectories of 10 Australian 
 economic and financial variables, which as mentioned in the overview are: 
 
-1. 3-month zero coupon yields (in %)
+1. 3-month zero coupon yields
 
-2. 10-year zero coupon spread (in %)
+2. 10-year zero coupon spread 
 
 3. NSW home value index
 
@@ -21,7 +21,7 @@ economic and financial variables, which as mentioned in the overview are:
 
 9. Australia mortgage rate
 
-10. NSW unemployment rate (in %)
+10. NSW unemployment rate 
 
 We fit these factors using an autoregressive model. This is a regression of a time series where
 the ouput variable depends linearly on its previous values, up to some specfied order. The 
