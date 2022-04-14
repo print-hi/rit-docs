@@ -1,4 +1,4 @@
-# Discrete Economic Scenario Generator
+# Discrete Generator
 
 The discrete time economic scenario generator simulates the trajectories of 10 Australian 
 economic and financial variables, which as mentioned in the overview are: 

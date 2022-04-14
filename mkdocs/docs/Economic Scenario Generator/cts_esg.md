@@ -1,4 +1,4 @@
-# Continuous Economic Scenario Generator
+# Continuous Generator
 
 The continuous economic scenario generator only simulates the future zero coupon 
 bond rates for a more accurate forecast of interest rates. The results are still depicted with

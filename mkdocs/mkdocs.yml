@@ -14,7 +14,7 @@ pages:
 nav:
   - Overview:
     - 'Getting Started': 'Home/start.md'
-    - 'About': Home/about.md'
+    - 'About': 'Home/about.md'
     - 'Changelog': 'Home/log.md'
   - Policy Valuation:
     - 'Policy Valuation/overview.md'
@@ -28,25 +28,25 @@ nav:
     - 'Aggregate Mortality/risk_neutral.md'
     - 'Aggregate Mortality/stats_functions.md'
   - Health State:
-    - 'Health State 3/overview.md'
-    - 'Health State 3/cox_model.md'
+    - 'Health/overview.md'
     - 3-State Model:
-      - 'Health State 3/trans_probs.md'
-      - 'Health State 3/lifetable.md'
-      - 'Health State 3/simulation.md'
-      - 'Health State 3/stats.md'
-    - 'Health State 5/overview.md'
-    - 'Health State 5/cox_model.md'
+      - 'Health/Health State 3/overview.md'
+      - 'Health/Health State 3/cox_model.md'
+      - 'Health/Health State 3/trans_probs.md'
+      - 'Health/Health State 3/lifetable.md'
+      - 'Health/Health State 3/simulation.md'
+      - 'Health/Health State 3/stats.md'
     - 5-State Model:
-      - 'Health State 5/trans_probs.md'
-      - 'Health State 5/lifetable.md'
-      - 'Health State 5/simulation.md'
-      - 'Health State 5/stats.md'
+      - 'Health/Health State 5/overview.md'
+      - 'Health/Health State 5/cox_model.md'
+      - 'Health/Health State 5/trans_probs.md'
+      - 'Health/Health State 5/lifetable.md'
+      - 'Health/Health State 5/simulation.md'
+      - 'Health/Health State 5/stats.md'
   - Economic Scenario Generator:
     - 'Economic Scenario Generator/overview.md'
     - 'Economic Scenario Generator/discrete_esg.md'
     - 'Economic Scenario Generator/cts_esg.md'
-    - 'Economic Scenario Generator/top3.md'
 
 markdown_extensions:
   - pymdownx.highlight:
