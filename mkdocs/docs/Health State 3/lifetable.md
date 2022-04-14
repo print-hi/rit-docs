@@ -12,9 +12,31 @@ deterministic; it is generated off of expected values and not simulation.
 One can also specify the initial state that the cohort is in for the life table: healthy (default)
 or disabled. 
 
-### `create_life_table`
+---
 
-Given a set of transition probability matrices, the usage of the function is:
+### Generating a Life Table
+
+**create_life_table(trans_probs, age, init_state)**
+
+&nbsp;&nbsp; **Paramters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **age** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of cohort: 0 for healthy, 1 for disabled*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; lifetable as a dataframe
+
+&nbsp;&nbsp; **Usage:**
 
 ```r
 # list of transition probability matrices under the trend model, 

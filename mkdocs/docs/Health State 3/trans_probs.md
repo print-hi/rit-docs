@@ -11,13 +11,41 @@ taking the matrix exponential.
     The transition probability matrices are deterministic for each individual with the 
     Static and Trend models, but stochastic with the Frailty model. 
 
-This process is executed by the function 'get_trans_probs'.
+This process is executed by the function  `get_trans_probs`.
 
 ---
 
-### `get_trans_probs`
+### Get Transition Probability
 
-The usage of the function for a certain individual could look like:
+**get_trans_probs(model_type, param_file, init_age, female, year)**
+
+&nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; **model_type** : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend, 'F' for frailty*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Character for file path, or dataframe/tibble of parameters*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial age of individual*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 indicates male, 1 indicates female*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting current year*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; List of transition probability matrices
+
+&nbsp;&nbsp; **Usage:**
 
 ```r
 # list of transition probability matrices under the trend model, 

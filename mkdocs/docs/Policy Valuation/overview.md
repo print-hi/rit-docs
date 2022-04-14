@@ -1,17 +1,20 @@
 # Overview
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This module takes input aggregate mortality scenarios, functional disability/health status scenarios, 
+economic scenarios to simulate cash flows on retirement products.
 
-## Commands
+Retirement products include:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- Account-based pensions
+- Life annuities
+- Deferred life annuities
+- Pooled annuities
+- Long-term care insurance
+- Care annuities
+- Variable annuities with GMWB
+- Reverse mortgages with NNEG
 
-## Project layout
+Risk-adjusted expected cash flows are computed, and prices are determined based on relevant assumptions. 
+Models use Australian data for Australian applications. The module includes government age pension 
+and aged care based on current means-testing.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.

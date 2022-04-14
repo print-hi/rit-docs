@@ -7,9 +7,35 @@ transition probability matrices.
 Everyone starts in a certain health state (0 for healthy and 1 for disabled), and we sample
 movements according to the probabilities given at each age. Death state, -1, is absorbing. 
 
-### `simulate_path`
+---
 
-Usage of the function is:
+### Simulating lives
+
+**simulate_path(init_age, init_state, trans_probs, cohort = 10000)**
+
+&nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of cohort: 0 for healthy, 1 for disabled*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **cohort** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of individual lives to simulate*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; a matrix (more details below)
+
+&nbsp;&nbsp; **Usage:**
 
 ```r
 # list of transition probability matrices under the trend model, 

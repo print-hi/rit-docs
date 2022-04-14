@@ -1,17 +1,40 @@
 # Simulating Cashflows
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Simulate cash flows using Monte-Carlo methods for a given policy. Function 
+will use generated mortality, health state and economic variables to generate
+cashflows for *n* different pathways. This can be used either directly for calculations, 
+or passed into the *value_policy* function for pricing statistics.
 
-## Commands
+**simulate_cf(policy, age, sex, seed, n)**
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+&nbsp;&nbsp; **Parameters:**
 
-## Project layout
+&nbsp;&nbsp;&nbsp;&nbsp; **policy** : Policy object 
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Policy object generated from create_policy function* (see [ Creating Policy Object](top1.md))
+
+&nbsp;&nbsp;&nbsp;&nbsp; **age** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Initial age of policyholder in years*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **sex** : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *sex = "F" (female), "M" (male)*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **seed** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Random seed used for RNG*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Number of paths to simulate (Monte-Carlo method)*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; Matrix of cashflows 
+
+&nbsp;&nbsp; **Usage:**
+```r
+ap <- create_policy_AP(400000, 60000)
+cf <- cashflow(policy = ap, age = 65, sex = "M", n = 1000)
+```
