@@ -23,15 +23,15 @@ or disabled.
 
 &nbsp;&nbsp; **Paramters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of cohort: 0 for healthy, 1 for disabled*
 

@@ -30,19 +30,19 @@ The function calculates the average future lifetime for a given individual, and 
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; **simulated_path** : matrix
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life path simulations*
 
@@ -64,27 +64,27 @@ afl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 for male, 1 for female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting current year*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
 
-&nbsp;&nbsp;&nbsp;&nbsp; n : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting number of unique latent factor simulations*
 
@@ -108,19 +108,19 @@ This function calculates the average future lifetime spent in the healthy state,
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; **simulated_path** : matrix
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life path simulations*
 
@@ -142,27 +142,27 @@ hfl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 for male, 1 for female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting current year*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
 
-&nbsp;&nbsp;&nbsp;&nbsp; n : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting number of unique latent factor simulations*
 
@@ -190,19 +190,19 @@ This function calculates the average future lifetime spent in the disabled state
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; **simulated_path** : matrix
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life path simulations*
 
@@ -224,27 +224,27 @@ afld(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 for male, 1 for female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting current year*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
 
-&nbsp;&nbsp;&nbsp;&nbsp; n : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting number of unique latent factor simulations*
 
@@ -273,15 +273,15 @@ individual becomes disabled.
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; **simulated_path** : matrix
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life path simulations*
 
@@ -303,23 +303,23 @@ time_to_disabled(65, trans_probs)
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 for male, 1 for female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting current year*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
 
-&nbsp;&nbsp;&nbsp;&nbsp; n : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting number of unique latent factor simulations*
 
@@ -349,19 +349,19 @@ The function returns all the information (mean and variance of each statistic) a
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; trans_probs : list
+&nbsp;&nbsp;&nbsp;&nbsp; **trans_probs** : list
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *list of transition probability matrices*
 
-&nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; **simulated_path** : matrix
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life path simulations*
 
@@ -383,27 +383,27 @@ survival_stats(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 for male, 1 for female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting current year*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
 
-&nbsp;&nbsp;&nbsp;&nbsp; n : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting number of unique latent factor simulations*
 

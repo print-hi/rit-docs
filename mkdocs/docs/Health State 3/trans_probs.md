@@ -21,23 +21,23 @@ This process is executed by the function  `get_trans_probs`.
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; model_type : character
+&nbsp;&nbsp;&nbsp;&nbsp; **model_type** : character
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend, 'F' for frailty*
 
-&nbsp;&nbsp;&nbsp;&nbsp; param_file : character OR dataframe/tibble
+&nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Character for file path, or dataframe/tibble of parameters*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial age of individual*
 
-&nbsp;&nbsp;&nbsp;&nbsp; female : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *0 indicates male, 1 indicates female*
 
-&nbsp;&nbsp;&nbsp;&nbsp; year : numeric
+&nbsp;&nbsp;&nbsp;&nbsp; **year** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting current year*
 
