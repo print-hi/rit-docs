@@ -18,9 +18,9 @@ nav:
     - 'Changelog': 'Home/log.md'
   - Policy Valuation:
     - 'Policy Valuation/overview.md'
-    - 'Policy Valuation/top1.md'
-    - 'Policy Valuation/top2.md'
-    - 'Policy Valuation/top3.md'
+    - 'Policy Valuation/policy.md'
+    - 'Policy Valuation/cashflow.md'
+    - 'Policy Valuation/pricing.md'
   - Aggregate Mortality:
     - 'Aggregate Mortality/overview.md'
     - 'Aggregate Mortality/age_completion.md'
