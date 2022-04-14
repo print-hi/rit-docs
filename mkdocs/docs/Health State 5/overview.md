@@ -1,17 +1,36 @@
 # Overview
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This module conducts mortality analysis using the 5 state model with the following transitions: 
 
-## Commands
+<figure markdown>
+  ![Image title](/img/5_state_model.png){ width="400"}
+</figure>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The five states are: 
 
-## Project layout
+* H: Healthy and not functionally disabled
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* D: Healthy and functionally disabled
+
+* M: Ill health and not functionally disabled
+
+* MD: Ill health and functionally disabled
+
+* Dead
+
+Some studies have already been conducted on this model using fitted Cox Regression models. This module
+applies the parameters estimated from these studies to analyse the survival statistics of a given
+individual. 
+
+Functionalities of the module includes:
+
+* Calculating transition probability matrices from parameters of Cox Regression model
+
+* Creating life tables for a certain individual characteristic
+
+* Simulating lifetime paths 
+
+* Returning key survival statistics for a certain individual 
+
+These functions can be helpful in conducting mortality studies, as well as applications in 
+insurance pricing. 

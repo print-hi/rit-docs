@@ -2,6 +2,11 @@ library(shiny)
 library(bs4Dash)
 library(plotly)
 library(shinyWidgets)
+library(timevis)
+
+# install package: 
+# install.packages("C:/Users/Alex/Documents/GitHub/retirement-toolkit/_health/3-state", repo = NULL, type = 'source')
+
 
 table1 <- c("good", "bad", "ok")
 
@@ -63,7 +68,22 @@ ui <- dashboardPage(
             menuItem(
                 "Health State",
                 tabName = "tab3",
-                icon = icon("wave-square ")
+                icon = icon("wave-square"),
+                
+                
+                menuSubItem(
+                    '3 State Model', 
+                    tabName = 'tab3a',
+                    icon = icon('chevron-right')
+                ), 
+                
+                
+                menuSubItem(
+                    '5 State Model',
+                    tabName = 'tab3b',
+                    icon = icon('chevron-right')
+                )
+                
             ),
             menuItem(
                 "ESG",
@@ -106,6 +126,63 @@ ui <- dashboardPage(
             tabItem(
                 tabName = "tab2",
                 h1("Hey! You found me!")
+            ),
+            tabItem(
+                tabName = 'tab3a',
+                
+                h1('3 State Health Module'), 
+                hr(),
+                
+                p('Use this to gain insight on your survival statistics under the 
+                  3 state model. The three states and their interactions can be seen
+                  on the diagram below:'),
+                
+                HTML('<center><img src="/images/3_state_model.png" width="400"></center>'),
+                
+                br(),
+                br(),
+                hr(),
+                br(),
+                
+                fluidRow(
+                    
+                    column(3,
+                        h5('Model Details'),
+                        br(),
+                        sliderInput('init_age', 'Age',
+                                    min = 65, max = 110, value = 65,
+                                    step = 1, round = 0),
+                        numericInput('init_age2', '',
+                                     min = 65, max = 110, value = 65)
+                    ),
+                    
+                    column(4, offset = 1,
+                        selectInput('gender', h6('Gender'),
+                                    choices = list('Male' = 0, 'Female' = 1), 
+                                    selected = 0),
+                        selectInput('init_state', h6('Health Status'),
+                                    choices = list('Healthy' = 0, 'Disabled' = 1),
+                                    selected = 0)
+                    ),
+                    
+                    column(4, 
+                        numericInput('year', h6('Year'), 
+                                     value = as.numeric(format(Sys.Date(), '%Y'))),
+                        selectInput('model_type', h6('Model'),
+                                    choices = list('Static' = 'S', 'Trend' = 'T', 'Frailty' = 'F'),
+                                    selected = 'S')
+                    )
+                    
+                ),
+                
+                br(),
+                br(),
+                
+                h3('Life Statistics'),
+            
+                timevisOutput('timevis'),
+                
+                h1(textOutput('test'))
             )
         )
     ),
@@ -167,7 +244,32 @@ server <- function(input, output, session) {
                                 gridcolor = 'rgb(220,220,220)'))
 
     })
-
+    
+    output$stats_table <- renderTable({
+        
+        as.data.frame(matrix(c(2, 3, 3, 2, 3, 2, 3, 2), ncol = 2, byrow = TRUE,
+                             dimnames = list(NULL, c('a', 'b'))))
+        
+    })
+    
+    output$timevis <- renderTimevis({
+        data = data.frame(
+            id = 1, 
+            content = c('Life Expectancy'),
+            start = c('2040-01-01'),
+            end = c('2050-01-01')
+        )
+        
+        timevis(data) %>%
+            centerItem('Life Expectancy') %>%
+            setWindow(start = '2030-01-01', end = '2060-01-01')
+    })
+    
+    output$test <- renderText({
+        paste('Testing init_state : ', input$init_state)
+    })
+    
+    
 }
 
 shinyApp(ui = ui, server = server)
