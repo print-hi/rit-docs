@@ -36,5 +36,5 @@ or passed into the *value_policy* function for pricing statistics.
 &nbsp;&nbsp; **Usage:**
 ```r
 ap <- create_policy_AP(400000, 60000)
-cf <- cashflow(policy = ap, age = 65, sex = "M", n = 1000)
+cf <- simulate_cf(policy = ap, age = 65, sex = "M", n = 1000)
 ```
