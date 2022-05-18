@@ -26,7 +26,7 @@ convergence + distribution plots
 &nbsp;&nbsp; **Usage:**
 ```r
 > ap <- create_policy_AP(400000, 60000)
-> cf <- cashflow(policy = ap, age = 65, sex = "M", n = 1000)
+> cf <- simulate_cf(policy = ap, age = 65, sex = "M", n = 1000)
 > v <- value_policy(ap, cf)
 ========= Policy Details =========
 Type        : Account Based Policy

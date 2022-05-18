@@ -14,7 +14,7 @@ The Coale and Kisker method is used to close life tables that builds upon the
 classical Gompertz model. As in the Gompertz Model, we use an exponential rate of
 mortality, but instead of it being constant, we say it declines linearly. 
 
-**CK(rates, ages, old_ages, type = 'central', closure_age = 130, m_end = 1, years = NULL)**
+**coale_kisker(rates, ages, old_ages, type = 'central', closure_age = 130, m_end = 1, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -60,7 +60,7 @@ mortality, but instead of it being constant, we say it declines linearly.
 ages <- 30:90
 old_ages <- 91:130
 
-completed_rates <- CK(mortality_rates, ages, old_ages)
+completed_rates <- coale_kisker(mortality_rates, ages, old_ages)
 ```
 
 **References:**
@@ -85,7 +85,7 @@ estimates.
 !!! note
     This function returns death probabilities, not mortality rates. 
 
-**DG(rates, ages, old_ages, type = 'prob', closure_age = 130, start_fit_age = 75, smoothing = FALSE, years = NULL)**
+**denuit_goderniaux(rates, ages, old_ages, type = 'prob', closure_age = 130, start_fit_age = 75, smoothing = FALSE, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -135,7 +135,7 @@ estimates.
 ages <- 30:90
 old_ages <- 91:130
 
-completed_qx <- DG(mortality_rates, ages, old_ages)
+completed_qx <- denuit_goderniaux(mortality_rates, ages, old_ages)
 ```
 
 **References:**
