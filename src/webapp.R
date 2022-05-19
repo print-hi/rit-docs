@@ -3,10 +3,15 @@ library(bs4Dash)
 library(plotly)
 library(shinyWidgets)
 library(timevis)
+library(vistime)
+library(lubridate)
+library(gridExtra)
 
 # install package: 
 # install.packages("C:/Users/Alex/Documents/GitHub/retirement-toolkit/_health/3-state", repo = NULL, type = 'source')
+#install.packages("/Users/alexxiao/Documents/GitHub/retirement-toolkit/_health/3-state", repo = NULL, type = 'source')
 
+library(tshm)
 
 table1 <- c("good", "bad", "ok")
 
@@ -179,8 +184,10 @@ ui <- dashboardPage(
                 br(),
                 
                 h3('Life Statistics'),
-            
-                timevisOutput('timevis'),
+                
+                plotOutput('vistime'),
+                
+                plotOutput('survival_curves'),
                 
                 h1(textOutput('test'))
             )
@@ -252,23 +259,179 @@ server <- function(input, output, session) {
         
     })
     
-    output$timevis <- renderTimevis({
-        data = data.frame(
-            id = 1, 
-            content = c('Life Expectancy'),
-            start = c('2040-01-01'),
-            end = c('2050-01-01')
+    
+    
+    # HEALTH MODULE - 3 STATE MODEL -------------
+    
+    observe({
+        updateSliderInput(
+            session = session,
+            inputId = "init_age",
+            value = input$init_age2
         )
+    })
+    observe({
+        updateSliderInput(
+            session = session,
+            inputId = "init_age2",
+            value = input$init_age
+        )
+    })
+    
+    output$vistime <- renderPlot({
+        # get parameters from inputs
+        model <- input$model_type
+        init_age <- as.integer(input$init_age)
+        female <- as.integer(input$gender)
+        year <- as.integer(input$year)
+        init_state <- as.integer(input$init_state)
         
-        timevis(data) %>%
-            centerItem('Life Expectancy') %>%
-            setWindow(start = '2030-01-01', end = '2060-01-01')
+        if(init_state == 0){
+            
+            # compute transition probability 
+            if (model == 'F') {
+                future_lifetime <- aflF(init_age, init_state, female, year, US_HRS)
+                disabled_time <- time_to_disabledF(init_age, female, year, US_HRS)
+            } else {
+                trans_probs <- get_trans_probs(model, US_HRS, init_age, female, year)
+                future_lifetime <- afl(init_age, init_state, trans_probs = trans_probs)
+                disabled_time <- time_to_disabled(init_age, trans_probs = trans_probs)
+            }
+            
+            data = data.frame(
+                group = c('Expected Future Lifetime', 'Expected Onset of Disability'),
+                event = c('Range', 'Range'),
+                start = c(format(Sys.Date()+dyears(max(future_lifetime$mean-2*future_lifetime$s.dev, 0)), '%Y-%m-%d'),
+                          format(Sys.Date()+dyears(max(disabled_time$mean-2*disabled_time$s.dev, 0)), '%Y-%m-%d')),
+                end = c(format(Sys.Date()+dyears(future_lifetime$mean + 2*future_lifetime$s.dev),'%Y-%m-%d'),
+                        format(Sys.Date()+dyears(disabled_time$mean+2*disabled_time$s.dev), '%Y-%m-%d'))
+            )
+
+            plot_data <- gg_vistime(data,
+                                    show_labels = FALSE,
+                                    title = 'Life Expectancy and Onset of Disability') +
+                labs(caption = 'Coloured region shows 95% confidence interval around mean point')
+            
+            
+            plot_data <- plot_data + 
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(future_lifetime$mean)), y = 3, size = 5) +
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(disabled_time$mean)), y = 1, size = 5) +
+                annotate('line', x = as.POSIXct(Sys.Date()), y = c(0,4), color = 'red') + 
+                annotate('text', x = as.POSIXct(Sys.Date())+dyears(1.5), y = 0.5, label = 'Current Age')
+            
+            plot_data
+            
+        } else {
+            
+            if (model == 'F') {
+                future_lifetime <- aflF(init_age, init_state, female, year, US_HRS)
+            } else {
+                trans_probs <- get_trans_probs(model, US_HRS, init_age, female, year)
+                future_lifetime <- afl(init_age, init_state, trans_probs = trans_probs)
+            }
+            
+            data <- data.frame(
+                group = 'Expected Future Lifetime',
+                event = 'Range',
+                start = c(format(Sys.Date() + dyears(max(future_lifetime$mean - 2*future_lifetime$s.dev, 0)), '%Y-%m-%d')),
+                end = c(format(Sys.Date() + dyears(future_lifetime$mean + 2*future_lifetime$s.dev), '%Y-%m-%d'))
+            )
+            
+            plot_data <- gg_vistime(data,
+                                    show_labels = FALSE, 
+                                    title = 'Life Expectancy')+
+                labs(caption = 'Coloured region represents 95% confidence interval around mean point')
+            
+            plot_data <- plot_data + 
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(future_lifetime$mean)), y = 1, size = 5) + 
+                annotate('line', x = as.POSIXct(Sys.Date()), y = c(0,4), color = 'red') + 
+                annotate('text', x = as.POSIXct(Sys.Date())+dyears(1.5), y = 0.5, label = 'Current Age')
+            
+            plot_data
+        }
+        
+    })
+    
+    output$survival_curves <- renderPlot({
+        # get parameters from inputs
+        model <- input$model_type
+        init_age <- as.integer(input$init_age)
+        female <- as.integer(input$gender)
+        year <- as.integer(input$year)
+        init_state <- as.integer(input$init_state)
+        
+        trans_probs <- get_trans_probs(model, US_HRS, init_age, female, year)
+        prob_plot <- prob_plots(init_state, init_age, trans_probs)
+        
+        
+        if(init_state == 0){
+            
+            # compute transition probability 
+            if (model == 'F') {
+                future_lifetime <- aflF(init_age, init_state, female, year, US_HRS)
+                disabled_time <- time_to_disabledF(init_age, female, year, US_HRS)
+            } else {
+                trans_probs <- get_trans_probs(model, US_HRS, init_age, female, year)
+                future_lifetime <- afl(init_age, init_state, trans_probs = trans_probs)
+                disabled_time <- time_to_disabled(init_age, trans_probs = trans_probs)
+            }
+            
+            data = data.frame(
+                group = c('Expected Future Lifetime', 'Expected Onset of Disability'),
+                event = c('Range', 'Range'),
+                start = c(format(Sys.Date()+dyears(max(future_lifetime$mean-2*future_lifetime$s.dev, 0)), '%Y-%m-%d'),
+                          format(Sys.Date()+dyears(max(disabled_time$mean-2*disabled_time$s.dev, 0)), '%Y-%m-%d')),
+                end = c(format(Sys.Date()+dyears(future_lifetime$mean + 2*future_lifetime$s.dev),'%Y-%m-%d'),
+                        format(Sys.Date()+dyears(disabled_time$mean+2*disabled_time$s.dev), '%Y-%m-%d'))
+            )
+            
+            plot_data <- gg_vistime(data,
+                                    show_labels = FALSE,
+                                    title = 'Life Expectancy and Onset of Disability') +
+                labs(caption = 'Coloured region shows 95% confidence interval around mean point')
+            
+            
+            plot_data <- plot_data + 
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(future_lifetime$mean)), y = 3, size = 5) +
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(disabled_time$mean)), y = 1, size = 5) +
+                annotate('line', x = as.POSIXct(Sys.Date()), y = c(0,4), color = 'red') + 
+                annotate('text', x = as.POSIXct(Sys.Date())+dyears(1.5), y = 0.5, label = 'Current Age')
+            
+        } else {
+            
+            if (model == 'F') {
+                future_lifetime <- aflF(init_age, init_state, female, year, US_HRS)
+            } else {
+                trans_probs <- get_trans_probs(model, US_HRS, init_age, female, year)
+                future_lifetime <- afl(init_age, init_state, trans_probs = trans_probs)
+            }
+            
+            data <- data.frame(
+                group = 'Expected Future Lifetime',
+                event = 'Range',
+                start = c(format(Sys.Date() + dyears(max(future_lifetime$mean - 2*future_lifetime$s.dev, 0)), '%Y-%m-%d')),
+                end = c(format(Sys.Date() + dyears(future_lifetime$mean + 2*future_lifetime$s.dev), '%Y-%m-%d'))
+            )
+            
+            plot_data <- gg_vistime(data,
+                                    show_labels = FALSE, 
+                                    title = 'Life Expectancy')+
+                labs(caption = 'Coloured region represents 95% confidence interval around mean point')
+            
+            plot_data <- plot_data + 
+                annotate('point', x = as.POSIXct(Sys.Date() + dyears(future_lifetime$mean)), y = 1, size = 5) + 
+                annotate('line', x = as.POSIXct(Sys.Date()), y = c(0,4), color = 'red') + 
+                annotate('text', x = as.POSIXct(Sys.Date())+dyears(1.5), y = 0.5, label = 'Current Age')
+            
+        }
+
+        grid.arrange(plot_data, prob_plot, ncol = 1, heights = c(1, 2))
+        
     })
     
     output$test <- renderText({
         paste('Testing init_state : ', input$init_state)
     })
-    
     
 }
 
