@@ -27,7 +27,7 @@ This process is executed by the function  `get_trans_probs`.
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Character for file path, or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
