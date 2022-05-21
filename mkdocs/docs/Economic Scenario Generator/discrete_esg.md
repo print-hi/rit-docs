@@ -1,6 +1,6 @@
-# Discrete Generator
+# Discrete-Time Generator
 
-The discrete time economic scenario generator simulates the trajectories of 10 Australian 
+The discrete-time economic scenario generator simulates the trajectories of 10 Australian 
 economic and financial variables: 
 
 1. 3-month zero coupon yields
