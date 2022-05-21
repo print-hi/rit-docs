@@ -1,31 +1,31 @@
 # Discrete-Time Generator
 
-The discrete-time economic scenario generator simulates the trajectories of 10 Australian 
-economic and financial variables: 
+The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: 
 
-1. 3-month zero coupon yields
+(1) 3-month zero-coupon bond yields
 
-2. 10-year zero coupon spread 
+(2) 10-year zero-coupon bond spread 
 
-3. NSW home value index
+(3) NSW home value index
 
-4. NSW home rental yields
+(4) NSW home rental yields
 
-5. Australia GDP
+(5) Australia GDP
 
-6. Australia CPI 
+(6) Australia CPI 
 
-7. S&P/ASX200 closing price
+(7) S&P/ASX200 closing price
 
-8. Australian dollar trade-weighted index
+(8) Australian dollar trade-weighted index
 
-9. Australia mortgage rate
+(9) Australia mortgage rate
 
-10. NSW unemployment rate 
+(10) NSW unemployment rate 
 
-We fit these factors using an vector autoregressive model. This is a regression of a time series where
-the ouput depends linearly on the past values of itself, and the past values of other variables, up to 
-some specfied order. The coefficients of the fitted model are used in the following simulation funtions.
+(11) Stochastic discount factors (pricing kernels).
+
+The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order. The coefficients of the fitted model are used in the following simulation funtions. 
+
 
 ---
 
