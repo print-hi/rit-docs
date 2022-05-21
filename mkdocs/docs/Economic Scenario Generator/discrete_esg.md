@@ -1,7 +1,7 @@
 # Discrete Generator
 
 The discrete time economic scenario generator simulates the trajectories of 10 Australian 
-economic and financial variables, which as mentioned in the overview are: 
+economic and financial variables: 
 
 1. 3-month zero coupon yields
 
@@ -23,9 +23,9 @@ economic and financial variables, which as mentioned in the overview are:
 
 10. NSW unemployment rate 
 
-We fit these factors using an autoregressive model. This is a regression of a time series where
-the ouput variable depends linearly on its previous values, up to some specfied order. The 
-coefficients of the fitted model are used in the following simulation funtions.
+We fit these factors using an vector autoregressive model. This is a regression of a time series where
+the ouput depends linearly on the past values of itself, and the past values of other variables, up to 
+some specfied order. The coefficients of the fitted model are used in the following simulation funtions.
 
 ---
 
