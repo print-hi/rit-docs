@@ -2,25 +2,25 @@
 
 The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: 
 
-(1) 3-month zero-coupon bond yields
+(1) 3-month zero-coupon bond yields,
 
-(2) 10-year zero-coupon bond spread 
+(2) 10-year zero-coupon bond spread,
 
-(3) NSW home value index
+(3) NSW home value index,
 
-(4) NSW home rental yields
+(4) NSW home rental yields,
 
-(5) Australia GDP
+(5) Australia GDP,
 
-(6) Australia CPI 
+(6) Australia CPI,
 
-(7) S&P/ASX200 closing price
+(7) S&P/ASX200 closing price,
 
-(8) Australian dollar trade-weighted index
+(8) Australian dollar trade-weighted index,
 
-(9) Australia mortgage rate
+(9) Australia mortgage rate,
 
-(10) NSW unemployment rate 
+(10) NSW unemployment rate,
 
 (11) Stochastic discount factors (pricing kernels).
 
