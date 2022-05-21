@@ -1,9 +1,14 @@
-# Continuous Generator
+# Continuous-Time Generator
 
-The continuous economic scenario generator only simulates the future zero coupon 
-bond rates for a more accurate forecast of interest rates. The results are still depicted with
-the same simulation frequency options as the discrete case, but the calculations are based 
-in continuous time. 
+The continuous-time economic scenario generator simulates the trajectories of: 
+
+(1) Australia zero coupon bond rates maturing every quarter from 3 months up to 10 years, i.e., 0.25 years, 0.5 years, 0.75 years, ..., 10 years, 
+
+(2) NSW home value index,  
+
+(3) S&P/ASX200 prices. 
+
+The results are still depicted with the same simulation frequency options as the discrete case, but the calculations are based in continuous time. 
 
 ---
 
@@ -41,6 +46,6 @@ in continuous time.
 
 ```r
 # simulate zero-coupon interest structure for 10 years
-sim <- get_zcp_simulation(num_years = 10, num_paths = 10000, frequency = 'year')
+sim <- get_afns_simulation(num_years = 10, num_paths = 10000, frequency = 'year')
 ```
 
