@@ -40,9 +40,7 @@ where
 
 * $\boldsymbol{\epsilon}$ is a vector of white noises. 
 
-The stochastic discount factor is defined as: 
-
-$$
+The stochastic discount factor is defined as: $$
 s_{t+1} = \exp \left(- \mathbf{e}_1 ^\top \mathbf{z}_t - \frac{1}{2} \mathbf{\lambda}_t^\top \mathbf{\lambda}_t - \mathbf{\lambda}_t^\top \mathbf{\epsilon}_{t+1} \right),
 $$
 
