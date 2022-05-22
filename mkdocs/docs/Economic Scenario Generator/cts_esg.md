@@ -16,8 +16,6 @@ The results are still depicted with the same simulation frequency options as the
 
 ---
 
-### Generate zero coupon bond interest rate structure
-
 **get_afns_simulation(num_years = 5, num_paths = 10, frequency = 'month', type = 'independent', model = 'interest_rate')**
 
 &nbsp;&nbsp; **Paramters:**
