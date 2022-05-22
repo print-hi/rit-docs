@@ -27,7 +27,9 @@ $$
 \sigma_{11} & 0 & 0 & 0 & 0 \\ 0 & \sigma_{22} & 0 & 0 & 0 \\ 0 & 0 & \sigma_{33} & 0 & 0 \\ \sigma_4 \rho_{41} & \sigma \rho_{42} & \sigma_4 \rho_{43} & \sigma_4 \sqrt{1-\rho_4^2} & 0 \\ \sigma_5 \rho_{51} & \sigma_5 \rho_{52} & \sigma_5 \rho_{53} & \sigma_5 \rho_{54} & \sigma_5 \sqrt{1-\rho_5^2}
 \end{pmatrix} \begin{pmatrix}
 dW_{1t}^\mathrm{P} \\ dW_{2t}^\mathrm{P} \\ dW_{3t}^\mathrm{P} \\ dW_{4t}^\mathrm{P} \\ dW_{5t}^\mathrm{P}
-\end{pmatrix},$$
+\end{pmatrix},
+
+$$
 
 and the correlated-factor model satisfies $$
 \begin{pmatrix}
