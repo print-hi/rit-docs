@@ -29,7 +29,7 @@ The 10 economic factors that will be simulated are:
 
 11. Stochastic discount factors (pricing kernels). 
 
-These 10 factors can provide a comprehensive picture of the economic environment in the 
+These 11 factors can provide a comprehensive picture of the economic environment in the 
 future, which is useful for projecting investments/financial products into the future, as well 
 as discounting future cash flows to more accurately gauge present value. This allows for broad
 appliations in insurance pricing, loan/debt pricing, and project valuations.
