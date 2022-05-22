@@ -27,7 +27,6 @@ The discrete-time economic scenario generator simulates the trajectories of 11 A
 The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. 
 
 Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
-
 $$
 \mathbf{z}_{t} = \boldsymbol{\mu} + \Phi_{1}\mathbf{z}_{t-1}+ \Phi_{2}\mathbf{z}_{t-2}+\cdots+ \Phi_{p}\mathbf{z}_{t-p} + \boldsymbol{\epsilon},
 $$
