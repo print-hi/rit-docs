@@ -25,8 +25,9 @@ Denote $X^1$ the level, $X^2$ the slope, $X^3$ the curvature of the risk-free ra
 \sigma_{11} & 0 & 0 & 0 & 0 \\ 0 & \sigma_{22} & 0 & 0 & 0 \\ 0 & 0 & \sigma_{33} & 0 & 0 \\ \sigma_4 \rho_{41} & \sigma \rho_{42} & \sigma_4 \rho_{43} & \sigma_4 \sqrt{1-\rho_4^2} & 0 \\ \sigma_5 \rho_{51} & \sigma_5 \rho_{52} & \sigma_5 \rho_{53} & \sigma_5 \rho_{54} & \sigma_5 \sqrt{1-\rho_5^2}
 \end{pmatrix} \begin{pmatrix}
 dW_{1t}^\mathrm{P} \\ dW_{2t}^\mathrm{P} \\ dW_{3t}^\mathrm{P} \\ dW_{4t}^\mathrm{P} \\ dW_{5t}^\mathrm{P}
-\end{pmatrix},
-$$and the correlated-factor model satisfies $$
+\end{pmatrix},$$
+
+and the correlated-factor model satisfies $$
 \begin{pmatrix}
         dX_t^1 \\ dX_t^2 \\ dX_t^3 \\ dX_t^4 \\ dX_t^5
 \end{pmatrix} = &\left( \begin{pmatrix}
