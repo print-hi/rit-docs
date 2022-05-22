@@ -26,19 +26,19 @@ The discrete-time economic scenario generator simulates the trajectories of 11 A
 
 The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. 
 
-Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: \begin{align*}
+Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: $$
 	\mathbf{z}_{t} = \boldsymbol{\mu} + \Phi_{1}\mathbf{z}_{t-1}+ \Phi_{2}\mathbf{z}_{t-2}+\cdots+ \Phi_{p}\mathbf{z}_{t-p} + \boldsymbol{\epsilon},
-\end{align*} 
-where 
-\begin{itemize}
-	\item $\mathbf{z}_{t}$ is a vector of economic variables,
-	
-	\item $\boldsymbol{\mu}$ is a vector of intercepts,
-	
-	\item $\Phi_{i}$, for $i=1,\cdots, p$ are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
-	
-	\item $\boldsymbol{\epsilon}$ is a vector of white noises. 
-\end{itemize}
+$$
+
+where  
+
+* $\mathbf{z}_{t}$ is the vector of economic variables,
+
+* $\boldsymbol{\mu}$ is the vector of intercepts,
+
+* $\Phi_{i}$, for $i=1,\cdots, p$ are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
+
+* $\boldsymbol{\epsilon}$ is a vector of white noises. 
 
 
 ---
