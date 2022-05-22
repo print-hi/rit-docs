@@ -42,7 +42,7 @@ The results are still depicted with the same simulation frequency options as the
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 40 dataframes containing simulated interest rates with maturities from 1 quarter up to 10 years, or 42 dataframes containing interest rate structure, NSW house value index, S&P/ASX200 closing prices if model is set to be interest_house_stock.  
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 40 dataframes containing simulated interest rates with maturities from 1 quarter up to 10 years, or 42 dataframes containing interest rates, NSW house value index, S&P/ASX200 closing prices if model is set to be interest_house_stock.  
 
 &nbsp;&nbsp; **Usage:**
 
