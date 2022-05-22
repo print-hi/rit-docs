@@ -29,7 +29,6 @@ The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), facto
 
 ---
 
-### Simulate discrete economic and financial variables
 
 **get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', per_change = FALSE, return_sdf = FALSE)**
 
