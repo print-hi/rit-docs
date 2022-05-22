@@ -28,7 +28,7 @@ The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), facto
 
 Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
 
-![](https://latex.codecogs.com/svg.image?\mathbf{z}_{t}&space;=&space;\mathbf{\mu}&space;&plus;&space;\Phi_{1}\mathbf{z}_{t-1}&plus;&space;\Phi_{2}\mathbf{z}_{t-2}&plus;\cdots&plus;&space;\Phi_{p}\mathbf{z}_{t-p}&space;&plus;&space;\mathbf{\epsilon})
+![](https://latex.codecogs.com/svg.image?\mathbf{z}_{t}&space;=&space;\mathbf{\mu}&space;&plus;&space;\Phi_{1}\mathbf{z}_{t-1}&plus;&space;\Phi_{2}\mathbf{z}_{t-2}&plus;\cdots&plus;&space;\Phi_{p}\mathbf{z}_{t-p}&space;&plus;&space;\mathbf{\epsilon},)
 
 where  
 
@@ -40,7 +40,11 @@ where
 
 * $\boldsymbol{\epsilon}$ is a vector of white noises. 
 
-The stochastic discount factor is defined as: $$
+The stochastic discount factor is defined as: 
+
+![](https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right),)
+
+$$
 s_{t+1} = \exp \left(- \mathbf{e}_1 ^\top \mathbf{z}_t - \frac{1}{2} \mathbf{\lambda}_t^\top \mathbf{\lambda}_t - \mathbf{\lambda}_t^\top \mathbf{\epsilon}_{t+1} \right),
 $$
 
