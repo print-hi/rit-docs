@@ -10,7 +10,7 @@ Given a set of transition probability matrices, the life table that is generated
 deterministic; it is generated off of expected values and not simulation. 
 
 The lifetable shows the number of lives in different states at each age, as well as the 
-amount of people that transition between states. 
+amount of people that transition between states. The lifetable ends at 110, and everyone still alive is assumed to die during age 110-111.
 
 One can also specify the initial state that the cohort is in for the life table: healthy (default)
 or disabled. 
@@ -51,6 +51,3 @@ trans_probs <- get_trans_probs('T', US_HRS, 65, 0, 2021)
 # cohort of 10,000 (default)
 life_table <- create_life_table(trans_probs, 65, 0)
 ```
-
-!!! note
-    The lifetable ends at 110, and everyone still alive is assumed to die during age 110-111.
