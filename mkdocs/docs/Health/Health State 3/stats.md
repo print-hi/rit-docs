@@ -160,7 +160,7 @@ hfl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -182,8 +182,7 @@ hflF(65, init_state = 0, female = 0, 2022, US_HRS)
 
 This function calculates the average future lifetime spent in the disabled state, and its variance.
 
-!!! note
-    Under the same simulated lifetime, average future lifetime is equal to the sum of healthy 
+Not that under the same simulated lifetime, average future lifetime is equal to the sum of healthy 
     lifetime and disabled lifetime. 
 
 **afld(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
@@ -242,7 +241,7 @@ afld(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -265,9 +264,7 @@ afldF(65, init_state = 0, female = 0, 2022, US_HRS)
 This function calculates average time for onset of disability, given that the 
 individual becomes disabled. 
 
-!!! note
-    Initial state is not required for this function, as disabled initial state is 
-    trivial. 
+Note that an initial state is not required for this function, as disabled initial state is  trivial. 
 
 **time_to_disabled(init_age, trans_probs = NULL, simulated_path = NULL)**
 
@@ -317,7 +314,7 @@ time_to_disabled(65, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -401,7 +398,7 @@ survival_stats(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
