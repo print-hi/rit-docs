@@ -82,7 +82,7 @@ afl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
