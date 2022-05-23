@@ -3,7 +3,7 @@
 A lot of mortality statistics can be generated to analyse survival of a certain individual. The following
 functions return the expected value and variance associated with the lifetime statistic.
 
-The functions can use 1 of 2 different inputs to produce the required statistic:
+The functions can use either of the different inputs below to produce the required statistic:
 
 * list of transition probability matrices from `get_trans_probs`
 
