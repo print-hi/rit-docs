@@ -91,8 +91,13 @@ sim$zcp3m_yield
 sim$zcp3m_yield$trajectory_103
 ```
 
+&nbsp;&nbsp; **References:**
 
+Daniel H Alai, Hua Chen, Daniel Cho, Katja Hanewald, and Michael Sherris. Developing equity release markets: Risk analysis for reverse mortgages and home reversions. _North American Actuarial Journal_, 18(1):217–241, 2014.
 
+Andrew Ang and Monika Piazzesi. A no-arbitrage vector autoregression of term structure dynamics with macroeconomic and latent variables._ Journal of Monetary economics_, 50(4):745–787, 2003.
+
+Andrew Ang, Monika Piazzesi, and Min Wei. What does the yield curve tell us about gdp growth? _Journal of econometrics_, 131(1-2):359–403, 2006.
 
 
 
