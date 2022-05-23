@@ -26,6 +26,16 @@ Denote $X^1$ the level, $X^2$ the slope, $X^3$ the curvature of the risk-free ra
 
 and the correlated-factor model satisfies 
 
+![](https://latex.codecogs.com/svg.image?dX_t^1&space;=&space;[\theta_1&space;-&space;\sum_{i=1}^3&space;\kappa_{1i}&space;X_t^i&space;]dt&space;&plus;&space;\sigma_{11}&space;dW_t^1,)
+
+![](https://latex.codecogs.com/svg.image?dX_t^2&space;=&space;[\theta_2&space;-&space;\sum_{i=1}^3&space;\kappa_{2i}&space;X_t^i]dt&space;&plus;&space;\sum_{i=1}^2&space;\sigma_{2i}&space;dW_t^i,)
+
+![](https://latex.codecogs.com/svg.image?dX_t^3&space;=&space;[\theta_3&space;-&space;\sum_{i=1}^3&space;\kappa_{3i}&space;X_t^i]&space;dt&space;&space;&plus;&space;\sum_{i=1}^3&space;\sigma_{3i}&space;dW_t^i,)
+
+![](https://latex.codecogs.com/svg.image?dX_t^4&space;=&space;[\theta_4&space;&plus;&space;X_t^1&space;&plus;&space;X_t^2]&space;dt&space;&plus;&space;\sum_{i=1}^4&space;\sigma_{4i}&space;dW_t^i,)
+
+![](https://latex.codecogs.com/svg.image?dX_t^5&space;=&space;[\theta_5&space;&plus;&space;X_t^1&space;&plus;&space;X_t^2]&space;dt&space;&plus;&space;\sum_{i=1}^5&space;\sigma_{5i}&space;dW_t^i.)
+
 The results are still depicted with the same simulation frequency options as the discrete case, but the calculations are based in continuous time. 
 
 ---
