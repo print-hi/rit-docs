@@ -33,8 +33,9 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric 
 
@@ -101,8 +102,9 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
 
@@ -177,8 +179,9 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
 
@@ -204,7 +207,7 @@ old_ages <- 91:130
 fitted_ages <- 76:90
 
 completed_rates <- kannisto(AUS_male_rates, ages, old_ages,
-                   fitted_ages, type = "central")
+                            fitted_ages, type = "central")
 ```
 
 **References:**
@@ -242,8 +245,9 @@ closure_age = 130, years = NULL, ...)**
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
 
@@ -274,12 +278,12 @@ old_ages <- 91:130
 AUS_male_qx <- rate2rate(AUS_male_rates, from = "central", to = "prob")
 
 # completing mortality rates for old ages
-DG_q <- complete_old_age(AUS_male_qx, ages, old_ages,
-        method = "DG", type = "prob")
-CK_q <- complete_old_age(AUS_male_qx, ages, old_ages, 
-        method = "CK", type = "prob")
-kannisto_q <- complete_old_age(AUS_male_qx, ages, old_ages,
-              method = "kannisto", type = "prob", fitted_ages = 80:90)
+DG_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "DG",
+                         type = "prob")
+CK_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "CK",
+                         type = "prob")
+kannisto_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "kannisto",
+                               type = "prob", fitted_ages = 80:90)
 ```
 
 
