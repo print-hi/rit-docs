@@ -1,35 +1,54 @@
-# Discrete Generator
+# Discrete-Time Generator
 
-The discrete time economic scenario generator simulates the trajectories of 10 Australian 
-economic and financial variables, which as mentioned in the overview are: 
+The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: 
 
-1. 3-month zero coupon yields
+(1) 3-month zero-coupon bond yields,
 
-2. 10-year zero coupon spread 
+(2) 10-year zero-coupon bond spread,
 
-3. NSW home value index
+(3) NSW home value index,
 
-4. NSW home rental yields
+(4) NSW home rental yields,
 
-5. Australia GDP
+(5) Australia GDP,
 
-6. Australia CPI 
+(6) Australia CPI,
 
-7. S&P/ASX200 closing price
+(7) S&P/ASX200 closing price,
 
-8. Australian dollar trade-weighted index
+(8) Australian dollar trade-weighted index,
 
-9. Australia mortgage rate
+(9) Australia mortgage rate,
 
-10. NSW unemployment rate 
+(10) NSW unemployment rate,
 
-We fit these factors using an autoregressive model. This is a regression of a time series where
-the ouput variable depends linearly on its previous values, up to some specfied order. The 
-coefficients of the fitted model are used in the following simulation funtions.
+(11) Stochastic discount factors (pricing kernels).
+
+The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. 
+
+Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
+
+![](https://latex.codecogs.com/svg.image?\mathbf{z}_{t}&space;=&space;\mathbf{\mu}&space;&plus;&space;\Phi_{1}\mathbf{z}_{t-1}&plus;&space;\Phi_{2}\mathbf{z}_{t-2}&plus;\cdots&plus;&space;\Phi_{p}\mathbf{z}_{t-p}&space;&plus;&space;\mathbf{\epsilon},)
+
+where  
+
+* $\mathbf{z}_{t}$ is the vector of economic variables,
+
+* $\boldsymbol{\mu}$ is the vector of intercepts,
+
+* $\Phi_{i}$, for $i=1,\cdots, p$ are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
+
+* $\boldsymbol{\epsilon}$ is a vector of white noises. 
+
+The stochastic discount factor is defined as: 
+
+![](https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right),)
+
+where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and $\mathbf{\lambda}_t$ is the market price of risk process.
+
 
 ---
 
-### Simulate discrete economic and financial variables
 
 **get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', per_change = FALSE, return_sdf = FALSE)**
 
@@ -72,8 +91,13 @@ sim$zcp3m_yield
 sim$zcp3m_yield$trajectory_103
 ```
 
+&nbsp;&nbsp; **References:**
 
+Daniel H Alai, Hua Chen, Daniel Cho, Katja Hanewald, and Michael Sherris. Developing equity release markets: Risk analysis for reverse mortgages and home reversions. _North American Actuarial Journal_, 18(1):217–241, 2014.
 
+Andrew Ang and Monika Piazzesi. A no-arbitrage vector autoregression of term structure dynamics with macroeconomic and latent variables. _Journal of Monetary economics_, 50(4):745–787, 2003.
+
+Andrew Ang, Monika Piazzesi, and Min Wei. What does the yield curve tell us about gdp growth? _Journal of econometrics_, 131(1-2):359–403, 2006.
 
 
 

@@ -3,15 +3,14 @@
 The Cox Hazard model produces continuous hazard rates, which we discretise by
 integrating the rates over a year to produce piecewise constant transition rates. 
 
-This process is repeated for each of the 4 transitions. The transition rates for each age are then
+This process is repeated for each of the four health state transitions. The transition rates for each age are then
 put into a transition rate matrix, which can be transformed a transition probabilty matrix by
 taking the matrix exponential. 
 
-!!! note
-    The transition probability matrices are deterministic for each individual with the 
+Note that
+    the transition probability matrices are deterministic for each individual with the 
     Static and Trend models, but stochastic with the Frailty model. 
 
-This process is executed by the function  `get_trans_probs`.
 
 ---
 
@@ -43,7 +42,16 @@ This process is executed by the function  `get_trans_probs`.
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; List of transition probability matrices
+&nbsp;&nbsp;&nbsp;&nbsp; List of transition probability matrices up to and including 110-111, in which everyone dies: 
+
+\begin{pmatrix}
+0 & 0 & 1 \\
+0 & 0 & 1 \\
+0 & 0 & 1 
+\end{pmatrix}
+
+The transition probability matrices can then be used to conduct more in depth mortality 
+study. 
 
 &nbsp;&nbsp; **Usage:**
 
@@ -54,13 +62,3 @@ This process is executed by the function  `get_trans_probs`.
 trans_probs <- get_trans_probs('T', US_HRS, 65, 0, 2021)
 ```
 
-This transition probability matrices up to and including 110-111, in which everyone dies: 
-
-\begin{pmatrix}
-0 & 0 & 1 \\
-0 & 0 & 1 \\
-0 & 0 & 1 
-\end{pmatrix}
-
-The transition probability matrices can then be used to conduct more in depth mortality 
-study. 
