@@ -9,9 +9,12 @@ theme:
 repo_url: https://github.com/print-hi/retirement-toolkit
 
 
-pages:
-  - Home: 'index.md'
+# =============================================================================
+# pages:
+#   - Home: 'index.md'
+# =============================================================================
 nav:
+  - Home: 'index.md'
   - Overview:
     - 'Getting Started': 'Home/start.md'
     - 'About': 'Home/about.md'
