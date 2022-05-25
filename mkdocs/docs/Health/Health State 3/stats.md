@@ -82,7 +82,7 @@ afl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -160,7 +160,7 @@ hfl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -241,7 +241,7 @@ afld(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -314,7 +314,7 @@ time_to_disabled(65, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -398,7 +398,7 @@ survival_stats(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
