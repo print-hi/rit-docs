@@ -1,6 +1,6 @@
 # Mortality Rate Completion 
 
-The 'StoMoMo' package has good accuracy with mortality calculations for younger ages. However, 
+The 'StMoMo' package has good accuracy with mortality calculations for younger ages. However, 
 for older ages (>90), other methods can be applied to improve mortality estimates. 
 
 'mmrpp' includes functions that apply different methods to 'extrapolate' more accurate 
@@ -18,9 +18,10 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing mortality rate with age rows and calendar year columns*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, calendar year columns,
+(simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
@@ -28,12 +29,13 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector containing ages to be completed* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of old ages to be completed for* 
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric 
 
@@ -45,22 +47,21 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix of central death rates for all ages and calendar years
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
 
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# consider a rate matrix generated from StoMoMo saved
-# under the variable 'mortality_rates'
-
-ages <- 30:90
+# consider the male mortality rates from the data file 'mortality_AUS_data'
+AUS_male_rates <- mortality_AUS_data$rate$male
+ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 
-completed_rates <- coale_kisker(mortality_rates, ages, old_ages)
+completed_rates <- coale_kisker(AUS_male_rates, ages, old_ages, type = "central")
 ```
 
 **References:**
@@ -80,18 +81,16 @@ generally set at 130, and an inflexion constraint that makes the rate of mortali
 at older ages slow down. 
 
 Smoothing can also be applied to the results using a simple geometric average on the
-estimates. 
-
-!!! note
-    This function returns death probabilities, not mortality rates. 
+estimates.
 
 **denuit_goderniaux(rates, ages, old_ages, type = 'prob', closure_age = 130, start_fit_age = 75, smoothing = FALSE, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing mortality rates with age rows and calendar year columns*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, calendar year columns,
+(simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
@@ -99,20 +98,21 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector containing ages to be completed*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of old ages to be completed for*
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *maximum age attainable*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *maximum age*
 
 &nbsp;&nbsp;&nbsp;&nbsp; start_fit_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *starting age*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *model is fitted to ages starting from this age*
 
 &nbsp;&nbsp;&nbsp;&nbsp; smoothing : logical
 
@@ -120,22 +120,24 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix of 1 year death probabilities for all ages across the calendar years
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
 
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# consider a rate matrix generated from StoMoMo saved
-# under the variable 'mortality_rates'
-
-ages <- 30:90
+# consider the male mortality rates from the data file 'mortality_AUS_data'
+AUS_male_rates <- mortality_AUS_data$rate$male
+ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 
-completed_qx <- denuit_goderniaux(mortality_rates, ages, old_ages)
+# first convert mortality rates to death probabilties
+AUS_male_qx <- rate2rate(AUS_male_rates, from = "central", to = "prob")
+
+completed_qx <- denuit_goderniaux(AUS_male_qx, ages, old_ages, type = "prob")
 ```
 
 **References:**
@@ -158,9 +160,10 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing mortality rates with age rows and calendar year columns*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, calendar year columns,
+(simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
@@ -168,16 +171,17 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector containing ages to be completed*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of old ages to be completed for*
 
 &nbsp;&nbsp;&nbsp;&nbsp; fitted_ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector containing ages to fit initial model* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages to fit initial model* 
 
 &nbsp;&nbsp;&nbsp;&nbsp; type : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'central' for central death rates, 'prob' for 1 year death probabilities, 
-'force' for force of mortality*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
 
@@ -185,28 +189,25 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix containing force of mortality for all ages across the calendar years
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
 
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# consider a rate matrix generated from StoMoMo saved
-# under the variable 'mortality_rates'
-
-# accurate ages
-ages <- 30:90
+# consider the male mortality rates from the data file 'mortality_AUS_data'
+AUS_male_rates <- mortality_AUS_data$rate$male
+ages <- mortality_AUS_data$age # 0:110
+old_ages <- 91:130
 
 # fit model on tail end of ages where mortality is still accurate 
 fitted_ages <- 76:90
 
-# old ages
-old_ages <- 91:130
-
-completed_rates <- kannisto(mortality_rates, ages, old_ages, fitted_ages)
+completed_rates <- kannisto(AUS_male_rates, ages, old_ages,
+                            fitted_ages, type = "central")
 ```
 
 **References:**
@@ -214,7 +215,76 @@ completed_rates <- kannisto(mortality_rates, ages, old_ages, fitted_ages)
 Thatcher, A.R., Kannisto, V. and Vaupel, J.W. 1998 'The force of Mortality at Ages 80 to 120', 
 *Monographs on Population Aging*, Volume 5: Odense University Press
 
+--- 
 
+### Wrapper Function
+
+The completion methods above can be incorporated into a wrapper function. 
+
+**complete_old_age(rates, ages, old_ages, method = "kannisto", type = 'prob',
+closure_age = 130, years = NULL, ...)**
+
+&nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, calendar year columns,
+(simulation number 3rd dimension)*
+
+&nbsp;&nbsp;&nbsp;&nbsp; ages : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages in rates*
+
+&nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of old ages to be completed for*
+
+&nbsp;&nbsp;&nbsp;&nbsp; method : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'CK' for Coale-Kisker, 'DG' for Denuit and Goderniaux, 'Kannisto' for Kannisto* 
+
+&nbsp;&nbsp;&nbsp;&nbsp; type : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input and output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
+
+&nbsp;&nbsp;&nbsp;&nbsp; closure_age : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *maximum age*
+
+&nbsp;&nbsp;&nbsp;&nbsp; years : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+
+&nbsp;&nbsp;&nbsp;&nbsp; ...
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *additional arguments required for the chosen completion method*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
+
+&nbsp;&nbsp; **Usage:**
+
+```r
+# consider the male mortality rates from the data file 'mortality_AUS_data'
+
+AUS_male_rates <- mortality_AUS_data$rate$male
+ages <- mortality_AUS_data$age # 0:110
+old_ages <- 91:130
+
+# first convert mortality rates to death probabilties
+AUS_male_qx <- rate2rate(AUS_male_rates, from = "central", to = "prob")
+
+# completing mortality rates for old ages
+DG_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "DG",
+                         type = "prob")
+CK_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "CK",
+                         type = "prob")
+kannisto_q <- complete_old_age(AUS_male_qx, ages, old_ages, method = "kannisto",
+                               type = "prob", fitted_ages = 80:90)
+```
 
 
 

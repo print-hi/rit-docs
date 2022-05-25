@@ -9,9 +9,12 @@ theme:
 repo_url: https://github.com/print-hi/retirement-toolkit
 
 
-pages:
-  - Home: 'index.md'
+# =============================================================================
+# pages:
+#   - Home: 'index.md'
+# =============================================================================
 nav:
+  - Home: 'index.md'
   - Overview:
     - 'Getting Started': 'Home/start.md'
     - 'About': 'Home/about.md'
@@ -37,6 +40,7 @@ nav:
       - 'Health/Health State 3/lifetable.md'
       - 'Health/Health State 3/simulation.md'
       - 'Health/Health State 3/stats.md'
+      - 'Health/Health State 3/3state_examples.md'
     - 5-State Model:
       - 'Health/Health State 5/overview.md'
       - 'Health/Health State 5/cox_model.md'
