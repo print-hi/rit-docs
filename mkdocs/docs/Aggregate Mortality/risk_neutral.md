@@ -46,6 +46,8 @@ the risk-adjusted pdfs are identical.
 
 ---
 
+### Survival Function Risk-Neutral Transformation
+
 **survivalP2Q(StP, method, lambda)**
 
 &nbsp;&nbsp; **Parameters:**
