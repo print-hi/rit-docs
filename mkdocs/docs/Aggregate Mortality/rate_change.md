@@ -36,7 +36,7 @@ This functionality is covered by 2 helper functions.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -94,7 +94,7 @@ cohort/year columns*
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector of years for surv*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for surv*
 
 &nbsp;&nbsp; **Returns:**
 
