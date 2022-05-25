@@ -47,7 +47,7 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -120,7 +120,7 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -189,7 +189,7 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -255,7 +255,7 @@ closure_age = 130, years = NULL, ...)**
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector for year names assigned to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ...
 
