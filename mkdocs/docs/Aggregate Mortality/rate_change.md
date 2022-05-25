@@ -77,7 +77,7 @@ surv_func <- rate2survival(completed_rates, ages = all_ages,
 
 &nbsp;&nbsp;&nbsp;&nbsp; surv : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix/array of survival function with survival time rows,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *survival function with survival time rows,
 cohort/year columns*
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(and simulation number 3rd dimension)*
@@ -105,7 +105,7 @@ cohort/year columns*
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# suppose we have a survival function for an individual aged 55
+# create survival function for an individual aged 55
 AUS_male_rates <- mortality_AUS_data$rate$male
 ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
