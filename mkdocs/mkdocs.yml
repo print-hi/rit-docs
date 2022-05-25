@@ -27,6 +27,7 @@ nav:
     - 'Aggregate Mortality/rate_change.md'
     - 'Aggregate Mortality/risk_neutral.md'
     - 'Aggregate Mortality/stats_functions.md'
+    - 'Aggregate Mortality/_newfile.md'
   - Health State:
     - 'Health/overview.md'
     - 3-State Model:
