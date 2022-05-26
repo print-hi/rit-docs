@@ -1,26 +1,64 @@
 # Mortality Rate Changing
 
-There is a popular package in R, StMoMo, that is used for stochastic mortality modelling. It 
-includes functions that fit a wide range of age-period-cohort models such as the Lee-Carter, 
-Cairns-Blake-Dowd models and many others. These are typically used to forecast and simulate
-future mortality rates.
+Mortality rates can be expressed in different types, such as central death rates,
+1-year death probabilities and force of mortality. Different mortality rate completion methods
+require different types of mortality rates so this module includes a helper function to change
+between the types of mortality rates.
 
-The aggregate mortality module extends upon the StMoMo package by introducing the following
-functionalities:
+We use the following notation for an individual aged $x$ in year $y$ for each simulation $i$:
 
-* Adding methods for more accurate mortality estimation at older ages (rate completion)
-* Transforming survival functions from the real world to the risk-free probability measure
-* Distribution and quantile functions of a survival function
-* Simulation plots of the survival function and expected curtate future lifetime for a cohort
+* $m_{x, y}^{(i)}$: central death rate
+* $q_{x, y}^{(i)}$: 1-year death probability
+* $\mu_{x, y}^{(i)}$: force of mortality
 
-These functions will allow for more accurate mortality studies at older ages (90+)
-and the pricing of a diverse range of insurance products.
+Implementation assumes a constant force of mortality for fractional ages, 
+resulting in the following conversions:
 
-This module should be used in tandem with the StMoMo package. Namely, the inputs of this module 
-will usually be the mortality rates outputted by the StMoMo package. A general overview of the 
-module and the sequence of function executions can be visualised by the flowchart below:
+* $q_{x, y}^{(i)} = 1 - e^{-\mu_{x, y}^{(i)}}$
+* $\mu_{x, y}^{(i)} = m_{x, y}^{(i)}$
+* $m_{x, y}^{(i)}  = -\log(1 - q_{x, y}^{(i)})$
+---
 
-<figure markdown>
-  ![agg_mor_flowchart](/img/agg_mor_flowchart.png){width="700"}
-</figure>
+### Mortality Rate Changing
+
+**rate2rate <- function(rates, from, to)**
+
+&nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(and simulation number 3rd dimension)*
+
+&nbsp;&nbsp;&nbsp;&nbsp; from : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
+
+&nbsp;&nbsp;&nbsp;&nbsp; to : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *desired output type of mortality rates: 'central' for central death rates,*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of converted mortality rates with age rows,
+cohort/year columns 
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
+
+&nbsp;&nbsp; **Usage:**
+
+```r
+# consider the male mortality rates from the data file 'mortality_AUS_data'
+
+central_rates <- mortality_AUS_data$rate$male
+
+# convert to 1-yr death probabilities
+
+death_prob <- rate2rate(central_rates, from = "central", to = "prob")
+```
 
