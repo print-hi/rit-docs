@@ -1,4 +1,4 @@
-# Rate Changing
+# Mortality Rate and Survival Function
 
 The age completion functions usually return mortality rates. However, part of the functionality
 of this module is converting the real world probability based survival function to a risk free probability
