@@ -10,7 +10,8 @@ The functions can use either of the different inputs below to produce the requir
 * simulated path matrix from `simulate_path`
 
 If the first option is used, the functions use simulation to find expected value and variance. 
-Hence, there is a stochastic component to these results.
+Hence, there is a stochastic component to these results. If both inputs are provided, then the
+simulated path wil be used, and no simulation will occur within the function.
 
 Each function comes with a frailty version, which has the same name with an 'F' attached to it (eg. 
 `afl` -> `aflF`). The frailty version simulates 'n' unique latent paths, which adds another
