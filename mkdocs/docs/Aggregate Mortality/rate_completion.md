@@ -1,9 +1,9 @@
 # Mortality Rate Completion 
 
-The 'StMoMo' package has good accuracy with mortality calculations for younger ages. However, 
+The StMoMo package has good accuracy with mortality calculations for younger ages. However, 
 for older ages (>90), other methods can be applied to improve mortality estimates. 
 
-'mmrpp' includes functions that apply different methods to 'extrapolate' more accurate 
+This module includes functions that apply different completion methods to 'extrapolate' more accurate 
 mortality rates at the older ages. 
 
 ---
@@ -25,7 +25,7 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages in rates* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages for `rates`* 
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
@@ -47,11 +47,13 @@ mortality, but instead of it being constant, we say it declines linearly.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `rates`*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of completed mortality rates with age rows, year columns
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
 
 &nbsp;&nbsp; **Usage:**
 
@@ -94,7 +96,7 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages in rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages for `rates`*
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
@@ -116,15 +118,17 @@ estimates.
 
 &nbsp;&nbsp;&nbsp;&nbsp; smoothing : logical
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to apply smoothing to rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to apply smoothing to the completed rates*
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `rates`*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of completed mortality rates with age rows, year columns
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
 
 &nbsp;&nbsp; **Usage:**
 
@@ -167,7 +171,7 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages in rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages for `rates`*
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
@@ -189,11 +193,13 @@ extrapolates this to older ages.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `rates`*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of completed mortality rates with age rows, year columns
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
 
 &nbsp;&nbsp; **Usage:**
 
@@ -233,7 +239,7 @@ closure_age = 130, years = NULL, ...)**
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages in rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages for `rates`*
 
 &nbsp;&nbsp;&nbsp;&nbsp; old_ages : vector
 
@@ -255,7 +261,7 @@ closure_age = 130, years = NULL, ...)**
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `rates`*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ...
 
@@ -263,7 +269,9 @@ closure_age = 130, years = NULL, ...)**
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of mortality rates for all ages, calendar years (and simulations)
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of completed mortality rates with age rows, year columns
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
 
 &nbsp;&nbsp; **Usage:**
 
