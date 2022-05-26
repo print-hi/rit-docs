@@ -26,6 +26,7 @@ nav:
     - 'Policy Valuation/pricing.md'
   - Aggregate Mortality:
     - 'Aggregate Mortality/overview.md'
+    - 'Aggregate Mortality/rate_change.md'
     - 'Aggregate Mortality/rate_completion.md'
     - 'Aggregate Mortality/period_cohort.md'
     - 'Aggregate Mortality/rate_survival.md'
