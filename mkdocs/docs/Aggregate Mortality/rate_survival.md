@@ -17,8 +17,9 @@ This functionality is covered by 2 helper functions.
 
 &nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, calendar year columns,
-(simulation number 3rd dimension)*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
@@ -36,7 +37,7 @@ This functionality is covered by 2 helper functions.
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `rates`*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -94,7 +95,7 @@ cohort/year columns*
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for surv*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `surv`*
 
 &nbsp;&nbsp; **Returns:**
 
