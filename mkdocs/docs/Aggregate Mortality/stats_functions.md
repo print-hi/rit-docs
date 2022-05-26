@@ -1,6 +1,6 @@
 # Summary Statistics
 
-The module includes a set of functions that output summary statistics for the survival functions 
+This module includes a set of functions that output summary statistics for the survival functions 
 generated. These include: 
 
 * distribution functions
@@ -78,7 +78,7 @@ qsurv(surv_func_2017, c(0.8, 0.95))
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of surv_sim*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of `surv_sim`*
 
 &nbsp;&nbsp;&nbsp;&nbsp; target_year : numeric
 
@@ -90,7 +90,7 @@ qsurv(surv_func_2017, c(0.8, 0.95))
 
 &nbsp;&nbsp;&nbsp;&nbsp; years : vector
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for surv_sim*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional numeric vector of years for `surv_sim`*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -206,8 +206,7 @@ ages_fit <- 55:89
 wxy <- genWeightMat(ages = ages_fit, years = AUS_Male_Ini_Data$years, clip = 3)
 LC_fit <- fit(LC, data = AUS_Male_Ini_Data, ages.fit = ages_fit, wxt = wxy)
 
-# simulating rates
-LC_for <- forecast(LC_fit, h = 50)
+# simulating rates for next 100 years
 set.seed(1234)
 n_sim <- 10
 LC_sim <- simulate(LC_fit, nsim = n_sim, h = 100)
@@ -229,6 +228,8 @@ kannisto_hist <- complete_old_age(rates = rates_hist, ages = young_ages,
                                   old_ages = old_ages, fitted_ages = 80:89,
                                   method = "kannisto", type = "central")
 
+################# USAGE BEGINS HERE ################
+
 # combining
 kannisto_55_period <- combine_hist_sim(rates_hist = kannisto_hist,
                                        rates_sim = kannisto_sim)
@@ -243,8 +244,6 @@ exp_cfl_kannisto <- exp_cfl(qx = kannisto_55_q, ages = ages)
 # the earlier cohorts
 exp_cfl_kannisto_clean <- exp_cfl_kannisto[, as.character(1970:2043)]
 plot_exp_cfl(exp_cfl_rates = exp_cfl_kannisto_clean, years = 1970:2043)
-
-
 ```
 
 
