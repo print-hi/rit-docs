@@ -142,6 +142,9 @@ old_ages <- 91:130
 AUS_male_qx <- rate2rate(AUS_male_rates, from = "central", to = "prob")
 
 completed_qx <- denuit_goderniaux(AUS_male_qx, ages, old_ages, type = "prob")
+
+# fit on ages 80:110 instead
+completed_qx_from_80 <- denuit_goderniaux(AUS_male_qx, ages, old_ages, type = "prob", start_fit_age = 80)
 ```
 
 **References:**
