@@ -88,7 +88,7 @@ completed_rates <- complete_old_age(AUS_male_rates, ages, old_ages,
 
 cohort_rates_60 <- completed_rates[as.character(60:130), ]
 
-period_rates <- cohort2period(cohort_rates)
+period_rates <- cohort2period(cohort_rates_60)
 ```
 
 
