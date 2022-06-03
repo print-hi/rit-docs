@@ -50,7 +50,7 @@ transition probability matrices.
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_rates=transition_rate_5(params, init_age=65, gender=0, i, latent, model=3)
+transition_rates=transition_rate_5(params, age=65, gender=0, i, latent, model=3)
 ```
 
 ---
@@ -92,7 +92,7 @@ transition_rates=transition_rate_5(params, init_age=65, gender=0, i, latent, mod
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_probabilities=transition_probability_5(params, init_age, gender, i, latent, model=3)
+transition_probabilities=transition_probability_5(params, age=65, gender=0, i, latent, model=3)
 ```
 
 ---
