@@ -15,16 +15,15 @@ allowing for more robust pricing methods.
 
 ---
 
-### Average first time entering state
+### Average First Time Entering State
 
-**first_time_stats(simulated_path, state)**
+**first_time_stats_5(simulated_path, state)**
 
 &nbsp;&nbsp; **Paramters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"simulate_individual_path"*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_individual_path_5"*
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
@@ -47,27 +46,27 @@ allowing for more robust pricing methods.
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation of males aged 65 initially healthy under the trend model
-simulated_path <- simulate_individual_path(65, 0, params, 0, 19, model = 2)
+# simulation of 10000 males aged 65 initially healthy under the trend model
+simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params, gender=0, i, cohort = 10000, model=2)
 
-# time until entering ill health but not functionally disabled
-time_to_1 <- first_time_stats(simulated_path, 1)
+# time until entering M state, ill health but not functionally disabled
+time_to_M <- first_time_stats_5(simulated_path, 1)
 
 # average initial time of entering state 1
-print(mean(time_to_1, na.rm = TRUE))
+print(mean(time_to_M, na.rm = TRUE))
 ```
 
 ---
 
-### Total time spent in state
+### Total Time Spent in State
 
-**total_time_stats(simulated_path, state)**
+**total_time_stats_5(simulated_path, state)**
 
 &nbsp;&nbsp; **Paramters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_individual_path_5"*
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
@@ -92,24 +91,24 @@ print(mean(time_to_1, na.rm = TRUE))
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation of males aged 65 initially healthy under the trend model
-simulated_path <- simulate_individual_path(65, 0, params, 0, 19, model = 2)
+# simulation of 10000 males aged 65 initially healthy under the trend model
+simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params, gender=0, i, cohort = 10000, model=2)
 
 # total time spent in MD state, ill health and functionally disabled 
-total_state3 <- total_time_stats(simulated_path, 3)
+total_state_MD <- total_time_stats_5(simulated_path, 3)
 
-# average time spent in state 3
-print(mean(total_state3))
+# average time spent in state MD
+print(mean(total_state_MD))
 ```
 
 ---
 
-### Produce mean and variance from output
+### Produce Mean and Variance from Output
 
 This function is a 'helper' function, used in conjunction with the ouput of the 
 previous functions to create the mean and variance of those statistics. 
 
-**stats_produce(input)**
+**stats_produce_5(input)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -124,20 +123,20 @@ previous functions to create the mean and variance of those statistics.
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation of males aged 65 initially healthy under the trend model 
-simulated_path <- simulate_individual_path(65, 0, params, 0, 19, model = 2)
+# simulation of 10000 males aged 65 initially healthy under the trend model 
+simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params, gender=0, i, cohort = 10000, model=2)
 
 # time until entering M state, ill health but not functionally disabled
-time_to_1 <- first_time_stats(simulated_path, 1)
+time_to_M <- first_time_stats_5(simulated_path, 1)
 
 # total time spent in MD state, ill health and functionally disabled 
-total_state3 <- total_time_stats(simulated_path, 3)
+total_state_MD <- total_time_stats_5(simulated_path, 3)
 
 # produce mean and variance of first time into M state
-time1_stats <- stats_produce(time_to_1)
+first_time_M_stats <- stats_produce_5(time_to_M)
 
 # produce mean and variance of time spent in MD state
-timein3_stats <- stats_produce(total_state3)
+time_in_MD_stats <- stats_produce_5(total_state_MD)
 ```
 
 
