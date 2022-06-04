@@ -1,9 +1,9 @@
 # Transition Probability Matrix 
 
-The Cox Hazard model produces continuous hazard rates that will be discretised to produces
+The Cox Hazard model produces continuous hazard rates that will be discretized to produce
 piecewise constant rates. 
 
-The process is repeated for each of the 6 transition rates. The rates at each age are combined
+The process is repeated for each of the 12 transition rates. The rates at each age are combined
 into transition rate matrices for that age. Taking the matrix exponential changes that to 
 transition probability matrices. 
 
@@ -32,7 +32,7 @@ transition probability matrices.
 
 &nbsp;&nbsp;&nbsp;&nbsp; i : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index wave index = (interview year - 1998)/2 + 1*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index = (interview year - 1998)/2 + 1*
 
 &nbsp;&nbsp;&nbsp;&nbsp; latent : numeric
 
@@ -50,7 +50,7 @@ transition probability matrices.
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_rates=transition_rate_5(params, age=65, gender=0, i, latent, model=3)
+transition_rates=transition_rate_5(params=params_5_frailty, age=65, gender=0, i=8, latent=0, model=3)
 ```
 
 ---
@@ -74,7 +74,7 @@ transition_rates=transition_rate_5(params, age=65, gender=0, i, latent, model=3)
 
 &nbsp;&nbsp;&nbsp;&nbsp; i : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index wave index = (interview year - 1998)/2 + 1*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index = (interview year - 1998)/2 + 1*
 
 &nbsp;&nbsp;&nbsp;&nbsp; latent : numeric
 
@@ -92,11 +92,11 @@ transition_rates=transition_rate_5(params, age=65, gender=0, i, latent, model=3)
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_probabilities=transition_probability_5(params, age=65, gender=0, i, latent, model=3)
+transition_probabilities=transition_probability_5(params=params_5_frailty, age=65, gender=0, i=8, latent=0, model=3)
 ```
 
 ---
-### Get Full List of Transition Probability Matrics from Initial Age to Age 110
+### Get Full List of Transition Probability Matrices from Initial Age to Age 110
 
 **get_full_trans_prob_matrix_5(params, init_age, gender, i, model)**
 
@@ -130,7 +130,7 @@ transition_probabilities=transition_probability_5(params, age=65, gender=0, i, l
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-full_trans_probs_matrics <- get_full_trans_prob_matrix_5(params, init_age=65, gender=0, i, model=3)
+full_trans_probs_matrics <- get_full_trans_prob_matrix_5(params=params_5_frailty, init_age=65, gender=0, i=8, model=3)
 ```
 
 

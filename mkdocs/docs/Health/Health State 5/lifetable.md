@@ -19,7 +19,7 @@ the initial state and the initial age that the starting cohort is in.
 
 ### Generating a Life Table
 
-**simulate_life_table_5=function(params,init_age,gender,i,latent,initial_state,n_sim=100, model)**
+**simulate_life_table_5(params,init_age,gender,i,latent,initial_state,n_sim=100, model)**
 
 &nbsp;&nbsp; **Parameters:**
 
