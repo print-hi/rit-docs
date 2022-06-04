@@ -13,20 +13,20 @@ In the above forumlation, $\beta_{s}$ is the baseline log-intensity for transiti
 
 #### Static Model 
 
-$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}$$,
+$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k},$$
 
 where $x_k(t)$ represents the age for the $k$th individual at time t and $F_k = 1$ if the $k$th
 individual is female. The coefficients are parameters to be estimated.
 
 #### Trend Model 
 
-$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i$$
+$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i,$$
 
 where $t$ is the time trend. Note that $t=1$ corresponds to the year 1998-1999. 
 
 #### Frailty Model
 
-$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i+\alpha_{s} \psi_{i}$$,
+$$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i+\alpha_{s} \psi_{i},$$
 
 where $\psi(t)$ captures the stochastic latent factor. In our model, we use a random walk:
 $\psi(t) = \psi(t-1) + \epsilon$ with $\epsilon \sim \text{N}(0, 1)$.

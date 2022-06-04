@@ -74,7 +74,7 @@ An example looks like:
 0 & -1 & -1 & -1 & \ldots & -1 \\
 0 & 0 & 3 & 2 & \ldots & 2
 \end{bmatrix}
-$
 
 !!! note
-The first column of the matrix will always be initial state provided in the parameters.
+    The first column of the matrix will always be initial state provided in the parameters.
+
