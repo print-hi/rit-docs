@@ -5,7 +5,7 @@ to analyse or simply gain insight into the survival characteristics of certain i
 
 For the 5 state model, we use the simulated paths as inputs to calculate:
 
-* the average time of entering a certain state (such as disabled but not terminally ill)
+* the average time of entering a certain state (such as the D state: Healthy and functionally disabled)
 
 * the total time spent in each state 
 

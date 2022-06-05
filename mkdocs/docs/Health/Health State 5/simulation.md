@@ -33,7 +33,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 

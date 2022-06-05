@@ -20,7 +20,7 @@ transition probability matrices.
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; age : numeric
 
@@ -62,7 +62,7 @@ transition_rates=transition_rate_5(params=params_5_frailty, age=65, gender=0, i=
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; age : numeric
 
@@ -104,7 +104,7 @@ transition_probabilities=transition_probability_5(params=params_5_frailty, age=6
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 

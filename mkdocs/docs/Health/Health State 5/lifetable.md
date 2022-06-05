@@ -1,18 +1,14 @@
 # Life Table Generation
 
 An individual's characteristics can also be used to generate a life table with a cohort of identical
-traits. This can be used for the following applications:
-
-* calculating probability of survival to different states
-
-* calculating remaining life expectancy 
+traits. This can be used to calculate the probability of survival to different states.
 
 Life tables generated from the static and trend models are always deterministic, so the output will be one lifetable.
 
 Meanwhile, the frailty model will produce stochastic ouputs. The lifetables outputted will be 
 a full list of the simulated lifetables. 
 
-The lifetable shows the number of people in each state at each age, and one can also the choose
+The lifetable shows the number of people in each state at each age, and one can also choose
 the initial state and the initial age that the starting cohort is in.
 
 --- 
@@ -25,7 +21,7 @@ the initial state and the initial age that the starting cohort is in.
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 

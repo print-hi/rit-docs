@@ -39,7 +39,9 @@ The estimated parameters from the above study with the US HRS data is embedded i
 
 * US Health and Retirement Study (parameter name: US_HRS_5)
 
-Please run the lines below to get the estimated parameters for the static, trend, and frailty models respectively: 
+The parameters for each model are constructed as a matrix. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), and $\alpha$ (if frailty model). The columns are 1-12 transition types.
+
+Please run the lines below to get the estimated parameters for the static, trend, and frailty models respectively:
 
 &nbsp;&nbsp; **Usage:**
 ```r
