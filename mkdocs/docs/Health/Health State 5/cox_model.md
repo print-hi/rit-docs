@@ -22,21 +22,31 @@ individual is female. The coefficients are parameters to be estimated.
 
 $$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i,$$
 
-where $t$ is the time trend. Note that $t=1$ corresponds to the year 1998-1999. 
+where $i$ is the index number of the interview indicating the time trend. Note that $i=1$ corresponds to the interview year 1998, and the interview is taken every two years. Therefore, i=(interview year - 1998)/2 + 1.
 
 #### Frailty Model
 
 $$\ln \left\{\lambda_{k, s}(t)\right\}=\beta_{s}+\gamma_{s}^{\text{age}} x_{k}(t)+\gamma_{s}^{\text {female}} F_{k}+\phi_{s} i+\alpha_{s} \psi_{i},$$
 
-where $\psi(t)$ captures the stochastic latent factor. In our model, we use a random walk:
-$\psi(t) = \psi(t-1) + \epsilon$ with $\epsilon \sim \text{N}(0, 1)$.
+where $\psi_{i}$ captures the stochastic latent factor. In our model, we use a random walk:
+$\psi_{i} = \psi_{i-1} + \epsilon_{i}$ with $\epsilon_{i} \sim \text{N}(0, 1)$.
 
 ### Parameters
 
-The module uses cox hazard model parameters estimated from external research studies. 
+The module uses cox hazard model parameters estimated from external research studies. The paper that this module refers to is available at: https://www.cepar.edu.au/publications/working-papers/multi-state-model-functional-disability-and-health-status-presence-systematic-trend-and-uncertainty
 
-The parameters of the two following studies are included in the package: 
+The estimated parameters from the above study with the US HRS data is embedded in the module.
 
 * US Health and Retirement Study (parameter name: US_HRS_5)
 
-The paper that this module refers to is available at: https://www.cepar.edu.au/publications/working-papers/multi-state-model-functional-disability-and-health-status-presence-systematic-trend-and-uncertainty
+Please run the lines below to get the estimated parameters for the static, trend, and frailty models respectively: 
+
+&nbsp;&nbsp; **Usage:**
+```r
+# Parameters for static model
+params_5_static <- US_HRS_5[1:3,3:ncol(US_HRS_5)]
+# Parameters for trend model
+params_5_trend <- US_HRS_5[4:7,3:ncol(US_HRS_5)]
+# Parameters for frailty model
+params_5_frailty <- US_HRS_5[8:12,3:ncol(US_HRS_5)]
+```

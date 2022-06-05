@@ -65,7 +65,7 @@ the initial state and the initial age that the starting cohort is in.
 
 ```r
 # for male aged 65 at wave index i, initially in the health state, using the frailty model with parameters 'params'
-life_table <- simulate_life_table_5(params,init_age=65,gender=0,i,latent,initial_state=0,n_sim=100, model=3)
+life_table <- simulate_life_table_5(params=params_5_frailty,init_age=65,gender=0,i=8,latent=0,initial_state=0,n_sim=100, model=3)
 ```
 
 When using static and trend model, 'n_sim' should be set to 1 to avoid generating the same life table repeatedly. 
