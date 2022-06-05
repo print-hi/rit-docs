@@ -19,13 +19,13 @@ the initial state and the initial age that the starting cohort is in.
 
 ### Generating a Life Table
 
-**simulate_life_table=function(params,init_age,gender,i,latent,initial_state,n_sim=100, model)**
+**simulate_life_table_5(params,init_age,gender,i,latent,initial_state,n_sim=100, model)**
 
 &nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *dataframe of parameters read from excel file*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 
@@ -39,7 +39,7 @@ the initial state and the initial age that the starting cohort is in.
 
 &nbsp;&nbsp;&nbsp;&nbsp; latent : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial value of the latent factor*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial value of the latent factor, normally take the value 0*
 
 &nbsp;&nbsp;&nbsp;&nbsp; n_sim : numeric
 
@@ -51,7 +51,7 @@ the initial state and the initial age that the starting cohort is in.
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting the current state of individual*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting the current state of individual, 0 for H state, 1 for M state, 2 for D state, 3 for MD state*
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
@@ -64,8 +64,8 @@ the initial state and the initial age that the starting cohort is in.
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# for male aged 65 at wave index i, using the frailty model with some parameters 'params'
-life_table <- simulate_life_table(params,init_age=65,gender,i,latent,
-initial_state=0, n_sim=100, model=3)
+# for male aged 65 at wave index i, initially in the health state, using the frailty model with parameters 'params'
+life_table <- simulate_life_table_5(params,init_age=65,gender=0,i,latent,initial_state=0,n_sim=100, model=3)
+```
 
 When using static and trend model, 'n_sim' should be set to 1 to avoid generating the same life table repeatedly. 

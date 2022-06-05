@@ -15,13 +15,11 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 * 3: ill health and functionally disabled
 
-* 4: dead
-
 ---
 
-### Simulating lives
+### Simulating State Paths for Individuals
 
-**simulate_individual_path(init_age, init_state, params, gender, i, cohort = 10000, model)**
+**simulate_individual_path_5(init_age, init_state, params, gender, i, cohort = 10000, model)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -35,7 +33,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *dataframe of parameters read from excel file*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are beta, gamma_age, gamma_f, phi (if trend or frailty model), alpha (if frailty model). The columns are 1-12 transition types.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 
@@ -60,8 +58,8 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation for male aged 65, initially healthy uunder the frailty model
-simulated_path <- function(init_age=65, init_state=0, params, gender=0, i, cohort = 10000, model=3)
+# simulation for 10000 males aged 65, initially healthy under the frailty model
+simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params, gender=0, i, cohort = 10000, model=3)
 ```
 
 The output is a matrix where each row represents one individual's transition into different 
@@ -76,7 +74,7 @@ An example looks like:
 0 & -1 & -1 & -1 & \ldots & -1 \\
 0 & 0 & 3 & 2 & \ldots & 2
 \end{bmatrix}
-$
 
 !!! note
-The first column of the matrix will always be initial state provided in the parameters.
+    The first column of the matrix will always be initial state provided in the parameters.
+

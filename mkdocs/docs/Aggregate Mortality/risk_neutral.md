@@ -19,9 +19,8 @@ where $S^P(t) = 1 - F^P(t)$ and $S^Q(t) = 1 - F^Q(t)$.
 
 The first set of transformations are survival function distortions and are as follows:
 
-* Wang transform: $S^P(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)$
-
-where $\Phi(x)$ represents cdf of standard Gaussian distribution.
+* Wang transform: $S^P(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)$ 
+<br> where $\Phi(x)$ represents the cdf of a standard Gaussian distribution.
 
 * Proportional hazard transform: $S^Q(t) = (S^P(t))^{\frac{1}{\lambda}} \quad (\lambda \geq 1)$
 * Dual-power transform: $S^Q(t) = 1 - \left(1 - S^P(t)\right)^\lambda \quad (\lambda \geq 1)$ 
