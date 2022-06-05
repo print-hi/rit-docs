@@ -35,20 +35,10 @@ $\psi_{i} = \psi_{i-1} + \epsilon_{i}$ with $\epsilon_{i} \sim \text{N}(0, 1)$.
 
 The module uses cox hazard model parameters estimated from external research studies. The paper that this module refers to is available at: https://www.cepar.edu.au/publications/working-papers/multi-state-model-functional-disability-and-health-status-presence-systematic-trend-and-uncertainty
 
-The estimated parameters from the above study with the US HRS data is embedded in the module.
+The estimated parameters of the static, trend, and frailty models from the above study with the US HRS data are embedded in the module.
 
-* US Health and Retirement Study (parameter name: US_HRS_5)
+* Static model (parameter name: params_5_static)
+* Trend model (parameter name: params_5_trend)
+* Frailty model (parameter name: params_5_frailty)
 
 The parameters for each model are constructed as a matrix. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), and $\alpha$ (if frailty model). The columns are 1-12 transition types.
-
-Please run the lines below to get the estimated parameters for the static, trend, and frailty models respectively:
-
-&nbsp;&nbsp; **Usage:**
-```r
-# Parameters for static model
-params_5_static <- US_HRS_5[1:3,3:ncol(US_HRS_5)]
-# Parameters for trend model
-params_5_trend <- US_HRS_5[4:7,3:ncol(US_HRS_5)]
-# Parameters for frailty model
-params_5_frailty <- US_HRS_5[8:12,3:ncol(US_HRS_5)]
-```
