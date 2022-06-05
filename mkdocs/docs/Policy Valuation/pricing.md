@@ -9,11 +9,11 @@ convergence + distribution plots
 
 &nbsp;&nbsp;&nbsp;&nbsp; **policy** : Policy object 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Policy object generated from create_policy function* (see [Creating Policy Object](top1.md))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Policy object generated from create_policy function* (see [Creating Policy Object](policy.md))
 
 &nbsp;&nbsp;&nbsp;&nbsp; **cashflows** : Matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of cashflows generated from simulate_cf function* (see [Simulating Cashflows](top2.md))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of cashflows generated from simulate_cf function* (see [Simulating Cashflows](cashflow.md))
 
 &nbsp;&nbsp;&nbsp;&nbsp; **seed** : numeric
 

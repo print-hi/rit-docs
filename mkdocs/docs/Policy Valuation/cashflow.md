@@ -11,7 +11,7 @@ or passed into the *value_policy* function for pricing statistics.
 
 &nbsp;&nbsp;&nbsp;&nbsp; **policy** : Policy object 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Policy object generated from create_policy function* (see [ Creating Policy Object](top1.md))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Policy object generated from create_policy function* (see [ Creating Policy Object](policy.md))
 
 &nbsp;&nbsp;&nbsp;&nbsp; **age** : numeric
 
@@ -28,6 +28,14 @@ or passed into the *value_policy* function for pricing statistics.
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Number of paths to simulate (Monte-Carlo method)*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **state** : matrix
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(Optional) Matrix of health states for n pathways* (see [Health State](../Health/Health State 3/simulation.md) / [Aggregate Mortality](../Aggregate Mortality/simulation.md))
+
+&nbsp;&nbsp;&nbsp;&nbsp; **econ_var** : list
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(Optional) Simulated economic variables* (see [Economic Scenario Generator](../Economic Scenario Generator/discrete_esg.md))
 
 &nbsp;&nbsp; **Returns:**
 
