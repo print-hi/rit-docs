@@ -8,7 +8,7 @@ an individual $k$ and transition type $s$ is:
 
 $$\lambda_{k, s}(t)=\exp \left\{\beta_{s}+\gamma_{s}^{\prime} w_{k}(t)+\alpha_{s} \psi(t)\right\}$$
 
-In the above forumlation, $\beta_{s}$ is the baseline log-intensity for transition type $s$, $w_{k}(t)$ contains the age and gender of the individuals, $\gamma_{s}^{\prime}$ measure the sensitivity to age and gender respectively, $\psi(t)$ is a latent process that captures the uncertainty, and $\alpha_{s}$ measures the sensitivity to the latent process.
+In the above forumlation, $\beta_{s}$ is the baseline log-intensity for transition type $s$, $w_{k}(t)$ contains the age and gender of the individuals, $\gamma_{s}^{\prime}$ measure the sensitivity to age and gender, $\psi(t)$ is a latent process that captures the uncertainty, and $\alpha_{s}$ measures the sensitivity to the latent process.
 ### Three Models
 
 #### Static Model 
