@@ -31,6 +31,7 @@ nav:
     - 'Aggregate Mortality/period_cohort.md'
     - 'Aggregate Mortality/rate_survival.md'
     - 'Aggregate Mortality/risk_neutral.md'
+    - 'Aggregate Mortality/simulation.md'
     - 'Aggregate Mortality/stats_functions.md'
   - Health State:
     - 'Health/overview.md'

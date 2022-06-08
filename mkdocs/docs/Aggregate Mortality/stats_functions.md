@@ -270,24 +270,3 @@ exp_cfl_kannisto <- exp_cfl(qx = kannisto_55_q, ages = ages)
 exp_cfl_kannisto_clean <- exp_cfl_kannisto[, as.character(1970:2043)]
 plot_exp_cfl(exp_cfl_rates = exp_cfl_kannisto_clean, years = 1970:2043)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
