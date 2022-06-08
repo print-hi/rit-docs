@@ -7,7 +7,7 @@ for the pricing of insurance products. Hence, this module includes a function th
 real world (P world) survival function to a risk neutral (Q world) survival function according
 to a risk-neutral principle.
 
-To introduce the transformation methods used by our function, we work with a simplified
+To introduce the transformation methods used by our function, we work with a simplified notation
 to focus on the transformation from the P-measure to the Q-measure. Note that this applies
 for an individual aged $x$ in year $y$ for each simulation $i$. Then we use the following:
 
@@ -19,7 +19,7 @@ where $S^P(t) = 1 - F^P(t)$ and $S^Q(t) = 1 - F^Q(t)$.
 
 The first set of transformations are survival function distortions and are as follows:
 
-* Wang transform: $S^P(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)$ 
+* Wang transform: $S^Q(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)$ 
 <br> where $\Phi(x)$ represents the cdf of a standard Gaussian distribution.
 
 * Proportional hazard transform: $S^Q(t) = (S^P(t))^{\frac{1}{\lambda}} \quad (\lambda \geq 1)$
