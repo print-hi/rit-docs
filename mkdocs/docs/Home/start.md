@@ -9,10 +9,11 @@ File > Open project > /rit-main
 ```
 4. In RStudio Console: 
 ```
-library(devtools)
+install.packages("devtools")
+library("devtools")
 load_all(export_all = FALSE)
 ```
 
 # Demo
 
-Visit `/demo` directory to find example workflows for each module.
+Visit `demo/` directory to find example workflows for each module.

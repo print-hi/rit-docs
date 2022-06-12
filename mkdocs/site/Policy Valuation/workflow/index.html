@@ -1059,37 +1059,37 @@
 
 
 <h1 id="workflow-example">Workflow Example</h1>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a># Life Annuity
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>la &lt;- create_policy_LA(60000, 5, 0.02, 0.05)
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>cf_la &lt;- simulate_cf(la)
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>val_la &lt;- value_policy(la, cf_la)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Life Annuity</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">la</span> <span class="o">&lt;-</span> <span class="nf">create_policy_LA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">0.02</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">cf_la</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">la</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">val_la</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="n">cf_la</span><span class="p">)</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a># Care Annuity
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>ca &lt;- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>cf_ca &lt;- simulate_cf(ca)
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>val_ca &lt;- value_policy(ca, cf_ca)
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Care Annuity</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">ca</span> <span class="o">&lt;-</span> <span class="nf">create_policy_CA</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1200</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.04</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">cf_ca</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">ca</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">val_ca</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">cf_ca</span><span class="p">)</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a># !! FOLLOWING PRODUCTS NEED DEBUGGING !!
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># !! FOLLOWING PRODUCTS NEED DEBUGGING !!</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a># Account-Based Pension
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>ap &lt;- create_policy_AP(2000000, 50000)
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>cf_ap &lt;- simulate_cf(ap)
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>val_ap &lt;- value_policy(ap, cf_ap)
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># Account-Based Pension</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="n">ap</span> <span class="o">&lt;-</span> <span class="nf">create_policy_AP</span><span class="p">(</span><span class="m">2000000</span><span class="p">,</span> <span class="m">50000</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">cf_ap</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">ap</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">val_ap</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">ap</span><span class="p">,</span> <span class="n">cf_ap</span><span class="p">)</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a># Pooled Annuity
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>pa &lt;- create_policy_PA(60000, 10000, 0.05, 0.05)
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>cf_pa &lt;- simulate_cf(pa)
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>val_pa &lt;- value_policy(pa, cf_pa) 
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># Pooled Annuity</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">pa</span> <span class="o">&lt;-</span> <span class="nf">create_policy_PA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">10000</span><span class="p">,</span> <span class="m">0.05</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="n">cf_pa</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">pa</span><span class="p">)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="n">val_pa</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">pa</span><span class="p">,</span> <span class="n">cf_pa</span><span class="p">)</span> 
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a># Reverse Mortgage
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>rm &lt;- create_policy_RM(100000, 0.4, 0.01, 0.05)
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>cf_rm &lt;- simulate_cf(rm)
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>val_rm &lt;- value_policy(rm, cf_rm)
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># Reverse Mortgage</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">rm</span> <span class="o">&lt;-</span> <span class="nf">create_policy_RM</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">0.4</span><span class="p">,</span> <span class="m">0.01</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">cf_rm</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">rm</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="n">val_rm</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">rm</span><span class="p">,</span> <span class="n">cf_rm</span><span class="p">)</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a># Variable Annuity (GMWB)
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>va &lt;- create_policy_VA(100000, 30, 0.1, 0.005)
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>cf_va &lt;- simulate_cf(va)
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>val_va &lt;- value_policy(va, cf_va)
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="c1"># Variable Annuity (GMWB)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="n">va</span> <span class="o">&lt;-</span> <span class="nf">create_policy_VA</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">0.005</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="n">cf_va</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">va</span><span class="p">)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="n">val_va</span> <span class="o">&lt;-</span> <span class="nf">value_policy</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">cf_va</span><span class="p">)</span>
 </code></pre></div>
 
               
