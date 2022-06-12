@@ -1019,15 +1019,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pooled-annuity" class="md-nav__link">
-    Pooled Annuity
+  <a href="#care-annuity-ltc" class="md-nav__link">
+    Care Annuity (LTC)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#care-annuity-ltc" class="md-nav__link">
-    Care Annuity (LTC)
+  <a href="#pooled-annuity" class="md-nav__link">
+    Pooled Annuity
   </a>
   
 </li>
@@ -1151,15 +1151,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pooled-annuity" class="md-nav__link">
-    Pooled Annuity
+  <a href="#care-annuity-ltc" class="md-nav__link">
+    Care Annuity (LTC)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#care-annuity-ltc" class="md-nav__link">
-    Care Annuity (LTC)
+  <a href="#pooled-annuity" class="md-nav__link">
+    Pooled Annuity
   </a>
   
 </li>
@@ -1247,6 +1247,27 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">la</span> <span class="o">&lt;-</span> <span class="nf">create_policy_LA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
 </code></pre></div>
+<p><a name="CA"></a></p>
+<h2 id="care-annuity-ltc">Care Annuity (LTC)</h2>
+<p>Note: Care annuities are evaluated based on the 3-State or 5-State model 
+outlined in the Health State module. Parameters should be vectors of length
+2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
+remaining states).</p>
+<p><strong>create_policy_CA(benefit, increase, min, loading)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : vector </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual benefit for each policy</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>increase</strong> : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual rate of increase for each policy</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>min</strong> : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Minimum guaranteed period for each policy</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>loading</strong> : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for each policy</em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
+<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">ca</span> <span class="o">&lt;-</span> <span class="nf">create_policy_CA</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1200</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.04</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">))</span>
+</code></pre></div>
 <p><a name="PA"></a></p>
 <h2 id="pooled-annuity">Pooled Annuity</h2>
 <p><strong>create_policy_PA(benefit, size, interest, loading)</strong></p>
@@ -1262,24 +1283,7 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">pa</span> <span class="o">&lt;-</span> <span class="nf">create_policy_PA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
-</code></pre></div>
-<p><a name="CA"></a></p>
-<h2 id="care-annuity-ltc">Care Annuity (LTC)</h2>
-<p><strong>create_policy_CA(benefit, increase, min, loading)</strong></p>
-<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : vector </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual benefit for each policy</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>increase</strong> : vector</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual rate of increase for each policy</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>min</strong> : vector</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Minimum guaranteed period for each policy</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>loading</strong> : vector</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for each policy</em></p>
-<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
-<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">ca</span> <span class="o">&lt;-</span> <span class="nf">create_policy_CA</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1200</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.04</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">pa</span> <span class="o">&lt;-</span> <span class="nf">create_policy_PA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
 </code></pre></div>
 <p><a name="VA"></a></p>
 <h2 id="variable-annuity-gmwb">Variable Annuity (GMWB)</h2>
