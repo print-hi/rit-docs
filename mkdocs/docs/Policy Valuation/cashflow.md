@@ -39,10 +39,23 @@ or passed into the *value_policy* function for pricing statistics.
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; Matrix of cashflows 
+&nbsp;&nbsp;&nbsp;&nbsp; [SimCashflow](#simcf) object 
 
 &nbsp;&nbsp; **Usage:**
 ```r
 ap <- create_policy_AP(400000, 60000)
 cf <- simulate_cf(policy = ap, age = 65, sex = "M", n = 1000)
 ```
+
+<a name ="simcf"></a>
+**SimCashflow**
+
+&nbsp;&nbsp; **Attributes:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; **cf** : Matrix 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Simulated cashflows*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **SDF** : Matrix
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Simulated stochastic discount factors*

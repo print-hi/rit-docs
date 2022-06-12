@@ -205,5 +205,5 @@ ca <- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
 &nbsp;&nbsp; **Usage:**
 
 ```r
-va <- create_policy_VA(100000, 40, 0.4, 0.02, 0.02)
+va <- create_policy_VA(100000, 40, 0.4, 0.02)
 ```
