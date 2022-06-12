@@ -640,6 +640,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        Simulating Life Paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../stats_functions/" class="md-nav__link">
         Summary Statistics
       </a>
@@ -1083,7 +1097,7 @@ the financial risk that people live longer than expected and are thus not suitab
 for the pricing of insurance products. Hence, this module includes a function that transforms the 
 real world (P world) survival function to a risk neutral (Q world) survival function according
 to a risk-neutral principle.</p>
-<p>To introduce the transformation methods used by our function, we work with a simplified
+<p>To introduce the transformation methods used by our function, we work with a simplified notation
 to focus on the transformation from the P-measure to the Q-measure. Note that this applies
 for an individual aged <span class="arithmatex">\(x\)</span> in year <span class="arithmatex">\(y\)</span> for each simulation <span class="arithmatex">\(i\)</span>. Then we use the following:</p>
 <ul>
@@ -1095,7 +1109,7 @@ for an individual aged <span class="arithmatex">\(x\)</span> in year <span class
 <p>The first set of transformations are survival function distortions and are as follows:</p>
 <ul>
 <li>
-<p>Wang transform: <span class="arithmatex">\(S^P(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)\)</span> 
+<p>Wang transform: <span class="arithmatex">\(S^Q(t) = 1 - \Phi(\Phi^{-1}(1 - S^P(t)) - \lambda) \quad (\lambda \geq 0)\)</span> 
 <br> where <span class="arithmatex">\(\Phi(x)\)</span> represents the cdf of a standard Gaussian distribution.</p>
 </li>
 <li>
@@ -1192,13 +1206,13 @@ with survival time</p>
       
       
         
-        <a href="../stats_functions/" class="md-footer__link md-footer__link--next" aria-label="Next: Summary Statistics" rel="next">
+        <a href="../simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Simulating Life Paths" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Summary Statistics
+              Simulating Life Paths
             </div>
           </div>
           <div class="md-footer__button md-icon">
