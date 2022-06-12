@@ -1,0 +1,1449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>Summary Statistics - Retirement Income Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="deep-purple" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#summary-statistics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Retirement Income Toolkit" class="md-header__button md-logo" aria-label="Retirement Income Toolkit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Retirement Income Toolkit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Summary Statistics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/print-hi/retirement-toolkit/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Home/start/" class="md-tabs__link">
+        Overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Policy%20Valuation/overview/" class="md-tabs__link">
+        Policy Valuation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        Aggregate Mortality
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Health/overview/" class="md-tabs__link">
+        Health State
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Economic%20Scenario%20Generator/overview/" class="md-tabs__link">
+        Economic Scenario Generator
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Retirement Income Toolkit" class="md-nav__button md-logo" aria-label="Retirement Income Toolkit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Retirement Income Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/print-hi/retirement-toolkit/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/start/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/log/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Policy Valuation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Policy Valuation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Policy Valuation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Policy%20Valuation/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Policy%20Valuation/policy/" class="md-nav__link">
+        Creating Policy Object
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Policy%20Valuation/cashflow/" class="md-nav__link">
+        Simulating Cashflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Policy%20Valuation/pricing/" class="md-nav__link">
+        Pricing / Valuation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Aggregate Mortality
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aggregate Mortality" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Aggregate Mortality
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate_change/" class="md-nav__link">
+        Mortality Rate Changing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate_completion/" class="md-nav__link">
+        Mortality Rate Completion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../period_cohort/" class="md-nav__link">
+        Period and Cohort Rates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate_survival/" class="md-nav__link">
+        Mortality Rate and Survival Function
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../risk_neutral/" class="md-nav__link">
+        Risk Neutral Probability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        Simulating Life Paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Summary Statistics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Summary Statistics
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#distribution-and-quantile-functions" class="md-nav__link">
+    Distribution and quantile functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survival-function-simulation" class="md-nav__link">
+    Survival Function Simulation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-curtate-future-lifetime" class="md-nav__link">
+    Expected Curtate Future Lifetime
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Curtate Future Lifetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combine-historical-and-simulated-rates" class="md-nav__link">
+    Combine Historical and Simulated Rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculate-expected-curtate-future-lifetime" class="md-nav__link">
+    Calculate Expected Curtate Future Lifetime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-expected-curtate-future-lifetime" class="md-nav__link">
+    Plot Expected Curtate Future Lifetime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Health State
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Health State" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Health State
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          3-State Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3-State Model" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          3-State Model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/overview/" class="md-nav__link">
+        Overview: 3-State
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/cox_model/" class="md-nav__link">
+        Cox Hazard Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/trans_probs/" class="md-nav__link">
+        Transition Probability Matrix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/lifetable/" class="md-nav__link">
+        Life Table Generation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/simulation/" class="md-nav__link">
+        Simulating Life Paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/stats/" class="md-nav__link">
+        Statistics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%203/3state_examples/" class="md-nav__link">
+        Workflow Example
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          5-State Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="5-State Model" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          5-State Model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/overview/" class="md-nav__link">
+        Overview: 5-State
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/cox_model/" class="md-nav__link">
+        Cox Hazard Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/trans_probs/" class="md-nav__link">
+        Transition Probability Matrix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/lifetable/" class="md-nav__link">
+        Life Table Generation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/simulation/" class="md-nav__link">
+        Simulating Life Paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Health/Health%20State%205/stats/" class="md-nav__link">
+        Statistics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Economic Scenario Generator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Economic Scenario Generator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Economic Scenario Generator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Economic%20Scenario%20Generator/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Economic%20Scenario%20Generator/discrete_esg/" class="md-nav__link">
+        Discrete-Time Generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Economic%20Scenario%20Generator/cts_esg/" class="md-nav__link">
+        Continuous-Time Generator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#distribution-and-quantile-functions" class="md-nav__link">
+    Distribution and quantile functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survival-function-simulation" class="md-nav__link">
+    Survival Function Simulation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-curtate-future-lifetime" class="md-nav__link">
+    Expected Curtate Future Lifetime
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Curtate Future Lifetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combine-historical-and-simulated-rates" class="md-nav__link">
+    Combine Historical and Simulated Rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculate-expected-curtate-future-lifetime" class="md-nav__link">
+    Calculate Expected Curtate Future Lifetime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-expected-curtate-future-lifetime" class="md-nav__link">
+    Plot Expected Curtate Future Lifetime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/print-hi/retirement-toolkit/edit/master/docs/Aggregate Mortality/stats_functions.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="summary-statistics">Summary Statistics</h1>
+<p>This module includes a set of functions that output summary statistics for the survival functions 
+generated. These include: </p>
+<ul>
+<li>
+<p>distribution functions</p>
+</li>
+<li>
+<p>quantile function</p>
+</li>
+<li>
+<p>simulation plots (with confidence ranges)</p>
+</li>
+</ul>
+<hr />
+<h3 id="distribution-and-quantile-functions">Distribution and quantile functions</h3>
+<p><strong>psurv(surv_fun, surv_time)</strong></p>
+<p><strong>qsurv(surv_fun, surv_prob)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; surv_fun : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>survival function for a specific cohort/year with survival time rows</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; surv_time : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>vector of survival times</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; surv_prob : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>vector of survival probabilities</em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; vector of probabilites (distribution) or survival times (quantile)</p>
+<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># create survival function for an individual aged 55</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">AUS_male_rates</span> <span class="o">&lt;-</span> <span class="n">mortality_AUS_data</span><span class="o">$</span><span class="n">rate</span><span class="o">$</span><span class="n">male</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">ages</span> <span class="o">&lt;-</span> <span class="n">mortality_AUS_data</span><span class="o">$</span><span class="n">age</span> <span class="c1"># 0:110</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">old_ages</span> <span class="o">&lt;-</span> <span class="m">91</span><span class="o">:</span><span class="m">130</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">fitted_ages</span> <span class="o">&lt;-</span> <span class="m">76</span><span class="o">:</span><span class="m">90</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">completed_rates</span> <span class="o">&lt;-</span> <span class="nf">complete_old_age</span><span class="p">(</span><span class="n">AUS_male_rates</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">old_ages</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>                                    <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;kannisto&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>                                    <span class="n">fitted_ages</span> <span class="o">=</span> <span class="n">fitted_ages</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">all_ages</span> <span class="o">&lt;-</span> <span class="m">0</span><span class="o">:</span><span class="m">130</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">surv_func</span> <span class="o">&lt;-</span> <span class="nf">rate2survival</span><span class="p">(</span><span class="n">completed_rates</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">all_ages</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>                           <span class="n">from</span> <span class="o">=</span> <span class="s">&#39;central&#39;</span><span class="p">,</span> <span class="n">init_age</span> <span class="o">=</span> <span class="m">55</span><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># take vector of survival function (consider year 2017)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">surv_func_2017</span> <span class="o">&lt;-</span> <span class="n">surv_func</span><span class="p">[,</span> <span class="s">&quot;2017&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># calculate probability of surviving 10 and 20 years</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="nf">psurv</span><span class="p">(</span><span class="n">surv_func_2017</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="c1"># calculating the 80% and 95% quantile survival time</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="nf">qsurv</span><span class="p">(</span><span class="n">surv_func_2017</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span> <span class="m">0.95</span><span class="p">))</span>
+</code></pre></div>
+<hr />
+<h3 id="survival-function-simulation">Survival Function Simulation</h3>
+<p><strong>plot_surv_sim(surv_sim, init_age, target_year, level = 95, years = NULL)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; surv_sim : array</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>survival function with survival time rows, cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>and simulation number 3rd dimension</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting initial age of <code>surv_sim</code></em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; target_year : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>year for which the plot is made for</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; level : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>desired confidence level (default 95%)</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; years : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>optional numeric vector of years for <code>surv_sim</code></em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; plot of the survival function for the chosen year with confidence intervals</p>
+<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># generate simulated rates with &#39;StMoMo&#39;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># install and load &#39;StMoMo&#39; if the package is not loaded</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># fitting lee carter model on ages 55:89</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">AUS_StMoMo</span> <span class="o">&lt;-</span> <span class="nf">StMoMoData</span><span class="p">(</span><span class="n">mortality_AUS_data</span><span class="p">,</span> <span class="n">series</span> <span class="o">=</span> <span class="s">&quot;male&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">LC</span> <span class="o">&lt;-</span> <span class="nf">lc</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">)</span> <span class="c1"># lee carter model</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">AUS_Male_Ini_Data</span> <span class="o">&lt;-</span> <span class="nf">central2initial</span><span class="p">(</span><span class="n">AUS_StMoMo</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">ages_fit</span> <span class="o">&lt;-</span> <span class="m">55</span><span class="o">:</span><span class="m">89</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">wxy</span> <span class="o">&lt;-</span> <span class="nf">genWeightMat</span><span class="p">(</span><span class="n">ages</span> <span class="o">=</span> <span class="n">ages_fit</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">AUS_Male_Ini_Data</span><span class="o">$</span><span class="n">years</span><span class="p">,</span> <span class="n">clip</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">LC_fit</span> <span class="o">&lt;-</span> <span class="nf">fit</span><span class="p">(</span><span class="n">LC</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">AUS_Male_Ini_Data</span><span class="p">,</span> <span class="n">ages.fit</span> <span class="o">=</span> <span class="n">ages_fit</span><span class="p">,</span> <span class="n">wxt</span> <span class="o">=</span> <span class="n">wxy</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># simulating rates for next 100 years</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="nf">set.seed</span><span class="p">(</span><span class="m">1234</span><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">n_sim</span> <span class="o">&lt;-</span> <span class="m">10</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">LC_sim</span> <span class="o">&lt;-</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">LC_fit</span><span class="p">,</span> <span class="n">nsim</span> <span class="o">=</span> <span class="n">n_sim</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1"># using kannisto method to complete rates</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="n">young_ages</span> <span class="o">&lt;-</span> <span class="n">LC_sim</span><span class="o">$</span><span class="n">ages</span> <span class="c1"># 55:89</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">old_ages</span> <span class="o">&lt;-</span> <span class="m">90</span><span class="o">:</span><span class="m">130</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">ages</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">young_ages</span><span class="p">,</span> <span class="n">old_ages</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="n">kannisto_sim</span> <span class="o">&lt;-</span> <span class="nf">complete_old_age</span><span class="p">(</span><span class="n">rates</span> <span class="o">=</span> <span class="n">LC_sim</span><span class="o">$</span><span class="n">rates</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">young_ages</span><span class="p">,</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>                                 <span class="n">old_ages</span> <span class="o">=</span> <span class="n">old_ages</span><span class="p">,</span> <span class="n">fitted_ages</span> <span class="o">=</span> <span class="m">80</span><span class="o">:</span><span class="m">89</span><span class="p">,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>                                 <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;kannisto&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="c1"># create period survival function for individual aged 55</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="n">surv_sim</span> <span class="o">&lt;-</span> <span class="nf">rate2survival</span><span class="p">(</span><span class="n">kannisto_sim</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">)</span>  
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="nf">plot_surv_sim</span><span class="p">(</span><span class="n">surv_sim</span><span class="p">,</span> <span class="m">55</span><span class="p">,</span> <span class="m">2050</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="expected-curtate-future-lifetime">Expected Curtate Future Lifetime</h3>
+<p>We introduce 2 helper functions <code>combine_hist_sim</code> and <code>exp_cfl</code> to calculate expected curtate future lifetime
+which is required for plotting.</p>
+<h4 id="combine-historical-and-simulated-rates">Combine Historical and Simulated Rates</h4>
+<p><strong>combine_hist_sim(rates_hist, rates_sim)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; rates_hist : matrix</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>historical mortality rates with age rows and cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; rates_sim : array</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>simulated mortality rates with age rows, cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>and simulation number 3rd dimension</em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; array of combined historical and simulated rates with age rows, cohort/year columns</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; and simulation number 3rd dimension</p>
+<hr />
+<h4 id="calculate-expected-curtate-future-lifetime">Calculate Expected Curtate Future Lifetime</h4>
+<p><strong>exp_cfl(qx, ages, init_age = NULL, years = NULL)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; qx : matrix/array</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>1-year death probabilities with age rows, cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(and simulation number 3rd dimension</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; ages : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>vector of ages for <code>qx</code></em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>initial age to calculate expected curtate future lifetime</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; years : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>optional numeric vector of years for <code>qx</code></em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; matrix of expected curtate future lifetime with simulation number rows</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; and cohort/year columns</p>
+<hr />
+<h4 id="plot-expected-curtate-future-lifetime">Plot Expected Curtate Future Lifetime</h4>
+<p><strong>plot_exp_cfl(exp_cfl_rates, years, level = 95)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; exp_cfl_rates : matrix</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>simulated expected curtate future lifetime with simulation number rows and</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; years : vector</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>numeric vector of years for <code>exp_cfl_rates</code></em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; level : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>desired confidence level (default 95%)</em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; plot of expected curtate future lifetime with confidence intervals across years/cohorts</p>
+<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># generate simulated rates with &#39;StMoMo&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># install and load &#39;StMoMo&#39; if the package is not loaded</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># fitting lee carter model on ages 55:89</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">AUS_StMoMo</span> <span class="o">&lt;-</span> <span class="nf">StMoMoData</span><span class="p">(</span><span class="n">mortality_AUS_data</span><span class="p">,</span> <span class="n">series</span> <span class="o">=</span> <span class="s">&quot;male&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">LC</span> <span class="o">&lt;-</span> <span class="nf">lc</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">)</span> <span class="c1"># lee carter model</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">AUS_Male_Ini_Data</span> <span class="o">&lt;-</span> <span class="nf">central2initial</span><span class="p">(</span><span class="n">AUS_StMoMo</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">ages_fit</span> <span class="o">&lt;-</span> <span class="m">55</span><span class="o">:</span><span class="m">89</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">wxy</span> <span class="o">&lt;-</span> <span class="nf">genWeightMat</span><span class="p">(</span><span class="n">ages</span> <span class="o">=</span> <span class="n">ages_fit</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">AUS_Male_Ini_Data</span><span class="o">$</span><span class="n">years</span><span class="p">,</span> <span class="n">clip</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">LC_fit</span> <span class="o">&lt;-</span> <span class="nf">fit</span><span class="p">(</span><span class="n">LC</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">AUS_Male_Ini_Data</span><span class="p">,</span> <span class="n">ages.fit</span> <span class="o">=</span> <span class="n">ages_fit</span><span class="p">,</span> <span class="n">wxt</span> <span class="o">=</span> <span class="n">wxy</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1"># simulating rates for next 100 years</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="nf">set.seed</span><span class="p">(</span><span class="m">1234</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">n_sim</span> <span class="o">&lt;-</span> <span class="m">10</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">LC_sim</span> <span class="o">&lt;-</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">LC_fit</span><span class="p">,</span> <span class="n">nsim</span> <span class="o">=</span> <span class="n">n_sim</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># using kannisto method to complete rates</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">young_ages</span> <span class="o">&lt;-</span> <span class="n">LC_sim</span><span class="o">$</span><span class="n">ages</span> <span class="c1"># 55:89</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="n">old_ages</span> <span class="o">&lt;-</span> <span class="m">90</span><span class="o">:</span><span class="m">130</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">ages</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">young_ages</span><span class="p">,</span> <span class="n">old_ages</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="n">rates_hist</span> <span class="o">&lt;-</span> <span class="n">mortality_AUS_data</span><span class="o">$</span><span class="n">rate</span><span class="o">$</span><span class="n">male</span><span class="p">[</span><span class="nf">as.character</span><span class="p">(</span><span class="n">young_ages</span><span class="p">),</span> <span class="p">]</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="n">years_hist</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">rates_hist</span><span class="p">))</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="n">years_sim</span> <span class="o">&lt;-</span> <span class="n">LC_sim</span><span class="o">$</span><span class="n">years</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">years</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">years_hist</span><span class="p">,</span> <span class="n">years_sim</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="n">kannisto_sim</span> <span class="o">&lt;-</span> <span class="nf">complete_old_age</span><span class="p">(</span><span class="n">rates</span> <span class="o">=</span> <span class="n">LC_sim</span><span class="o">$</span><span class="n">rates</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">young_ages</span><span class="p">,</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>                                 <span class="n">old_ages</span> <span class="o">=</span> <span class="n">old_ages</span><span class="p">,</span> <span class="n">fitted_ages</span> <span class="o">=</span> <span class="m">80</span><span class="o">:</span><span class="m">89</span><span class="p">,</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>                                 <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;kannisto&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">kannisto_hist</span> <span class="o">&lt;-</span> <span class="nf">complete_old_age</span><span class="p">(</span><span class="n">rates</span> <span class="o">=</span> <span class="n">rates_hist</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">young_ages</span><span class="p">,</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a>                                  <span class="n">old_ages</span> <span class="o">=</span> <span class="n">old_ages</span><span class="p">,</span> <span class="n">fitted_ages</span> <span class="o">=</span> <span class="m">80</span><span class="o">:</span><span class="m">89</span><span class="p">,</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>                                  <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;kannisto&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="c1">################# USAGE BEGINS HERE ################</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="c1"># combining</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="n">kannisto_55_period</span> <span class="o">&lt;-</span> <span class="nf">combine_hist_sim</span><span class="p">(</span><span class="n">rates_hist</span> <span class="o">=</span> <span class="n">kannisto_hist</span><span class="p">,</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a>                                       <span class="n">rates_sim</span> <span class="o">=</span> <span class="n">kannisto_sim</span><span class="p">)</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="c1"># working with cohort starting from age 55</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="n">kannisto_55</span> <span class="o">&lt;-</span> <span class="nf">period2cohort</span><span class="p">(</span><span class="n">period_rates</span> <span class="o">=</span> <span class="n">kannisto_55_period</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">ages</span><span class="p">)</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="n">kannisto_55_q</span> <span class="o">&lt;-</span> <span class="nf">rate2rate</span><span class="p">(</span><span class="n">kannisto_55</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;central&quot;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&quot;prob&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43"></a>
+<a id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="n">exp_cfl_kannisto</span> <span class="o">&lt;-</span> <span class="nf">exp_cfl</span><span class="p">(</span><span class="n">qx</span> <span class="o">=</span> <span class="n">kannisto_55_q</span><span class="p">,</span> <span class="n">ages</span> <span class="o">=</span> <span class="n">ages</span><span class="p">)</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45"></a>
+<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="c1"># Expected curtate future lifetime can only be computed for</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="c1"># the earlier (complete) cohorts</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="n">exp_cfl_kannisto_clean</span> <span class="o">&lt;-</span> <span class="n">exp_cfl_kannisto</span><span class="p">[,</span> <span class="nf">as.character</span><span class="p">(</span><span class="m">1970</span><span class="o">:</span><span class="m">2043</span><span class="p">)]</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="nf">plot_exp_cfl</span><span class="p">(</span><span class="n">exp_cfl_rates</span> <span class="o">=</span> <span class="n">exp_cfl_kannisto_clean</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="m">1970</span><span class="o">:</span><span class="m">2043</span><span class="p">)</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../simulation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simulating Life Paths" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Simulating Life Paths
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Health/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../expand.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
