@@ -111,7 +111,7 @@ la <- create_policy_LA(60000, 5, 0.04, 0.05)
 ## Care Annuity (LTC)
 
 Note: Care annuities are evaluated based on the 3-State or 5-State model 
-outlined in the Health State module. Parameters should be vectors of length
+outlined in the [Health State module](../Health/overview.md). Parameters should be vectors of length
 2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
 remaining states).
 
