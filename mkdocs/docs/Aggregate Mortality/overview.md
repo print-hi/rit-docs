@@ -21,6 +21,6 @@ will usually be the mortality rates outputted by the StMoMo package. A general o
 module and the sequence of function executions can be visualised by the flowchart below:
 
 <figure markdown>
-  ![agg_mor_flowchart](/img/agg_mor_flowchart.png){width="700"}
+  ![agg_mor_flowchart](../img/agg_mor_flowchart.png){width="700"}
 </figure>
 
