@@ -3,7 +3,7 @@
 This module conducts mortality analysis using the 5 state model with the following transitions: 
 
 <figure markdown>
-  ![Image title](../img/5_state_model.png){ width="400"}
+  ![Image title](../../img/5_state_model.png){ width="400"}
 </figure>
 
 The five states are: 
@@ -24,7 +24,7 @@ individual. The paper that this module refers to is available at: https://www.ce
 
 The transition types are numbered from 1 to 12 illustrated in the table below.
 <figure markdown>
-  ![Image title](../img/5_state_model_transition.png){ width="800"}
+  ![Image title](../../img/5_state_model_transition.png){ width="800"}
 </figure>
 
 Functionalities of the module includes:
