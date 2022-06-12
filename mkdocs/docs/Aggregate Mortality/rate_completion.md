@@ -4,7 +4,7 @@ The StMoMo package has good accuracy with mortality calculations for younger age
 for older ages (>90), other methods can be applied to improve mortality estimates. 
 
 This module includes functions that apply different completion methods to 'extrapolate' more accurate 
-mortality rates at the older ages. (REMOVE THIS LATER)
+mortality rates at the older ages.
 
 ---
 
