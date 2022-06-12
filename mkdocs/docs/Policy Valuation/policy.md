@@ -106,6 +106,45 @@ rm <- create_policy_RM(100000, 0.4, 0.01, 0.05)
 la <- create_policy_LA(60000, 5, 0.04, 0.05)
 ```
 
+<a name="CA"></a>
+
+## Care Annuity (LTC)
+
+Note: Care annuities are evaluated based on the 3-State or 5-State model 
+outlined in the Health State module. Parameters should be vectors of length
+2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
+remaining states).
+
+**create_policy_CA(benefit, increase, min, loading)**
+
+&nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; **benefit** : vector 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Annual benefit for each policy*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **increase** : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Annual rate of increase for each policy*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **min** : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Minimum guaranteed period for each policy*
+
+&nbsp;&nbsp;&nbsp;&nbsp; **loading** : vector
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Loading factor for each policy*
+
+&nbsp;&nbsp; **Returns:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; Policy object
+
+&nbsp;&nbsp; **Usage:**
+
+```r
+ca <- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
+```
+
 <a name="PA"></a>
 
 ## Pooled Annuity
@@ -138,40 +177,6 @@ la <- create_policy_LA(60000, 5, 0.04, 0.05)
 
 ```r
 pa <- create_policy_PA(60000, 1000, 0.04, 0.05)
-```
-
-<a name="CA"></a>
-
-## Care Annuity (LTC)
-
-**create_policy_CA(benefit, increase, min, loading)**
-
-&nbsp;&nbsp; **Parameters:**
-
-&nbsp;&nbsp;&nbsp;&nbsp; **benefit** : vector 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Annual benefit for each policy*
-
-&nbsp;&nbsp;&nbsp;&nbsp; **increase** : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Annual rate of increase for each policy*
-
-&nbsp;&nbsp;&nbsp;&nbsp; **min** : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Minimum guaranteed period for each policy*
-
-&nbsp;&nbsp;&nbsp;&nbsp; **loading** : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Loading factor for each policy*
-
-&nbsp;&nbsp; **Returns:**
-
-&nbsp;&nbsp;&nbsp;&nbsp; Policy object
-
-&nbsp;&nbsp; **Usage:**
-
-```r
-ca <- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
 ```
 
 <a name="VA"></a>
