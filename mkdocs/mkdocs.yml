@@ -19,11 +19,6 @@ nav:
     - 'Getting Started': 'Home/start.md'
     - 'About': 'Home/about.md'
     - 'Changelog': 'Home/log.md'
-  - Policy Valuation:
-    - 'Policy Valuation/overview.md'
-    - 'Policy Valuation/policy.md'
-    - 'Policy Valuation/cashflow.md'
-    - 'Policy Valuation/pricing.md'
   - Aggregate Mortality:
     - 'Aggregate Mortality/overview.md'
     - 'Aggregate Mortality/rate_change.md'
@@ -54,6 +49,12 @@ nav:
     - 'Economic Scenario Generator/overview.md'
     - 'Economic Scenario Generator/discrete_esg.md'
     - 'Economic Scenario Generator/cts_esg.md'
+  - Policy Valuation:
+    - 'Policy Valuation/overview.md'
+    - 'Policy Valuation/policy.md'
+    - 'Policy Valuation/cashflow.md'
+    - 'Policy Valuation/pricing.md'
+    - 'Policy Valuation/workflow.md'
 
 markdown_extensions:
   - pymdownx.highlight:

@@ -12,3 +12,7 @@ File > Open project > /rit-main
 library(devtools)
 load_all(export_all = FALSE)
 ```
+
+# Demo
+
+Visit `/demo` directory to find example workflows for each module.
