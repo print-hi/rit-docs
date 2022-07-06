@@ -17,9 +17,9 @@ allowing for more robust pricing methods.
 
 ### Average First Time Entering State
 
-**first_time_stats_5(simulated_path, state)**
+**health5_first_time_stats(simulated_path, state)**
 
-&nbsp;&nbsp; **Paramters:**
+&nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
@@ -47,10 +47,10 @@ allowing for more robust pricing methods.
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000, model=2)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
-time_to_M <- first_time_stats_5(simulated_path, 1)
+time_to_M <- health5_first_time_stats(simulated_path, 1)
 
 # average initial time of entering state 1
 print(mean(time_to_M, na.rm = TRUE))
@@ -60,7 +60,7 @@ print(mean(time_to_M, na.rm = TRUE))
 
 ### Total Time Spent in State
 
-**total_time_stats_5(simulated_path, state)**
+**health5_total_time_stats(simulated_path, state)**
 
 &nbsp;&nbsp; **Paramters:**
 
@@ -92,10 +92,10 @@ print(mean(time_to_M, na.rm = TRUE))
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000, model=2)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
 
 # total time spent in MD state, ill health and functionally disabled 
-total_state_MD <- total_time_stats_5(simulated_path, 3)
+total_state_MD <- health5_total_time_stats(simulated_path, 3)
 
 # average time spent in state MD
 print(mean(total_state_MD))
@@ -108,7 +108,7 @@ print(mean(total_state_MD))
 This function is a 'helper' function, used in conjunction with the ouput of the 
 previous functions to create the mean and variance of those statistics. 
 
-**stats_produce_5(input)**
+**health5_stats_produce(input)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -124,19 +124,19 @@ previous functions to create the mean and variance of those statistics.
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model 
-simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000, model=2)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
-time_to_M <- first_time_stats_5(simulated_path, 1)
+time_to_M <- health5_first_time_stats(simulated_path, 1)
 
 # total time spent in MD state, ill health and functionally disabled 
-total_state_MD <- total_time_stats_5(simulated_path, 3)
+total_time_state_MD <- health5_total_time_stats(simulated_path, 3)
 
 # produce mean and variance of first time into M state
-first_time_M_stats <- stats_produce_5(time_to_M)
+first_time_M_stats <- health5_stats_produce(time_to_M)
 
 # produce mean and variance of time spent in MD state
-time_in_MD_stats <- stats_produce_5(total_state_MD)
+total_time_in_MD_stats <- health5_stats_produce(total_time_state_MD)
 ```
 
 

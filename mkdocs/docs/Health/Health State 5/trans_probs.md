@@ -14,9 +14,13 @@ transition probability matrices.
 ---
 ### Get Transition Rates at a Certain Age
 
-**transition_rate_5(params,age,gender,i,latent,model)**
+**health5_get_trans_rates(model, params, age, gender, i, latent)**
 
 &nbsp;&nbsp; **Parameters**
+
+&nbsp;&nbsp;&nbsp;&nbsp; model : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend model, 'F' for frailty model*
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
@@ -37,10 +41,6 @@ transition probability matrices.
 &nbsp;&nbsp;&nbsp;&nbsp; latent : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial value of the latent factor, normally take the value 0*
-
-&nbsp;&nbsp;&nbsp;&nbsp; model : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *1 for static, 2 for trend, 3 for frailty*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -50,15 +50,19 @@ transition probability matrices.
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_rates=transition_rate_5(params=params_5_frailty, age=65, gender=0, i=8, latent=0, model=3)
+transition_rates=health5_get_trans_rates(model='F', params=params_5_frailty, age=65, gender=0, i=8, latent=0)
 ```
 
 ---
 ### Get a Transition Probability Matrix at a Certain Age
 
-**transition_probability_5(params,age,gender,i,latent,model)**
+**health5_get_trans_probs(model, params, age, gender, i, latent)**
 
 &nbsp;&nbsp; **Parameters**
+
+&nbsp;&nbsp;&nbsp;&nbsp; model : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend model, 'F' for frailty model*
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
@@ -80,10 +84,6 @@ transition_rates=transition_rate_5(params=params_5_frailty, age=65, gender=0, i=
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial value of the latent factor, normally take the value 0*
 
-&nbsp;&nbsp;&nbsp;&nbsp; model : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *1 for static, 2 for trend, 3 for frailty*
-
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; 12 by 1 vector containing the transition rates for transition types 1 to 12 at the input age
@@ -92,15 +92,19 @@ transition_rates=transition_rate_5(params=params_5_frailty, age=65, gender=0, i=
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_probabilities=transition_probability_5(params=params_5_frailty, age=65, gender=0, i=8, latent=0, model=3)
+transition_probabilities=health5_get_trans_probs(model='F', params=params_5_frailty, age=65, gender=0, i=8, latent=0)
 ```
 
 ---
 ### Get Full List of Transition Probability Matrices from Initial Age to Age 110
 
-**get_full_trans_prob_matrix_5(params, init_age, gender, i, model)**
+**health5_get_list_trans_prob_matrix(model, params, init_age, gender, i)**
 
 &nbsp;&nbsp; **Parameters**
+
+&nbsp;&nbsp;&nbsp;&nbsp; model : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend model, 'F' for frailty model*
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
@@ -116,11 +120,7 @@ transition_probabilities=transition_probability_5(params=params_5_frailty, age=6
 
 &nbsp;&nbsp;&nbsp;&nbsp; i : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index wave index = (interview year - 1998)/2 + 1*
-
-&nbsp;&nbsp;&nbsp;&nbsp; model : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *1 for static, 2 for trend, 3 for frailty*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer for the wave index = (interview year - 1998)/2 + 1*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -130,7 +130,7 @@ transition_probabilities=transition_probability_5(params=params_5_frailty, age=6
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-full_trans_probs_matrics <- get_full_trans_prob_matrix_5(params=params_5_frailty, init_age=65, gender=0, i=8, model=3)
+trans_prob_matrix_age65to110 <- health5_get_list_trans_prob_matrix(model='F', params=params_5_frailty, init_age=65, gender=0, i=8)
 ```
 
 

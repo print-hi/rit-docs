@@ -19,9 +19,13 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 ### Simulating State Paths for Individuals
 
-**simulate_individual_path_5(init_age, init_state, params, gender, i, cohort = 10000, model)**
+**health5_simulate_individual_path(model, init_age, init_state, params, gender, i, cohort = 10000)**
 
 &nbsp;&nbsp; **Parameters:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; model : character
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'S' for static model, 'T' for trend model, 'F' for frailty model*
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
@@ -47,10 +51,6 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of lives to simulate*
 
-&nbsp;&nbsp;&nbsp;&nbsp; model : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *1 for static, 2 for trend, 3 for frailty*
-
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; matrix (see below for details)
@@ -59,7 +59,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 ```r
 # simulation for 10000 males aged 65, initially healthy under the frailty model
-simulated_path <- simulate_individual_path_5(init_age=65, init_state=0, params=params_5_frailty, gender=0, i=8, cohort = 10000, model=3)
+simulated_path <- health5_simulate_individual_path(model='F', init_age=65, init_state=0, params=params_5_frailty, gender=0, i=8, cohort = 10000)
 ```
 
 The output is a matrix where each row represents one individual's transition into different 
