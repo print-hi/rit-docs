@@ -36,7 +36,7 @@ while the correlated-factor model satisfies
 
 ![](https://latex.codecogs.com/svg.image?dX_t^5&space;=&space;[\theta_5&space;&plus;&space;X_t^1&space;&plus;&space;X_t^2]&space;dt&space;&plus;&space;\sum_{i=1}^5&space;\sigma_{5i}&space;dW_t^i.)
 
-The vector $(\theta_1, \cdots, \theta_5)^\top$ is interpreted as the mean vector, $K = (\kappa_{ij})$ is the mean-reversion matrix, and $\Sigma = (\sigma_{ij})$ is the covariance matrix. 
+The vector ![](https://latex.codecogs.com/svg.image?(\theta_1,&space;\cdots,&space;\theta_5)^\top) is interpreted as the mean vector, $K = (\kappa_{ij})$ is the mean-reversion matrix, and $\Sigma = (\sigma_{ij})$ is the covariance matrix. 
 
 The results are still depicted with the same simulation frequency options as the discrete case, but the calculations are based in continuous time. 
 
