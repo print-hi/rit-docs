@@ -44,7 +44,7 @@ The stochastic discount factor is defined as:
 
 ![](https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right),)
 
-where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and $\mathbf{\lambda}_t$ is the market price of risk process which is assumed to be affine over factors (1)-(8). 
+where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t) and ![](https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t) respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and ![](https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t) is the market price of risk process which is assumed to be affine over factors (1)-(8). 
 
 
 ---
