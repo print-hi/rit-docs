@@ -113,13 +113,13 @@ sim$stock_price
 
     (a) Procedure for parameter estimation: 
         
-        (i) Under the real-world measure, computed measurement equation and state transition equation. 
+       (i) Under the real-world measure, computed measurement equation and state transition equation. 
             
-        (ii) Applied Kalman filtering to estimate the parameters. The maximum likelihood estimators were obtained from the Nelder-Mead algorithm. 
+       (ii) Applied Kalman filtering to estimate the parameters. The maximum likelihood estimators were obtained from the Nelder-Mead algorithm. 
             
-        Procedure for forecasts: Used the state transition equation: 
+       Procedure for forecasts: Used the state transition equation: 
          
-        ![](https://latex.codecogs.com/svg.image?X_{t&plus;\Delta&space;t}&space;=&space;\int_0^{\Delta&space;t}&space;\exp(-K&space;s)ds&space;\theta&space;&plus;&space;\exp(-K&space;\Delta&space;t)&space;X_t&space;&plus;&space;\eta_t,&space;\eta_t&space;\sim&space;\mathcal{N}&space;(0,Q),&space;Q&space;=&space;\int_0^{\Delta&space;t}&space;\exp(-K&space;s)&space;\Sigma&space;\Sigma^\top&space;\exp&space;(-K^\top&space;s)&space;ds)
+       ![](https://latex.codecogs.com/svg.image?X_{t&plus;\Delta&space;t}&space;=&space;\int_0^{\Delta&space;t}&space;\exp(-K&space;s)ds&space;\theta&space;&plus;&space;\exp(-K&space;\Delta&space;t)&space;X_t&space;&plus;&space;\eta_t,&space;\eta_t&space;\sim&space;\mathcal{N}&space;(0,Q),&space;Q&space;=&space;\int_0^{\Delta&space;t}&space;\exp(-K&space;s)&space;\Sigma&space;\Sigma^\top&space;\exp&space;(-K^\top&space;s)&space;ds)
 
     (b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
 
