@@ -95,13 +95,13 @@ sim$zcp3m_yield$trajectory_103
 
   (a) Procedure for parameter estimation: 
   
-        (i) Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
+      * Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
         
-        (ii) Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
+      * Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
         
-        (iii) Fitted the VAR model using ordinary least squares. This was followed by evaluation. 
+      * Fitted the VAR model using ordinary least squares. This was followed by evaluation. 
         
-        (iv) Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
+      * Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
         
        Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. 
   
