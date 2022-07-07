@@ -24,7 +24,7 @@ The discrete-time economic scenario generator simulates the trajectories of 11 A
 
 (11) Stochastic discount factors (pricing kernels).
 
-The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. 
+Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. The market price of risk process for factor (11) is affine over the factors (1)-(8). 
 
 Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
 
@@ -68,7 +68,7 @@ where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively de
 
 &nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as percent change*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (a) below. *
 
 &nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical 
 
@@ -76,7 +76,7 @@ where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively de
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE.  
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE. See note (b) for explanations on the negativity of output values. 
 
 &nbsp;&nbsp; **Usage:**
 
@@ -90,6 +90,13 @@ sim$zcp3m_yield
 # if we wanted a specific trajectory, say 103
 sim$zcp3m_yield$trajectory_103
 ```
+
+&nbsp;&nbsp; **Notes:**
+
+(a) Large percentage changes appear if the original values are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
+
+(b) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10) are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. 
+
 
 &nbsp;&nbsp; **References:**
 
