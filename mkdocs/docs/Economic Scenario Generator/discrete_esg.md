@@ -24,7 +24,7 @@ The discrete-time economic scenario generator simulates the trajectories of 11 A
 
 (11) Stochastic discount factors (pricing kernels).
 
-Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. The market price of risk process for factor (11) is affine over the factors (1)-(8). 
+Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. 
 
 Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
 
@@ -44,7 +44,7 @@ The stochastic discount factor is defined as:
 
 ![](https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right),)
 
-where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and $\mathbf{\lambda}_t$ is the market price of risk process.
+where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and $\mathbf{\lambda}_t$ is the market price of risk process which is assumed to be affine over factors (1)-(8). 
 
 
 ---
@@ -68,7 +68,7 @@ where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively de
 
 &nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (a) below. *
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical 
 
@@ -76,7 +76,7 @@ where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively de
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE. See note (b) for explanations on the negativity of output values. 
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE from 01-01-2021. See note (c) for explanations on the negativity of output values. 
 
 &nbsp;&nbsp; **Usage:**
 
@@ -93,9 +93,21 @@ sim$zcp3m_yield$trajectory_103
 
 &nbsp;&nbsp; **Notes:**
 
-(a) Large percentage changes appear if the original values are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
+  (a) Procedure for parameter estimation: 
+  
+        (i) Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
+        
+        (ii) Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
+        
+        (iii) Fitted the VAR model using ordinary least squares. This was followed by evaluation. 
+        
+        (iv) Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
+        
+       Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. 
+  
+  (b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
 
-(b) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10) are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. 
+  (c) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10) are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. 
 
 
 &nbsp;&nbsp; **References:**
