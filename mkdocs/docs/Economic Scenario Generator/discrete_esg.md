@@ -50,7 +50,7 @@ where $\mathbf{e}_1^\top \mathbf{z}_t$ and $\mathbf{\epsilon}_t$ respectively de
 ---
 
 
-**get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', per_change = FALSE, return_sdf = FALSE)**
+**get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE)**
 
 &nbsp;&nbsp; **Parameters:**
 
