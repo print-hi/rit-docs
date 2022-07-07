@@ -95,15 +95,15 @@ sim$zcp3m_yield$trajectory_103
 
   (a) Procedure for parameter estimation: 
   
-      * Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
+  * Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
         
-      * Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
+  * Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
         
-      * Fitted the VAR model using ordinary least squares. This was followed by evaluation. 
+  * Fitted the VAR model using ordinary least squares. This was followed by evaluation. 
         
-      * Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
+  * Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
         
-       Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. 
+   Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. 
   
   (b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
 
