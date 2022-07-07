@@ -37,7 +37,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$, $\alpha$, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 
@@ -59,7 +59,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 
 ```r
 # simulation for 10000 males aged 65, initially healthy under the frailty model
-simulated_path <- health5_simulate_individual_path(model='F', init_age=65, init_state=0, params=params_5_frailty, gender=0, i=8, cohort = 10000)
+simulated_path <- health5_simulate_individual_path(model='F', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
 ```
 
 The output is a matrix where each row represents one individual's transition into different 

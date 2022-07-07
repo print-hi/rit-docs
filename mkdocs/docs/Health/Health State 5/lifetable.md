@@ -25,7 +25,7 @@ the initial state and the initial age that the starting cohort is in.
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$, $\alpha$, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; gender : numeric
 
@@ -61,7 +61,7 @@ the initial state and the initial age that the starting cohort is in.
 
 ```r
 # for male aged 65 at wave index i, initially in the health state, using the frailty model with parameters 'params'
-life_table <- health5_get_life_table(model='F', params=params_5_frailty, init_age=65, gender=0, i=8, latent=0, initial_state=0, n_sim=100)
+life_table <- health5_get_life_table(model='F', params=US_HRS_5, init_age=65, gender=0, i=8, latent=0, initial_state=0, n_sim=100)
 ```
 
 When using static and trend model, 'n_sim' should be set to 1 to avoid generating the same life table repeatedly. 

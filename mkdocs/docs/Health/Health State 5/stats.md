@@ -47,7 +47,7 @@ allowing for more robust pricing methods.
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
 time_to_M <- health5_first_time_stats(simulated_path, 1)
@@ -92,7 +92,7 @@ print(mean(time_to_M, na.rm = TRUE))
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
 
 # total time spent in MD state, ill health and functionally disabled 
 total_state_MD <- health5_total_time_stats(simulated_path, 3)
@@ -124,7 +124,7 @@ previous functions to create the mean and variance of those statistics.
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model 
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=params_5_trend, gender=0, i=8, cohort = 10000)
+simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
 time_to_M <- health5_first_time_stats(simulated_path, 1)

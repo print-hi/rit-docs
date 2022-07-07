@@ -24,7 +24,7 @@ transition probability matrices.
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$, $\alpha$, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; age : numeric
 
@@ -50,7 +50,7 @@ transition probability matrices.
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_rates=health5_get_trans_rates(model='F', params=params_5_frailty, age=65, gender=0, i=8, latent=0)
+transition_rates=health5_get_trans_rates(model='F', params=US_HRS_5, age=65, gender=0, i=8, latent=0)
 ```
 
 ---
@@ -66,7 +66,7 @@ transition_rates=health5_get_trans_rates(model='F', params=params_5_frailty, age
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$, $\alpha$, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; age : numeric
 
@@ -92,7 +92,7 @@ transition_rates=health5_get_trans_rates(model='F', params=params_5_frailty, age
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-transition_probabilities=health5_get_trans_probs(model='F', params=params_5_frailty, age=65, gender=0, i=8, latent=0)
+transition_probabilities=health5_get_trans_probs(model='F', params=US_HRS_5, age=65, gender=0, i=8, latent=0)
 ```
 
 ---
@@ -108,7 +108,7 @@ transition_probabilities=health5_get_trans_probs(model='F', params=params_5_frai
 
 &nbsp;&nbsp;&nbsp;&nbsp; params : dataframe
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters to construct the five  state model. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$ (if trend or frailty model), $\alpha$ (if frailty model). The columns are 1-12 transition types.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are $\beta$, $\gamma^{\text{age}}$, $\gamma^{\text{f}}$, $\phi$, $\alpha$, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
@@ -130,7 +130,7 @@ transition_probabilities=health5_get_trans_probs(model='F', params=params_5_frai
 
 ```r
 # for male aged 65 at wave index i, using the frailty model with parameters 'param'
-trans_prob_matrix_age65to110 <- health5_get_list_trans_prob_matrix(model='F', params=params_5_frailty, init_age=65, gender=0, i=8)
+trans_prob_matrix_age65to110 <- health5_get_list_trans_prob_matrix(model='F', params=US_HRS_5, init_age=65, gender=0, i=8)
 ```
 
 
