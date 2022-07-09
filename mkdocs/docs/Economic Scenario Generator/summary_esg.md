@@ -18,7 +18,7 @@ Period-by-period summary statistics such as quantiles, mean, and standard deviat
 
 &nbsp;&nbsp;&nbsp;&nbsp; rm.na : logical
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE if any NA and NaN's are removed from data before computing the statistics*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE if any NA and NaN's are removed from data before computing the statistics. Default TRUE*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -37,7 +37,6 @@ gdp_summ <- esg_summary(sim$GDP)
 all_summ <- esg_summary(sim, probs = seq(0,1,0.2))
 
 # summary statistics for self-defined dataframes 
-
 test_data = as.data.frame(matrix(1:100, nrow = 4, byrow = T))
 test_data2 = as.data.frame(matrix(1001:2000, nrow = 40, byrow = T))
 test_list = list(test_data, test_data2)
