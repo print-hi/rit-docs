@@ -9,23 +9,24 @@ theme:
 repo_url: https://github.com/print-hi/retirement-toolkit
 
 
-pages:
-  - Home: 'index.md'
+# =============================================================================
+# pages:
+#   - Home: 'index.md'
+# =============================================================================
 nav:
+  - Home: 'index.md'
   - Overview:
     - 'Getting Started': 'Home/start.md'
     - 'About': 'Home/about.md'
     - 'Changelog': 'Home/log.md'
-  - Policy Valuation:
-    - 'Policy Valuation/overview.md'
-    - 'Policy Valuation/policy.md'
-    - 'Policy Valuation/cashflow.md'
-    - 'Policy Valuation/pricing.md'
   - Aggregate Mortality:
     - 'Aggregate Mortality/overview.md'
-    - 'Aggregate Mortality/age_completion.md'
     - 'Aggregate Mortality/rate_change.md'
+    - 'Aggregate Mortality/rate_completion.md'
+    - 'Aggregate Mortality/period_cohort.md'
+    - 'Aggregate Mortality/rate_survival.md'
     - 'Aggregate Mortality/risk_neutral.md'
+    - 'Aggregate Mortality/simulation.md'
     - 'Aggregate Mortality/stats_functions.md'
   - Health State:
     - 'Health/overview.md'
@@ -48,6 +49,12 @@ nav:
     - 'Economic Scenario Generator/overview.md'
     - 'Economic Scenario Generator/discrete_esg.md'
     - 'Economic Scenario Generator/cts_esg.md'
+  - Policy Valuation:
+    - 'Policy Valuation/overview.md'
+    - 'Policy Valuation/policy.md'
+    - 'Policy Valuation/cashflow.md'
+    - 'Policy Valuation/pricing.md'
+    - 'Policy Valuation/workflow.md'
 
 markdown_extensions:
   - pymdownx.highlight:

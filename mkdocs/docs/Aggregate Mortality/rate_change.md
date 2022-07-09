@@ -1,108 +1,64 @@
-# Rate Changing
+# Mortality Rate Changing
 
-The age completion functions usually return mortality rates. However, part of the functionality
-of this module is converting the real world probability based survival function to a risk free probability
-measure survival function. However, this requires the mortality rates to be converted to survival 
-probabilities. 
+Mortality rates can be expressed in different types, such as central death rates,
+1-year death probabilities and force of mortality. Different mortality rate completion methods
+require different types of mortality rates so this module includes a helper function to change
+between the types of mortality rates.
 
-This functionality is covered by 2 helper functions.
+We use the following notation for an individual aged $x$ in year $y$ for each simulation $i$:
 
+* $m_{x, y}^{(i)}$: central death rate
+* $q_{x, y}^{(i)}$: 1-year death probability
+* $\mu_{x, y}^{(i)}$: force of mortality
+
+Implementation assumes a constant force of mortality for fractional ages, 
+resulting in the following conversions:
+
+* $q_{x, y}^{(i)} = 1 - e^{-\mu_{x, y}^{(i)}}$
+* $\mu_{x, y}^{(i)} = m_{x, y}^{(i)}$
+* $m_{x, y}^{(i)}  = -\log(1 - q_{x, y}^{(i)})$
 ---
 
-### Mortality Rate to Survival Function
+### Mortality Rate Changing
 
-**rate2survival(rates, ages, from = 'prob', init_age = NULL, years = NULL)**
+**rate2rate <- function(rates, from, to)**
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix
+&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix, or 3D array of mortality rates with age*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns*
 
-&nbsp;&nbsp;&nbsp;&nbsp; ages : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of ages for `rates`*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(and simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; from : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *string for type of rate to be converted: 'central', 'prob', or 
-'force'*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *input type of mortality rates: 'central' for central death rates,*
 
-&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial age for survival function to be calculated at (default smallest age)*
-
-&nbsp;&nbsp;&nbsp;&nbsp; years : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector of years for `rates`*
-
-&nbsp;&nbsp; **Returns:**
-
-&nbsp;&nbsp;&nbsp;&nbsp; matrix of associated survival function 
-
-&nbsp;&nbsp; **Usage:**
-
-```r
-# suppose we have mortality rate matrix generated from StoMoMo saved
-# under the variable 'mortality_rates'
-
-ages <- 30:90
-old_ages <- 91:130
-
-# use coal-kisker method to complete the rates
-completed_rates <- CK(mortality_rates, ages, old_ages)
-
-# note that CK returns central mortality rates 
-new_ages <- 30:130
-surv_func <- rate2survival(completed_rates, new_ages, from = 'central')
-```
-
----
-
-### Survival Function to Mortality Rate
-
-**survival2rate(surv, ages, to = 'prob', years = NULL)**
-
-&nbsp;&nbsp; **Parameters:**
-
-&nbsp;&nbsp;&nbsp;&nbsp; surv : matrix
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing survival function*
-
-&nbsp;&nbsp;&nbsp;&nbsp; ages : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *vector of desired ages for the resulting mortality rates*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp;&nbsp;&nbsp; to : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *string representing type of mortality rate to conver to: 'central', 'prob', or 'force'*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *desired output type of mortality rates: 'central' for central death rates,*
 
-&nbsp;&nbsp;&nbsp;&nbsp; years : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *optional vector of years for `surv`*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'prob' for 1 year death probabilities, 'force' for force of mortality*
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; matrix of associated mortality rates
+&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of converted mortality rates with age rows,
+cohort/year columns 
+
+&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
 
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# suppose we have a survival function from ages 50:130 saved 
-# under the variable 'surv_func'
+# consider the male mortality rates from the data file 'mortality_AUS_data'
 
-ages <- 50:130
-mortality_rates <- survival2rate(surv_func, ages, to = 'prob')
+central_rates <- mortality_AUS_data$rate$male
+
+# convert to 1-yr death probabilities
+
+death_prob <- rate2rate(central_rates, from = "central", to = "prob")
 ```
-
-Note that transferring from survival function to rate is mainly used after converting
-a survival function from real world measure to risk free measure. 
-
-
-
-
-
-
-
-
 

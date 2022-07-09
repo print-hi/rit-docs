@@ -1,8 +1,6 @@
-# Overview
-
 # Retirement Income Toolkit
 
-Toolkit of R modules for researchers to use in modelling retirement and age care risks, simulating cash flows for a range of retirement and long-term care products including Australian government support for Age Pensions and Aged Care based on means-testing, pricing and quantifying risk for a range of finance and insurance products to finance retirement and aged care risks.
+Toolkit of R modules for researchers to use in modeling retirement and age care risks, simulating cash flows for a range of retirement and long-term care products including Australian government support for Age Pensions and Aged Care based on means-testing, pricing and quantifying risk for a range of finance and insurance products to finance retirement and aged care risks.
 
 ## Toolkit Modules
 
@@ -25,7 +23,7 @@ Output will include:
 - Distributions of future lifetimes along (with summary statistics including expected future lifetime, standard deviation of future lifetime, impact of uncertainty in mortality rates versus expected mortality rates and survival probabilities)
 
 ---- 
-### Health State Modelling 
+### Health State Modeling 
 
 This module will produce transition probabilities for health state and functional disability models for a specified initial age (from 50 to 65 up to age 110) and health state based on the calibrated parametrization of models. Models to include static models, improvement trends in transition rates and stochastic transition rates (latent factor). 
 
@@ -48,7 +46,7 @@ Outputs are joint simulated scenarios over specified horizons (age 50 to 110 –
 
 The R code will input the parameters for a selected model (VAR) and generate:
  
-- Simulated (correlated) paths for all the variables to use in cash flow modelling + computing expected values
+- Simulated (correlated) paths for all the variables to use in cash flow modeling + computing expected values
 - Valuation of cash flows in the cash flow module
 - Distributions of the variables at different horizons – 5 years, 10 years, 30 years
 - Distributions of values of assets in real terms (deflated by GDP, CPI) over different horizons to show the impact of real returns and uncertainty in returns on other assets (equities, cash, housing, rolling bonds).

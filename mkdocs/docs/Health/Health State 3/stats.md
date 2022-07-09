@@ -3,14 +3,15 @@
 A lot of mortality statistics can be generated to analyse survival of a certain individual. The following
 functions return the expected value and variance associated with the lifetime statistic.
 
-The functions can use 1 of 2 different inputs to produce the required statistic:
+The functions can use either of the different inputs below to produce the required statistic:
 
 * list of transition probability matrices from `get_trans_probs`
 
 * simulated path matrix from `simulate_path`
 
 If the first option is used, the functions use simulation to find expected value and variance. 
-Hence, there is a stochastic component to these results.
+Hence, there is a stochastic component to these results. If both inputs are provided, then the
+simulated path wil be used, and no simulation will occur within the function.
 
 Each function comes with a frailty version, which has the same name with an 'F' attached to it (eg. 
 `afl` -> `aflF`). The frailty version simulates 'n' unique latent paths, which adds another
@@ -82,7 +83,7 @@ afl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -160,7 +161,7 @@ hfl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -182,8 +183,7 @@ hflF(65, init_state = 0, female = 0, 2022, US_HRS)
 
 This function calculates the average future lifetime spent in the disabled state, and its variance.
 
-!!! note
-    Under the same simulated lifetime, average future lifetime is equal to the sum of healthy 
+Not that under the same simulated lifetime, average future lifetime is equal to the sum of healthy 
     lifetime and disabled lifetime. 
 
 **afld(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
@@ -242,7 +242,7 @@ afld(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -265,9 +265,7 @@ afldF(65, init_state = 0, female = 0, 2022, US_HRS)
 This function calculates average time for onset of disability, given that the 
 individual becomes disabled. 
 
-!!! note
-    Initial state is not required for this function, as disabled initial state is 
-    trivial. 
+Note that an initial state is not required for this function, as disabled initial state is  trivial. 
 
 **time_to_disabled(init_age, trans_probs = NULL, simulated_path = NULL)**
 
@@ -317,7 +315,7 @@ time_to_disabled(65, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
@@ -401,7 +399,7 @@ survival_stats(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **param_file** : character OR dataframe/tibble
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character for file path or dataframe/tibble of parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *File path, or dataframe/tibble of parameters (generally, use US_HRS or china_CLHLS)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **n** : numeric
 
