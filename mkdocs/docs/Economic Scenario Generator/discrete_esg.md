@@ -50,7 +50,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 ---
 
 
-**get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE)**
+**esg_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -82,7 +82,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 ```r
 # simulate 10 years of data
-sim <- get_var_simulations(num_years = 10, num_paths = 10000, frequency = 'year')
+sim <- esg_var_simulations(num_years = 10, num_paths = 10000, frequency = 'year')
 
 # suppose we wish to look at the 3 months zero coupon bonds
 sim$zcp3m_yield
