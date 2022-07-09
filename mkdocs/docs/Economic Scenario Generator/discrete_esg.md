@@ -56,7 +56,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 2021-01-01*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021*
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
 
