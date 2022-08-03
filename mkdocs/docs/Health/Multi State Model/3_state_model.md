@@ -1,4 +1,4 @@
-# Overview: 3-State
+# 3-State Model
 
 This module conducts mortality analysis using the 3 state model with the following transitions: 
 

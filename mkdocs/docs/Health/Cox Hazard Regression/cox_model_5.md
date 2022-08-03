@@ -1,4 +1,4 @@
-# Cox Hazard Model 
+# 5-State Model
 
 ## General Principle
 

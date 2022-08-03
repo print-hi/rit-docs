@@ -1,4 +1,4 @@
-# Statistics 
+# 5-State Model
 
 With the use of simulated paths, a lot of mortality statistics can be generated 
 to analyse or simply gain insight into the survival characteristics of certain individuals. 
@@ -62,7 +62,7 @@ print(mean(time_to_M, na.rm = TRUE))
 
 **health5_total_time_stats(simulated_path, state)**
 
-&nbsp;&nbsp; **Paramters:**
+&nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 

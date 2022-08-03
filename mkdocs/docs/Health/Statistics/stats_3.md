@@ -1,4 +1,4 @@
-# Statistics
+# 3-State Model
 
 A lot of mortality statistics can be generated to analyse survival of a certain individual. The following
 functions return the expected value and variance associated with the lifetime statistic.
@@ -19,7 +19,7 @@ level of randomness in the statistic. It also requires the same parameters neede
 set of transition probability matrices (see below examples). By default, frailty functions
 simulate 1000 unique latent factors. 
 
-For all code examples below, we will use an male individual aged 65 in year 2022.
+For all code examples below, we will use a male individual aged 65 in year 2022.
 
 ---
 
@@ -67,11 +67,11 @@ afl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
@@ -192,7 +192,7 @@ Not that under the same simulated lifetime, average future lifetime is equal to 
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
@@ -226,11 +226,11 @@ afld(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
@@ -303,7 +303,7 @@ time_to_disabled(65, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
@@ -349,7 +349,7 @@ The function returns all the information (mean and variance of each statistic) a
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
@@ -383,11 +383,11 @@ survival_stats(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_age** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of indiviudal*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *numeric denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
