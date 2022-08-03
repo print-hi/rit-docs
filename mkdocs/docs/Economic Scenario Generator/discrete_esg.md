@@ -104,6 +104,8 @@ sim$zcp3m_yield$trajectory_103
   * Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. 
         
    Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. 
+   
+   Detailed R codes for parameter estimation can be found in the economic tutorial/economic. 
   
   (b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
 
