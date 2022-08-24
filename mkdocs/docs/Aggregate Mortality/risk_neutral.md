@@ -47,7 +47,7 @@ the risk-adjusted pdfs are identical.
 
 ### Survival Function Risk-Neutral Transformation
 
-**survivalP2Q(StP, method, lambda)**
+**mortality_survivalP2Q(StP, method, lambda)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -100,15 +100,16 @@ ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 fitted_ages <- 76:90
 
-completed_rates <- complete_old_age(AUS_male_rates, ages, old_ages,
-                                    method = "kannisto", type = "central",
-                                    fitted_ages = fitted_ages)
+completed_rates <- mortality_complete_old_age(
+                    AUS_male_rates, ages, old_ages, method = "kannisto", 
+                    type = "central", fitted_ages = fitted_ages)
 
 all_ages <- 0:130
-surv_func <- rate2survival(completed_rates, ages = all_ages,
-                           from = 'central', init_age = 55)
+surv_func <- mortality_rate2survival(
+              completed_rates, ages = all_ages,
+              from = 'central', init_age = 55)
 
 # convert from P to Q measure survival function
-surv_func_Q <- survivalP2Q(surv_func, method = "wang", lambda = 1.5)
+surv_func_Q <- mortality_survivalP2Q(surv_func, method = "wang", lambda = 1.5)
 ```
 
