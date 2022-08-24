@@ -13,9 +13,9 @@ generated. These include:
 
 ### Distribution and quantile functions
 
-**mortality_psurv(surv_fun, surv_time)**
+**psurv(surv_fun, surv_time)**
 
-**mortality_qsurv(surv_fun, surv_prob)**
+**qsurv(surv_fun, surv_prob)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -44,30 +44,29 @@ ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 fitted_ages <- 76:90
 
-completed_rates <- mortality_complete_old_age(
-                    AUS_male_rates, ages, old_ages, method = "kannisto", 
-                    type = "central", fitted_ages = fitted_ages)
+completed_rates <- complete_old_age(AUS_male_rates, ages, old_ages,
+                                    method = "kannisto", type = "central",
+                                    fitted_ages = fitted_ages)
 
 all_ages <- 0:130
-surv_func <- mortality_rate2survival(
-              completed_rates, ages = all_ages,
-              from = 'central', init_age = 55)
+surv_func <- rate2survival(completed_rates, ages = all_ages,
+                           from = 'central', init_age = 55)
 
 # take vector of survival function (consider year 2017)
 surv_func_2017 <- surv_func[, "2017"]
 
 # calculate probability of surviving 10 and 20 years
-mortality_psurv(surv_func_2017, c(10, 20))
+psurv(surv_func_2017, c(10, 20))
 
 # calculating the 80% and 95% quantile survival time
-mortality_qsurv(surv_func_2017, c(0.8, 0.95))
+qsurv(surv_func_2017, c(0.8, 0.95))
 ```
 
 ---
 
 ### Survival Function Simulation
 
-**mortality_plot_surv_sim(surv_sim, init_age, target_year, level = 95, years = NULL)**
+**plot_surv_sim(surv_sim, init_age, target_year, level = 95, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -121,27 +120,26 @@ young_ages <- LC_sim$ages # 55:89
 old_ages <- 90:130
 ages <- c(young_ages, old_ages)
 
-kannisto_sim <- mortality_complete_old_age(
-                 rates = LC_sim$rates, ages = young_ages, 
-                 old_ages = old_ages, fitted_ages = 80:89,
-                 method = "kannisto", type = "central")
+kannisto_sim <- complete_old_age(rates = LC_sim$rates, ages = young_ages,
+                                 old_ages = old_ages, fitted_ages = 80:89,
+                                 method = "kannisto", type = "central")
 
 # create period survival function for individual aged 55
-surv_sim <- mortality_rate2survival(kannisto_sim, ages, from = "central")  
+surv_sim <- rate2survival(kannisto_sim, ages, from = "central")  
 
-mortality_plot_surv_sim(surv_sim, 55, 2050)
+plot_surv_sim(surv_sim, 55, 2050)
 ```
 
 ---
 
 ### Expected Curtate Future Lifetime
 
-We introduce 2 helper functions `mortality_combine_hist_sim` and `mortality_exp_cfl` to calculate expected curtate future lifetime
+We introduce 2 helper functions `combine_hist_sim` and `exp_cfl` to calculate expected curtate future lifetime
 which is required for plotting.
 
 #### Combine Historical and Simulated Rates
 
-**mortality_combine_hist_sim(rates_hist, rates_sim)**
+**combine_hist_sim(rates_hist, rates_sim)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -165,7 +163,7 @@ which is required for plotting.
 
 #### Calculate Expected Curtate Future Lifetime
 
-**mortality_exp_cfl(qx, ages, init_age = NULL, years = NULL)**
+**exp_cfl(qx, ages, init_age = NULL, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -197,7 +195,7 @@ which is required for plotting.
 
 #### Plot Expected Curtate Future Lifetime
 
-**mortality_plot_exp_cfl(exp_cfl_rates, years, level = 95)**
+**plot_exp_cfl(exp_cfl_rates, years, level = 95)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -248,29 +246,27 @@ years_hist <- as.numeric(colnames(rates_hist))
 years_sim <- LC_sim$years
 years <- c(years_hist, years_sim)
 
-kannisto_sim <- mortality_complete_old_age(
-                 rates = LC_sim$rates, ages = young_ages,
-                 old_ages = old_ages, fitted_ages = 80:89,
-                 method = "kannisto", type = "central")
-kannisto_hist <- mortality_complete_old_age(
-                  rates = rates_hist, ages = young_ages,
-                  old_ages = old_ages, fitted_ages = 80:89,
-                  method = "kannisto", type = "central")
+kannisto_sim <- complete_old_age(rates = LC_sim$rates, ages = young_ages,
+                                 old_ages = old_ages, fitted_ages = 80:89,
+                                 method = "kannisto", type = "central")
+kannisto_hist <- complete_old_age(rates = rates_hist, ages = young_ages,
+                                  old_ages = old_ages, fitted_ages = 80:89,
+                                  method = "kannisto", type = "central")
 
 ################# USAGE BEGINS HERE ################
 
 # combining
-kannisto_55_period <- mortality_combine_hist_sim(
-                       rates_hist = kannisto_hist, rates_sim = kannisto_sim)
+kannisto_55_period <- combine_hist_sim(rates_hist = kannisto_hist,
+                                       rates_sim = kannisto_sim)
 
 # working with cohort starting from age 55
-kannisto_55 <- mortality_period2cohort(period_rates = kannisto_55_period, ages = ages)
-kannisto_55_q <- mortality_rate2rate(kannisto_55, from = "central", to = "prob")
+kannisto_55 <- period2cohort(period_rates = kannisto_55_period, ages = ages)
+kannisto_55_q <- rate2rate(kannisto_55, from = "central", to = "prob")
 
-exp_cfl_kannisto <- mortality_exp_cfl(qx = kannisto_55_q, ages = ages)
+exp_cfl_kannisto <- exp_cfl(qx = kannisto_55_q, ages = ages)
 
 # Expected curtate future lifetime can only be computed for
 # the earlier (complete) cohorts
 exp_cfl_kannisto_clean <- exp_cfl_kannisto[, as.character(1970:2043)]
-mortality_plot_exp_cfl(exp_cfl_rates = exp_cfl_kannisto_clean, years = 1970:2043)
+plot_exp_cfl(exp_cfl_rates = exp_cfl_kannisto_clean, years = 1970:2043)
 ```

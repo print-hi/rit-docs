@@ -11,7 +11,7 @@ This functionality is covered by 2 helper functions.
 
 ### Mortality Rate to Survival Function
 
-**mortality_rate2survival(rates, ages, from = 'prob', init_age = NULL, years = NULL)**
+**rate2survival(rates, ages, from = 'prob', init_age = NULL, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -57,23 +57,22 @@ ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 fitted_ages <- 76:90
 
-completed_rates <- mortality_complete_old_age(
-                    AUS_male_rates, ages, old_ages, method = "kannisto", 
-                    type = "central", fitted_ages = fitted_ages)
+completed_rates <- complete_old_age(AUS_male_rates, ages, old_ages,
+                                    method = "kannisto", type = "central",
+                                    fitted_ages = fitted_ages)
 
 
 # compute survival function of an individual aged 55
 all_ages <- 0:130
-surv_func <- mortality_rate2survival(
-              completed_rates, ages = all_ages,
-              from = 'central', init_age = 55)
+surv_func <- rate2survival(completed_rates, ages = all_ages,
+                           from = 'central', init_age = 55)
 ```
 
 ---
 
 ### Survival Function to Mortality Rate
 
-**mortality_survival2rate(surv, ages, to = 'prob', years = NULL)**
+**survival2rate(surv, ages, to = 'prob', years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -113,21 +112,20 @@ ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 fitted_ages <- 76:90
 
-completed_rates <- mortality_complete_old_age(
-                    AUS_male_rates, ages, old_ages, method = "kannisto", 
-                    type = "central", fitted_ages = fitted_ages)
+completed_rates <- complete_old_age(AUS_male_rates, ages, old_ages,
+                                    method = "kannisto", type = "central",
+                                    fitted_ages = fitted_ages)
 
 all_ages <- 0:130
-surv_func <- mortality_rate2survival(
-              completed_rates, ages = all_ages,
-              from = 'central', init_age = 55)
+surv_func <- rate2survival(completed_rates, ages = all_ages,
+                           from = 'central', init_age = 55)
 
 # convert from P to Q measure survival function
 # see the section on risk neutral probability
-surv_func_Q <- mortality_survivalP2Q(surv_func, method = "wang", lambda = 1.5)
+surv_func_Q <- survivalP2Q(surv_func, method = "wang", lambda = 1.5)
 
 # convert from survival function to mortality rates
-central_rates_Q <- mortality_survival2rate(surv_func_Q, 55:130, to = 'central')
+central_rates_Q <- survival2rate(surv_func_Q, 55:130, to = 'central')
 ```
 
 Note that transferring from survival function to rate is mainly used after converting

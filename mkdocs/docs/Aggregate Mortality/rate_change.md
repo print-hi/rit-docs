@@ -21,7 +21,7 @@ resulting in the following conversions:
 
 ### Mortality Rate Changing
 
-**mortality_rate2rate <- function(rates, from, to)**
+**rate2rate <- function(rates, from, to)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -59,6 +59,6 @@ central_rates <- mortality_AUS_data$rate$male
 
 # convert to 1-yr death probabilities
 
-death_prob <- mortality_rate2rate(central_rates, from = "central", to = "prob")
+death_prob <- rate2rate(central_rates, from = "central", to = "prob")
 ```
 
