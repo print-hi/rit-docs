@@ -11,7 +11,7 @@ When simulating for a cohort, we keep track of the number of people still alive 
 
 ### Simulate Individual Life Path
 
-**sim_indiv_path(init_age, sex = "F", death_probs = NULL, closure_age = 130, n_sim = 10000)**
+**sim_indiv_path(init_age, sex = "F", death_probs = NULL, closure_age = 130, n_sim = 10000, seed = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -41,6 +41,10 @@ death probabilities for individuals*
 &nbsp;&nbsp;&nbsp;&nbsp; n_sim : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of path simulations*
+
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer to be used as the seed for simulation*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -87,7 +91,7 @@ sim_indiv_path(init_age = 55, sex = "M", death_probs = qx_55_2018)
 ### Simulate Cohort Life Path
 
 **sim_cohort_path_realised(init_age, sex = "F", death_probs = NULL, closure_age = 130,
-cohort = 1000, n_sim = 10000)**
+cohort = 1000, n_sim = 10000, seed = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -121,6 +125,10 @@ death probabilities for individuals*
 &nbsp;&nbsp;&nbsp;&nbsp; n_sim : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of path simulations*
+
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer to be used as the seed for simulation*
 
 &nbsp;&nbsp; **Returns:**
 
