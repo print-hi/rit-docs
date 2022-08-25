@@ -32,13 +32,13 @@ Vector Autoregression (VAR) is a regression of a time series where the ouput dep
 
 where  
 
-* $\mathbf{z}_{t}$ is the vector of economic variables,
+* ![](https://latex.codecogs.com/svg.image?\mathbf{z}_{t}) is the vector of economic variables,
 
-* $\mathbf{\mu}$ is the vector of intercepts,
+* ![](https://latex.codecogs.com/svg.image?\mathbf{\mu}) is the vector of intercepts,
 
-* $\Phi_{i}$, for $i=1,\cdots, p$ are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
+* ![](https://latex.codecogs.com/svg.image?\Phi_{i},&space;i=1,\cdots,&space;p) are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
 
-* $\mathbf{\epsilon}$ is a vector of white noises. 
+* ![](https://latex.codecogs.com/svg.image?\mathbf{\epsilon}) is a vector of white noises. 
 
 The stochastic discount factor is defined as: 
 
