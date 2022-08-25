@@ -56,11 +56,11 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; frequency : character
 
@@ -72,11 +72,11 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations. *
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -117,13 +117,13 @@ sim$zcp3m_yield$trajectory_103
 
   (d) Choosing between discrete- and continuous-time models: 
 
-    The outputs are different for the two simulators, users should choose the model based on their objectives. 
+   * The outputs are different for the two simulators, users should choose the model based on their objectives. 
 
-    Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
+   * Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
 
-    The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. 
+   * The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. 
 
-    The executing time for continuous-time models are generally faster than the dicrete-time model. 
+   * The executing time for continuous-time models are generally faster than the dicrete-time model. 
 
 &nbsp;&nbsp; **References:**
 

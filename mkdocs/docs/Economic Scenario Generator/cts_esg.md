@@ -72,7 +72,7 @@ The results are still depicted with the same simulation frequency options as the
 
 &nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations. *
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations.*
 
 &nbsp;&nbsp; **Returns:**
 
