@@ -42,7 +42,7 @@ The results are still depicted with the same simulation frequency options as the
 
 ---
 
-**esg_afns_simulation(num_years = 5, num_paths = 10, frequency = 'month', perc_change = FALSE, type = 'independent', model = 'interest_rate',seed = NULL)**
+**esg_afns_simulator(num_years = 5, num_paths = 10, frequency = 'month', perc_change = FALSE, type = 'independent', model = 'interest_rate',seed = NULL)**
 
 &nbsp;&nbsp; **Paramters:**
 
@@ -82,7 +82,7 @@ The results are still depicted with the same simulation frequency options as the
 
 ```r
 # simulate 10 years of data 
-sim <- esg_afns_simulation(num_years = 10, num_paths = 10000, frequency = 'year', type = 'independent', model = 'interest_house_stock', seed = 1)
+sim <- esg_afns_simulator(num_years = 10, num_paths = 10000, frequency = 'year', type = 'independent', model = 'interest_house_stock', seed = 1)
 
 # suppose we wish to look at the 3-month zero-coupon bond rates
 sim$maturity_1qtrs
