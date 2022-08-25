@@ -121,9 +121,7 @@ sim$zcp3m_yield$trajectory_103
 
    * Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
 
-   * The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. 
-
-   * The executing time for continuous-time models are generally faster than the dicrete-time model. 
+   * The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. Consequently, for large time steps, the executing time for continuous-time models are shorter than the dicrete-time model.
 
 &nbsp;&nbsp; **References:**
 
@@ -132,23 +130,3 @@ Daniel H Alai, Hua Chen, Daniel Cho, Katja Hanewald, and Michael Sherris. Develo
 Andrew Ang and Monika Piazzesi. A no-arbitrage vector autoregression of term structure dynamics with macroeconomic and latent variables. _Journal of Monetary economics_, 50(4):745–787, 2003.
 
 Andrew Ang, Monika Piazzesi, and Min Wei. What does the yield curve tell us about gdp growth? _Journal of econometrics_, 131(1-2):359–403, 2006.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
