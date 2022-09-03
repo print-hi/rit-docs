@@ -66,6 +66,9 @@ qsurv(surv_func_2017, c(0.8, 0.95))
 
 ### Survival Function Simulation
 
+Given multiple simulation paths of a survival function, the survival function for a chosen year
+with confidence intervals can be generated.
+
 **plot_surv_sim(surv_sim, init_age, target_year, level = 95, years = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
@@ -133,9 +136,11 @@ plot_surv_sim(surv_sim, 55, 2050)
 ---
 
 ### Expected Curtate Future Lifetime
-
-We introduce 2 helper functions `combine_hist_sim` and `exp_cfl` to calculate expected curtate future lifetime
-which is required for plotting.
+It may also be worthwhile to look at the expected curtate future lifetime of individuals. 
+Historical and simulated future mortality rates will need to be merged together via the helper
+function `combine_hist_sim`, and `exp_cfl` calculates the expected curtate future lifetime.
+As there is uncertainty involved with simulating future mortality rates, the function `plot_exp_cfl`
+can generate a plot of expected curtate future lifetime with confidence intervals across years/cohorts.
 
 #### Combine Historical and Simulated Rates
 

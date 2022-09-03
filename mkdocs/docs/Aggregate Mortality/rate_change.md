@@ -5,7 +5,7 @@ Mortality rates can be expressed in different types, such as central death rates
 require different types of mortality rates so this module includes a helper function to change
 between the types of mortality rates.
 
-We use the following notation for an individual aged $x$ in year $y$ for each simulation $i$:
+This module uses the following notation for an individual aged $x$ in year $y$ for each simulation $i$:
 
 * $m_{x, y}^{(i)}$: central death rate
 * $q_{x, y}^{(i)}$: 1-year death probability
@@ -21,7 +21,7 @@ resulting in the following conversions:
 
 ### Mortality Rate Changing
 
-**rate2rate <- function(rates, from, to)**
+**rate2rate(rates, from, to)**
 
 &nbsp;&nbsp; **Parameters:**
 

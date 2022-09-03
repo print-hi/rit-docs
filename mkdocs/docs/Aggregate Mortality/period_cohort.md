@@ -1,16 +1,17 @@
 # Period and Cohort Rates
 
-All of the analysis performed after mortality rate completion, such as survival function 
-creation and transformation, output of summary statistics can be performed on both period
-and cohort mortality rates. In fact, mortality rates are often presented in a period format but
-cohort rates are more suitable for the pricing of insurance products. Thus, this module introduces
-2 helper functions to convert between period and cohort mortality rates. 
+Mortality rates are often presented in a period format where each column represents
+the mortality rates across ages for a particular calendar year. However, they can 
+also be expressed in a cohort format where each column is for a particular cohort.
+Cohort rates are more suitable for the pricing of insurance products, so this module 
+introduces two helper functions to convert between period and cohort mortality
+rates and one-year death probabilities.
 
 ---
 
 ### Period to Cohort Rates
 
-**period2cohort <- function(period_rates, ages, init_age = NULL)**
+**period2cohort(period_rates, ages, init_age = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -31,9 +32,10 @@ cohort rates are more suitable for the pricing of insurance products. Thus, this
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; matrix/array of cohort mortality rates with age rows,
-cohort columns 
+cohort columns (and simulation number
 
-&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)
+&nbsp;&nbsp;&nbsp;&nbsp;  3rd dimension). The columns represent
+the cohort aged `init_age` in the corresponding year.
 
 &nbsp;&nbsp; **Usage:**
 
@@ -48,11 +50,15 @@ ages <- mortality_AUS_data$age # 0:110
 cohort_rates_55 <- period2cohort(period_rates, ages, init_age = 55)
 ```
 
+!!! note
+    The conversions between period and cohort mortality rates will only return the
+    upper triangle.
+
 ---
 
 ### Cohort to Period Rates
 
-**cohort2period <- function(cohort_rates)**
+**cohort2period(cohort_rates)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -90,6 +96,10 @@ cohort_rates_60 <- completed_rates[as.character(60:130), ]
 
 period_rates <- cohort2period(cohort_rates_60)
 ```
+
+!!! note
+    The conversions between period and cohort mortality rates will only return the
+    upper triangle.
 
 
 
