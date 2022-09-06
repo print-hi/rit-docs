@@ -1,11 +1,30 @@
 # Mortality Rate and Survival Function
 
-The age completion functions usually return mortality rates. However, part of the functionality
-of this module is converting the real world probability based survival function to a risk free probability
-measure survival function. This requires the mortality rates to be converted to survival 
-probabilities. 
+So far, this module has looked at the force of mortality, central death rate
+and one-year death probability. These are all relevant over a one-year period to
+determine the probability an individual currently aged $x$ will survive to age $x+1$.
 
-This functionality is covered by 2 helper functions.
+Sometimes it might be of interest to look at the probability an individual survives
+for more than one year. Hence, this module uses $S_{x, y}^{(i)} (t)$ to denote 
+the probability an individual aged $x$ in calendar/cohort year $y$ will survive 
+to age $x + t$ for simulation $i$, where $t \geq 0$. This survival probability
+can be calculated for a range of values of $t$, giving rise to the idea of a 
+survival function.
+
+Mortality rates can be converted to survival probabilities by using the formula
+
+$$
+S_{x, y}^{(i)} (t) = 
+\begin{cases}
+    1 & t = 0 \\
+    \prod_{l=0}^{t-1} p_{x+l, y}^{(i)} & t > 0
+\end{cases}
+$$
+
+where $p_{x, y}^{(i)} = 1 - q_{x, y}^{(i)}$ is the one-year survival probability.
+
+The conversions between mortality rates and survival probabilities are covered by two helper
+functions, one for each direction.
 
 ---
 
@@ -17,9 +36,9 @@ This functionality is covered by 2 helper functions.
 
 &nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns*
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(and simulation number 3rd dimension)*
 
 &nbsp;&nbsp;&nbsp;&nbsp; ages : vector
 
@@ -127,9 +146,6 @@ surv_func_Q <- survivalP2Q(surv_func, method = "wang", lambda = 1.5)
 # convert from survival function to mortality rates
 central_rates_Q <- survival2rate(surv_func_Q, 55:130, to = 'central')
 ```
-
-Note that transferring from survival function to rate is mainly used after converting
-a survival function from real world measure to risk free measure. 
 
 
 

@@ -32,13 +32,13 @@ Vector Autoregression (VAR) is a regression of a time series where the ouput dep
 
 where  
 
-* $\mathbf{z}_{t}$ is the vector of economic variables,
+* ![](https://latex.codecogs.com/svg.image?\mathbf{z}_{t}) is the vector of economic variables,
 
-* $\boldsymbol{\mu}$ is the vector of intercepts,
+* ![](https://latex.codecogs.com/svg.image?\mathbf{\mu}) is the vector of intercepts,
 
-* $\Phi_{i}$, for $i=1,\cdots, p$ are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
+* ![](https://latex.codecogs.com/svg.image?\Phi_{i},&space;i=1,\cdots,&space;p) are coefficient matrices of size $n \times n$ with $n$ being the number of economic variables and $p$ the lags. 
 
-* $\boldsymbol{\epsilon}$ is a vector of white noises. 
+* ![](https://latex.codecogs.com/svg.image?\mathbf{\epsilon}) is a vector of white noises. 
 
 The stochastic discount factor is defined as: 
 
@@ -50,21 +50,21 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 ---
 
 
-**esg_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE)**
+**esg_var_simulator(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE, seed = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; frequency : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical
 
@@ -72,7 +72,11 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors.*
+
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations*
 
 &nbsp;&nbsp; **Returns:**
 
@@ -82,7 +86,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 ```r
 # simulate 10 years of data
-sim <- esg_var_simulations(num_years = 10, num_paths = 10000, frequency = 'year')
+sim <- esg_var_simulator(num_years = 10, num_paths = 10000, frequency = 'year')
 
 # suppose we wish to look at the 3 months zero coupon bonds
 sim$zcp3m_yield
@@ -109,8 +113,15 @@ sim$zcp3m_yield$trajectory_103
   
   (b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. 
 
-  (c) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10) are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. 
+  (c) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10), are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. 
 
+  (d) Choosing between discrete- and continuous-time models: 
+
+   * The outputs are different for the two simulators, users should choose the model based on their objectives. 
+
+   * Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
+
+   * The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. Consequently, for large time steps, the executing time for continuous-time models are shorter than the dicrete-time model.
 
 &nbsp;&nbsp; **References:**
 
@@ -119,23 +130,3 @@ Daniel H Alai, Hua Chen, Daniel Cho, Katja Hanewald, and Michael Sherris. Develo
 Andrew Ang and Monika Piazzesi. A no-arbitrage vector autoregression of term structure dynamics with macroeconomic and latent variables. _Journal of Monetary economics_, 50(4):745–787, 2003.
 
 Andrew Ang, Monika Piazzesi, and Min Wei. What does the yield curve tell us about gdp growth? _Journal of econometrics_, 131(1-2):359–403, 2006.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

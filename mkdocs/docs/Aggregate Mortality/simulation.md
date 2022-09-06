@@ -1,27 +1,29 @@
 # Simulating Life Paths
 
 One-year death probabilities derived from previous sections can also be used to simulate life paths
-for a single individual or a cohort of individuals. Each individual or cohort will be alive at a specified initial age, and we sample
-deaths according to the one-year death probabilities given at each age.
+for a single individual or a particular cohort. Each individual or cohort will be alive at a 
+specified initial age, and deaths are sampled according to the one-year death probabilities 
+given at each age.
 
-When simulating for an individual, we keep track of their dead or alive status at each age.
-When simulating for a cohort, we keep track of the number of people still alive at each age.
+When simulating for an individual, the function keeps track of their
+dead or alive status at each age.
+When simulating for a cohort, the number of people still alive at each age is recorded.
 
 ---
 
 ### Simulate Individual Life Path
 
-**sim_indiv_path(init_age, sex = "F", death_probs = NULL, closure_age = 130, n_sim = 10000)**
+**sim_indiv_path(init_age, sex = "F", death_probs = NULL, closure_age = 130, n_sim = 10000, seed = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of individuals*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of individual*
 
 &nbsp;&nbsp;&nbsp;&nbsp; sex : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of individuals, "F" for female and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of individual, "F" for female and
 "M" for male*
 
 &nbsp;&nbsp;&nbsp;&nbsp; death_probs : vector
@@ -30,7 +32,7 @@ When simulating for a cohort, we keep track of the number of people still alive 
 age-period-cohort model will be* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *fitted on `mortality_AUS_data` to produce forecasted
-death probabilities for individuals* 
+death probabilities for an individual* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *starting at `init_age` in 2022*
 
@@ -42,12 +44,16 @@ death probabilities for individuals*
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of path simulations*
 
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer to be used as the seed for simulation*
+
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; a matrix where each row represents an individual's dead (-1) or alive (0) status
-across the 
+&nbsp;&nbsp;&nbsp;&nbsp; a matrix where each row is a different path of the individual's dead (-1)
+or alive (0) status 
 
-&nbsp;&nbsp;&nbsp;&nbsp; years
+&nbsp;&nbsp;&nbsp;&nbsp; across the years
 
 An example looks like: 
 
@@ -87,17 +93,17 @@ sim_indiv_path(init_age = 55, sex = "M", death_probs = qx_55_2018)
 ### Simulate Cohort Life Path
 
 **sim_cohort_path_realised(init_age, sex = "F", death_probs = NULL, closure_age = 130,
-cohort = 1000, n_sim = 10000)**
+cohort = 1000, n_sim = 10000, seed = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of individuals*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of cohort*
 
 &nbsp;&nbsp;&nbsp;&nbsp; sex : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of individuals, "F" for female and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of cohort, "F" for female and
 "M" for male*
 
 &nbsp;&nbsp;&nbsp;&nbsp; death_probs : vector
@@ -106,7 +112,7 @@ cohort = 1000, n_sim = 10000)**
 age-period-cohort model will be* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *fitted on `mortality_AUS_data` to produce forecasted
-death probabilities for individuals* 
+death probabilities for a cohort* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *starting at `init_age` in 2022*
 
@@ -122,12 +128,16 @@ death probabilities for individuals*
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of path simulations*
 
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer to be used as the seed for simulation*
+
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; a matrix where each row represents the number of individuals still alive
-from a given cohort 
+from the given cohort 
 
-&nbsp;&nbsp;&nbsp;&nbsp; at each age
+&nbsp;&nbsp;&nbsp;&nbsp; at each age. Each row is a different path of the same cohort.
 
 An example looks like: 
 
@@ -174,11 +184,11 @@ cohort = 1000)**
 
 &nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of individuals*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting initial age of cohort*
 
 &nbsp;&nbsp;&nbsp;&nbsp; sex : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of individuals, "F" for female and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *character denoting the gender of cohort, "F" for female and
 "M" for male*
 
 &nbsp;&nbsp;&nbsp;&nbsp; death_probs : vector
@@ -187,7 +197,7 @@ cohort = 1000)**
 age-period-cohort model will be* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *fitted on `mortality_AUS_data` to produce forecasted
-death probabilities for individuals* 
+death probabilities for a cohort* 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *starting at `init_age` in 2022*
 

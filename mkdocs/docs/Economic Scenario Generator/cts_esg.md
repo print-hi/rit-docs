@@ -42,7 +42,7 @@ The results are still depicted with the same simulation frequency options as the
 
 ---
 
-**esg_afns_simulation(num_years = 5, num_paths = 10, frequency = 'month', perc_change = FALSE, type = 'independent', model = 'interest_rate')**
+**esg_afns_simulator(num_years = 5, num_paths = 10, frequency = 'month', perc_change = FALSE, type = 'independent', model = 'interest_rate',seed = NULL)**
 
 &nbsp;&nbsp; **Paramters:**
 
@@ -70,6 +70,10 @@ The results are still depicted with the same simulation frequency options as the
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'interest_rate' or 'interest_house_stock' denoting the output variables*
 
+&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations.*
+
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; A list of 40 dataframes containing simulated interest rates with maturities from 1 quarter up to 10 years, or 42 dataframes containing interest rates, NSW house value index, S&P/ASX200 closing prices if model is set to be interest_house_stock from 01-07-2021. See note (c) for explanations on the negativity of output values. 
@@ -78,7 +82,7 @@ The results are still depicted with the same simulation frequency options as the
 
 ```r
 # simulate 10 years of data 
-sim <- esg_afns_simulation(num_years = 10, num_paths = 10000, frequency = 'year', type = 'independent', model = 'interest_house_stock')
+sim <- esg_afns_simulator(num_years = 10, num_paths = 10000, frequency = 'year', type = 'independent', model = 'interest_house_stock', seed = 1)
 
 # suppose we wish to look at the 3-month zero-coupon bond rates
 sim$maturity_1qtrs
@@ -99,7 +103,7 @@ sim$stock_price
     
     The "interest_house_stock" model assumes dependency between interest rates, stock prices, and house indexes. Therefore, this model takes a more holistic view on the movements of those financial variables. 
         
-    However, a drawback is that the simulated paths will be more volatile than the single "interest_rate" model, and the paths will take longer to revert to mean levels. 
+    However, a drawback is that the simulated "interest_house_stock" paths will be more volatile than the single "interest_rate" model, and the paths will take longer to revert to mean levels. 
     
     If users' intended area of usage is not influenced by stocks and house prices, the "interest_rate" model would be a good choice. If, otherwise, comovements among the financial variables are deemed important, the "interest_house_stock" model is suggested. 
 
@@ -107,7 +111,15 @@ sim$stock_price
 
     The correlated-factor model assumes correlation among level, slope, and curvature of the interest rate term structure, while the independent-factor model does not. Note that stock prices and house indexes are always correlated with the interest rate. 
     
-    The correlated-factor model takes a more holistic view on the underlying term structure of interest. Meanwhile, it generates more volatile simulations, and it takes longer to revert to mean levels. 
+    The correlated-factor model takes a more holistic view on the underlying term structure of interest. Meanwhile, "correlated" model generates more volatile simulations, and it takes longer to revert to mean levels. 
+
+* Choosing between discrete- and continuous-time models: 
+
+    The outputs are different for the two simulators, users should choose the model based on their objectives. 
+
+    Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
+
+    The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. Consequently, for large time steps, the executing time for continuous-time models are shorter than the dicrete-time model. 
 
 &nbsp;&nbsp; **Notes:**
 
