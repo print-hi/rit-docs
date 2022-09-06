@@ -1119,18 +1119,33 @@
 
 
 <h1 id="mortality-rate-and-survival-function">Mortality Rate and Survival Function</h1>
-<p>The age completion functions usually return mortality rates. However, part of the functionality
-of this module is converting the real world probability based survival function to a risk free probability
-measure survival function. This requires the mortality rates to be converted to survival 
-probabilities. </p>
-<p>This functionality is covered by 2 helper functions.</p>
+<p>So far, this module has looked at the force of mortality, central death rate
+and one-year death probability. These are all relevant over a one-year period to
+determine the probability an individual currently aged <span class="arithmatex">\(x\)</span> will survive to age <span class="arithmatex">\(x+1\)</span>.</p>
+<p>Sometimes it might be of interest to look at the probability an individual survives
+for more than one year. Hence, this module uses <span class="arithmatex">\(S_{x, y}^{(i)} (t)\)</span> to denote 
+the probability an individual aged <span class="arithmatex">\(x\)</span> in calendar/cohort year <span class="arithmatex">\(y\)</span> will survive 
+to age <span class="arithmatex">\(x + t\)</span> for simulation <span class="arithmatex">\(i\)</span>, where <span class="arithmatex">\(t \geq 0\)</span>. This survival probability
+can be calculated for a range of values of <span class="arithmatex">\(t\)</span>, giving rise to the idea of a 
+survival function.</p>
+<p>Mortality rates can be converted to survival probabilities by using the formula</p>
+<div class="arithmatex">\[
+S_{x, y}^{(i)} (t) = 
+\begin{cases}
+    1 &amp; t = 0 \\
+    \prod_{l=0}^{t-1} p_{x+l, y}^{(i)} &amp; t &gt; 0
+\end{cases}
+\]</div>
+<p>where <span class="arithmatex">\(p_{x, y}^{(i)} = 1 - q_{x, y}^{(i)}\)</span> is the one-year survival probability.</p>
+<p>The conversions between mortality rates and survival probabilities are covered by two helper
+functions, one for each direction.</p>
 <hr />
 <h3 id="mortality-rate-to-survival-function">Mortality Rate to Survival Function</h3>
 <p><strong>rate2survival(rates, ages, from = 'prob', init_age = NULL, years = NULL)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; rates : matrix/array</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *mortality rates with age rows, cohort/year columns</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)*</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>mortality rates with age rows, cohort/year columns</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(and simulation number 3rd dimension)</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; ages : vector</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>vector of ages for <code>rates</code></em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; from : character</p>
@@ -1203,8 +1218,6 @@ cohort/year columns</em></p>
 <a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="c1"># convert from survival function to mortality rates</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">central_rates_Q</span> <span class="o">&lt;-</span> <span class="nf">survival2rate</span><span class="p">(</span><span class="n">surv_func_Q</span><span class="p">,</span> <span class="m">55</span><span class="o">:</span><span class="m">130</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&#39;central&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Note that transferring from survival function to rate is mainly used after converting
-a survival function from real world measure to risk free measure. </p>
 
               
             </article>

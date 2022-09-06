@@ -1119,14 +1119,15 @@
 
 
 <h1 id="period-and-cohort-rates">Period and Cohort Rates</h1>
-<p>All of the analysis performed after mortality rate completion, such as survival function 
-creation and transformation, output of summary statistics can be performed on both period
-and cohort mortality rates. In fact, mortality rates are often presented in a period format but
-cohort rates are more suitable for the pricing of insurance products. Thus, this module introduces
-2 helper functions to convert between period and cohort mortality rates. </p>
+<p>Mortality rates are often presented in a period format where each column represents
+the mortality rates across ages for a particular calendar year. However, they can 
+also be expressed in a cohort format where each column is for a particular cohort.
+Cohort rates are more suitable for the pricing of insurance products, so this module 
+introduces two helper functions to convert between period and cohort mortality
+rates and one-year death probabilities.</p>
 <hr />
 <h3 id="period-to-cohort-rates">Period to Cohort Rates</h3>
-<p><strong>period2cohort &lt;- function(period_rates, ages, init_age = NULL)</strong></p>
+<p><strong>period2cohort(period_rates, ages, init_age = NULL)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; period_rates : matrix/array</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>period mortality rates with age rows, calendar year columns</em></p>
@@ -1137,8 +1138,9 @@ cohort rates are more suitable for the pricing of insurance products. Thus, this
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>initial age of cohort (default smallest age)</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; matrix/array of cohort mortality rates with age rows,
-cohort columns </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; (and simulation number 3rd dimension)</p>
+cohort columns (and simulation number</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;  3rd dimension). The columns represent
+the cohort aged <code>init_age</code> in the corresponding year.</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># consider the male mortality rates from the data file &#39;mortality_AUS_data&#39;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
@@ -1149,9 +1151,14 @@ cohort columns </p>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">cohort_rates_55</span> <span class="o">&lt;-</span> <span class="nf">period2cohort</span><span class="p">(</span><span class="n">period_rates</span><span class="p">,</span> <span class="n">ages</span><span class="p">,</span> <span class="n">init_age</span> <span class="o">=</span> <span class="m">55</span><span class="p">)</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The conversions between period and cohort mortality rates will only return the
+upper triangle.</p>
+</div>
 <hr />
 <h3 id="cohort-to-period-rates">Cohort to Period Rates</h3>
-<p><strong>cohort2period &lt;- function(cohort_rates)</strong></p>
+<p><strong>cohort2period(cohort_rates)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; cohort_rates : matrix/array</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>cohort mortality rates with age rows, cohort columns</em></p>
@@ -1179,6 +1186,11 @@ year columns </p>
 <a id="__codelineno-1-16" name="__codelineno-1-16"></a>
 <a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">period_rates</span> <span class="o">&lt;-</span> <span class="nf">cohort2period</span><span class="p">(</span><span class="n">cohort_rates_60</span><span class="p">)</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The conversions between period and cohort mortality rates will only return the
+upper triangle.</p>
+</div>
 
               
             </article>

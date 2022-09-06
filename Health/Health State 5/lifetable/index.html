@@ -1110,16 +1110,18 @@
 <p>An individual's characteristics can also be used to generate a life table with a cohort of identical
 traits. This can be used to calculate the probability of survival to different states.</p>
 <p>Life tables generated from the static and trend models are always deterministic, so the output will be one lifetable.</p>
-<p>Meanwhile, the frailty model will produce stochastic ouputs. The lifetables outputted will be 
+<p>Meanwhile, the frailty model will produce stochastic outputs. The lifetables outputted will be 
 a full list of the simulated lifetables. </p>
 <p>The lifetable shows the number of people in each state at each age, and one can also choose
 the initial state and the initial age that the starting cohort is in.</p>
 <hr />
 <h3 id="generating-a-life-table">Generating a Life Table</h3>
-<p><strong>simulate_life_table_5(params,init_age,gender,i,latent,initial_state,n_sim=100, model)</strong></p>
+<p><strong>health5_get_life_table(model, params, init_age, gender, i, latent, initial_state, n_sim=100)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; model : character</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'S' for static model, 'T' for trend model, 'F' for frailty model</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; params : dataframe</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Matrix of estimated parameters to construct the five  state model. The rows are <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\gamma^{\text{age}}\)</span>, <span class="arithmatex">\(\gamma^{\text{f}}\)</span>, <span class="arithmatex">\(\phi\)</span> (if trend or frailty model), <span class="arithmatex">\(\alpha\)</span> (if frailty model). The columns are 1-12 transition types.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\gamma^{\text{age}}\)</span>, <span class="arithmatex">\(\gamma^{\text{f}}\)</span>, <span class="arithmatex">\(\phi\)</span>, <span class="arithmatex">\(\alpha\)</span>, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; gender : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>0 for male, 1 for female</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; i : numeric</p>
@@ -1129,8 +1131,6 @@ the initial state and the initial age that the starting cohort is in.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>initial value of the latent factor, normally take the value 0</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; n_sim : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of life table simulations</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; model : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>1 for static model, 2 for trend model, and 3 for frailty model</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting the current state of individual, 0 for H state, 1 for M state, 2 for D state, 3 for MD state</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric</p>
@@ -1139,7 +1139,7 @@ the initial state and the initial age that the starting cohort is in.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; a list of life table matrices</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># for male aged 65 at wave index i, initially in the health state, using the frailty model with parameters &#39;params&#39;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">life_table</span> <span class="o">&lt;-</span> <span class="nf">simulate_life_table_5</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params_5_frailty</span><span class="p">,</span><span class="n">init_age</span><span class="o">=</span><span class="m">65</span><span class="p">,</span><span class="n">gender</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">i</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="n">latent</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">initial_state</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="n">n_sim</span><span class="o">=</span><span class="m">100</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">life_table</span> <span class="o">&lt;-</span> <span class="nf">health5_get_life_table</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">US_HRS_5</span><span class="p">,</span> <span class="n">init_age</span><span class="o">=</span><span class="m">65</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">latent</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">initial_state</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">n_sim</span><span class="o">=</span><span class="m">100</span><span class="p">)</span>
 </code></pre></div>
 <p>When using static and trend model, 'n_sim' should be set to 1 to avoid generating the same life table repeatedly. </p>
 

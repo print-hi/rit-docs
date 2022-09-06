@@ -1128,27 +1128,27 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 </ul>
 <hr />
 <h3 id="simulating-state-paths-for-individuals">Simulating State Paths for Individuals</h3>
-<p><strong>simulate_individual_path_5(init_age, init_state, params, gender, i, cohort = 10000, model)</strong></p>
+<p><strong>health5_simulate_individual_path(model, init_age, init_state, params, gender, i, cohort = 10000)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; model : character</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'S' for static model, 'T' for trend model, 'F' for frailty model</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; init_age : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting initial age of individual</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; init_state : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting initial state (see above)</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; params : dataframe</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Matrix of estimated parameters to construct the five  state model. The rows are <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\gamma^{\text{age}}\)</span>, <span class="arithmatex">\(\gamma^{\text{f}}\)</span>, <span class="arithmatex">\(\phi\)</span> (if trend or frailty model), <span class="arithmatex">\(\alpha\)</span> (if frailty model). The columns are 1-12 transition types.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Matrix of estimated parameters of the five-state static, trend, and frailty models. The rows are <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\gamma^{\text{age}}\)</span>, <span class="arithmatex">\(\gamma^{\text{f}}\)</span>, <span class="arithmatex">\(\phi\)</span>, <span class="arithmatex">\(\alpha\)</span>, and the columns are 1-12 transition types. (Generally, use params=US_HRS_5. Please refer to US_HRS_5 for the detailed construction of the matrix.)</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; gender : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>0 for male, 1 for female</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; i : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>wave index = (interview year - 1998)/2 + 1</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; cohort : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of lives to simulate</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; model : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>1 for static, 2 for trend, 3 for frailty</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; matrix (see below for details)</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># simulation for 10000 males aged 65, initially healthy under the frailty model</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">simulated_path</span> <span class="o">&lt;-</span> <span class="nf">simulate_individual_path_5</span><span class="p">(</span><span class="n">init_age</span><span class="o">=</span><span class="m">65</span><span class="p">,</span> <span class="n">init_state</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params_5_frailty</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">cohort</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">simulated_path</span> <span class="o">&lt;-</span> <span class="nf">health5_simulate_individual_path</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="n">init_age</span><span class="o">=</span><span class="m">65</span><span class="p">,</span> <span class="n">init_state</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">US_HRS_5</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">cohort</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span>
 </code></pre></div>
 <p>The output is a matrix where each row represents one individual's transition into different 
 states at each year of their life. </p>

@@ -1071,45 +1071,47 @@
 <p>(9) Australia mortgage rate,</p>
 <p>(10) NSW unemployment rate,</p>
 <p>(11) Stochastic discount factors (pricing kernels).</p>
-<p>The factors (1)-(8) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the VAR with arbitrage-free assumptions. </p>
+<p>Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. </p>
 <p>Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: </p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{z}_{t}&space;=&space;\mathbf{\mu}&space;&plus;&space;\Phi_{1}\mathbf{z}_{t-1}&plus;&space;\Phi_{2}\mathbf{z}_{t-2}&plus;\cdots&plus;&space;\Phi_{p}\mathbf{z}_{t-p}&space;&plus;&space;\mathbf{\epsilon}," /></p>
 <p>where  </p>
 <ul>
 <li>
-<p><span class="arithmatex">\(\mathbf{z}_{t}\)</span> is the vector of economic variables,</p>
+<p><img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{z}_{t}" /> is the vector of economic variables,</p>
 </li>
 <li>
-<p><span class="arithmatex">\(\boldsymbol{\mu}\)</span> is the vector of intercepts,</p>
+<p><img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\mu}" /> is the vector of intercepts,</p>
 </li>
 <li>
-<p><span class="arithmatex">\(\Phi_{i}\)</span>, for <span class="arithmatex">\(i=1,\cdots, p\)</span> are coefficient matrices of size <span class="arithmatex">\(n \times n\)</span> with <span class="arithmatex">\(n\)</span> being the number of economic variables and <span class="arithmatex">\(p\)</span> the lags. </p>
+<p><img alt="" src="https://latex.codecogs.com/svg.image?\Phi_{i},&space;i=1,\cdots,&space;p" /> are coefficient matrices of size <span class="arithmatex">\(n \times n\)</span> with <span class="arithmatex">\(n\)</span> being the number of economic variables and <span class="arithmatex">\(p\)</span> the lags. </p>
 </li>
 <li>
-<p><span class="arithmatex">\(\boldsymbol{\epsilon}\)</span> is a vector of white noises. </p>
+<p><img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\epsilon}" /> is a vector of white noises. </p>
 </li>
 </ul>
 <p>The stochastic discount factor is defined as: </p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right)," /></p>
-<p>where <span class="arithmatex">\(\mathbf{e}_1^\top \mathbf{z}_t\)</span> and <span class="arithmatex">\(\mathbf{\epsilon}_t\)</span> respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and <span class="arithmatex">\(\mathbf{\lambda}_t\)</span> is the market price of risk process.</p>
+<p>where <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t" /> and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t" /> respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t" /> is the market price of risk process which is assumed to be affine over factors (1)-(8). </p>
 <hr />
-<p><strong>get_var_simulations(num_years = 5, num_paths = 10, frequency = 'quarter', per_change = FALSE, return_sdf = FALSE)</strong></p>
+<p><strong>esg_var_simulator(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE, seed = NULL)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of years to forecast from 2021-01-01</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of years to forecast from 01-01-2021.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of simulations to make for each variable</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of simulations to make for each variable.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; frequency : character</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'year', 'quarter' or 'month' denoting the simulation frequency</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'year', 'quarter' or 'month' denoting the simulation frequency. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE for outputs to be expressed as percent change</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE to return the stochastic discount factors</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE to return the stochastic discount factors.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Specify the seed for simulations</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE.  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE from 01-01-2021. See note (c) for explanations on the negativity of output values. </p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># simulate 10 years of data</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">sim</span> <span class="o">&lt;-</span> <span class="nf">get_var_simulations</span><span class="p">(</span><span class="n">num_years</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">num_paths</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="s">&#39;year&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">sim</span> <span class="o">&lt;-</span> <span class="nf">esg_var_simulator</span><span class="p">(</span><span class="n">num_years</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">num_paths</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="s">&#39;year&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># suppose we wish to look at the 3 months zero coupon bonds</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">sim</span><span class="o">$</span><span class="n">zcp3m_yield</span>
@@ -1117,6 +1119,38 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># if we wanted a specific trajectory, say 103</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">sim</span><span class="o">$</span><span class="n">zcp3m_yield</span><span class="o">$</span><span class="n">trajectory_103</span>
 </code></pre></div>
+<p>&nbsp;&nbsp; <strong>Notes:</strong></p>
+<p>(a) Procedure for parameter estimation: </p>
+<ul>
+<li>
+<p>Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. </p>
+</li>
+<li>
+<p>Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. </p>
+</li>
+<li>
+<p>Fitted the VAR model using ordinary least squares. This was followed by evaluation. </p>
+</li>
+<li>
+<p>Associated the stochastic discount factors with VAR factors and nominal bond prices, estimated the market price of risk parameters by minimising the sum of squared error. </p>
+</li>
+</ul>
+<p>Procedure for forecasts: Generated factors (1)-(8) using Vector Autoregression formula. From the generated paths and noises, derived stochastic discount factors. </p>
+<p>Detailed R codes for parameter estimation can be found in the economic tutorial/economic. </p>
+<p>(b) Large values of percentage change can appear if the original forecasts are near-zero, or if the Gaussian noise is large, though with low probabilities. This happens especially for interest rates in the first few periods due to historical-low rates in 2021. </p>
+<p>(c) Negative values for rate factors i.e., factors (1)(2)(4)(9)(10), are theoretically allowed as Vector Autoregression models assume that the noise follow a Gaussian distribution. Index factors, i.e., factors (3)(5)-(8), on the other hand, are all positive. </p>
+<p>(d) Choosing between discrete- and continuous-time models: </p>
+<ul>
+<li>
+<p>The outputs are different for the two simulators, users should choose the model based on their objectives. </p>
+</li>
+<li>
+<p>Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? </p>
+</li>
+<li>
+<p>The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. Consequently, for large time steps, the executing time for continuous-time models are shorter than the dicrete-time model.</p>
+</li>
+</ul>
 <p>&nbsp;&nbsp; <strong>References:</strong></p>
 <p>Daniel H Alai, Hua Chen, Daniel Cho, Katja Hanewald, and Michael Sherris. Developing equity release markets: Risk analysis for reverse mortgages and home reversions. <em>North American Actuarial Journal</em>, 18(1):217–241, 2014.</p>
 <p>Andrew Ang and Monika Piazzesi. A no-arbitrage vector autoregression of term structure dynamics with macroeconomic and latent variables. <em>Journal of Monetary economics</em>, 50(4):745–787, 2003.</p>

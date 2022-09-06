@@ -1239,6 +1239,8 @@ generated. These include: </p>
 </code></pre></div>
 <hr />
 <h3 id="survival-function-simulation">Survival Function Simulation</h3>
+<p>Given multiple simulation paths of a survival function, the survival function for a chosen year
+with confidence intervals can be generated.</p>
 <p><strong>plot_surv_sim(surv_sim, init_age, target_year, level = 95, years = NULL)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; surv_sim : array</p>
@@ -1287,8 +1289,11 @@ generated. These include: </p>
 </code></pre></div>
 <hr />
 <h3 id="expected-curtate-future-lifetime">Expected Curtate Future Lifetime</h3>
-<p>We introduce 2 helper functions <code>combine_hist_sim</code> and <code>exp_cfl</code> to calculate expected curtate future lifetime
-which is required for plotting.</p>
+<p>It may also be worthwhile to look at the expected curtate future lifetime of individuals. 
+Historical and simulated future mortality rates will need to be merged together via the helper
+function <code>combine_hist_sim</code>, and <code>exp_cfl</code> calculates the expected curtate future lifetime.
+As there is uncertainty involved with simulating future mortality rates, the function <code>plot_exp_cfl</code>
+can generate a plot of expected curtate future lifetime with confidence intervals across years/cohorts.</p>
 <h4 id="combine-historical-and-simulated-rates">Combine Historical and Simulated Rates</h4>
 <p><strong>combine_hist_sim(rates_hist, rates_sim)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
