@@ -119,8 +119,6 @@ sim$zcp3m_yield$trajectory_103
 
    * The outputs are different for the two simulators, users should choose the model based on their objectives. 
 
-   * Otherwise, users can decide based on their beliefs of the market - e.g., do you expect correlation between interest rates and any other economic variables? Do you want the future interest rates to be more or less volatile? 
-
    * The base time step for discrete-time model is one quarter, whereas there is no such as a base for continuous-time. For time steps smaller than one quarter, discrete-time model will interpolate the quarterly statistics, whereas the continuous-time model simply generates random noises for each specific time step. Consequently, for large time steps, the executing time for continuous-time models are shorter than the dicrete-time model.
 
 &nbsp;&nbsp; **References:**
