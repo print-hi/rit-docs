@@ -68,7 +68,7 @@ AUS_male_rates <- mortality_AUS_data$rate$male
 ages <- mortality_AUS_data$age # 0:110
 old_ages <- 91:130
 
-# first convert mortality rates to death probabilties
+# first convert mortality rates to death probabilities
 AUS_male_qx <- rate2rate(AUS_male_rates, from = "central", to = "prob")
 
 # completing mortality rates for old ages
