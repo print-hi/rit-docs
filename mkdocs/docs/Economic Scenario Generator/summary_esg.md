@@ -28,7 +28,7 @@ Period-by-period summary statistics such as quantiles, mean, and standard deviat
 
 ```r
 # simulate 10 years of data 
-sim <- esg_var_simulations(num_years = 10, num_paths = 10000, frequency = 'year')
+sim <- esg_var_simulator(num_years = 10, num_paths = 10, frequency = 'year')
 
 # obtain summary statistics for GDP data with default statistics
 gdp_summ <- esg_summary(sim$GDP) 
@@ -37,8 +37,8 @@ gdp_summ <- esg_summary(sim$GDP)
 all_summ <- esg_summary(sim, probs = seq(0,1,0.2))
 
 # summary statistics for self-defined dataframes 
-test_data = as.data.frame(matrix(1:100, nrow = 4, byrow = T))
-test_data2 = as.data.frame(matrix(1001:2000, nrow = 40, byrow = T))
+test_data = as.data.frame(matrix(1:100, nrow = 4, byrow = TRUE))
+test_data2 = as.data.frame(matrix(1001:2000, nrow = 40, byrow = TRUE))
 test_list = list(test_data, test_data2)
 esg_summary(test_list)
 ```
