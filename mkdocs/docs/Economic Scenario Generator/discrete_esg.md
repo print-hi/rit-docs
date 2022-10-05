@@ -86,13 +86,13 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 ```r
 # simulate 10 years of data
-sim <- esg_var_simulator(num_years = 10, num_paths = 10000, frequency = 'year')
+sim <- esg_var_simulator(num_years = 10, num_paths = 10, frequency = 'year')
 
 # suppose we wish to look at the 3 months zero coupon bonds
 sim$zcp3m_yield
 
-# if we wanted a specific trajectory, say 103
-sim$zcp3m_yield$trajectory_103
+# if we wanted a specific trajectory, say 3
+sim$zcp3m_yield[3,]
 ```
 
 &nbsp;&nbsp; **Notes:**
