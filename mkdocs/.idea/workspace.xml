@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4b0e70f-1570-43a5-b3e6-4a4b24cc2e91" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/Health/Statistics/stats_3.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Health/Statistics/stats_5.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Health/lifetable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Health/simulation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Health/trans_probs.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Health/workflow.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/3state_examples.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/cox_model.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/lifetable.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/simulation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/stats.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 3/trans_probs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/cox_model.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/lifetable.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/simulation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/stats.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Health/Health State 5/trans_probs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mkdocs.yml" afterDir="false" />
+    <list default="true" id="ac96cfa2-6d3e-4857-833b-786f856c5cd6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Health/Statistics/stats_3.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Health/Statistics/stats_3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Health/Statistics/stats_5.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Health/Statistics/stats_5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Health/simulation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Health/simulation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Health/workflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Health/workflow.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,45 +19,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2A78pS1u5Q58jkQUb4t9FjlEvQY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2EOHTNNtfJVnjUA6gJjO5da4GIj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/yuxin/Documents/GitHub/toolkit-live/mkdocs&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b4b0e70f-1570-43a5-b3e6-4a4b24cc2e91" name="Changes" comment="" />
-      <created>1654349446379</created>
+      <changelist id="ac96cfa2-6d3e-4857-833b-786f856c5cd6" name="Changes" comment="" />
+      <created>1662459718846</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1654349446379</updated>
+      <updated>1662459718846</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

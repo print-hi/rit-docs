@@ -23,7 +23,7 @@ allowing for more robust pricing methods.
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_individual_path_5"*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_health_state_paths"*
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
@@ -47,7 +47,8 @@ allowing for more robust pricing methods.
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
+trans_probs <- get_trans_probs(n_states=5, model_type='T', param_file=US_HRS_5, init_age=65, female=0, year = 2012, wave_index = 8, latent = 0)
+simulated_path <- simulate_health_state_paths(trans_probs, init_age=65, init_state = 0, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
 time_to_M <- health5_first_time_stats(simulated_path, 1)
@@ -66,7 +67,7 @@ print(mean(time_to_M, na.rm = TRUE))
 
 &nbsp;&nbsp;&nbsp;&nbsp; simulated_path : matrix
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_individual_path_5"*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *matrix containing life time simulations, obtained from function "simulate_health_state_paths"*
 
 &nbsp;&nbsp;&nbsp;&nbsp; state : numeric
 
@@ -92,7 +93,8 @@ print(mean(time_to_M, na.rm = TRUE))
 
 ```r
 # simulation of 10000 males aged 65 initially healthy under the trend model
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
+trans_probs <- get_trans_probs(n_states=5, model_type='T', param_file=US_HRS_5, init_age=65, female=0, year = 2012, wave_index = 8, latent = 0)
+simulated_path <- simulate_health_state_paths(trans_probs, init_age=65, init_state = 0, cohort = 10000)
 
 # total time spent in MD state, ill health and functionally disabled 
 total_state_MD <- health5_total_time_stats(simulated_path, 3)
@@ -123,8 +125,9 @@ previous functions to create the mean and variance of those statistics.
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation of 10000 males aged 65 initially healthy under the trend model 
-simulated_path <- health5_simulate_individual_path(model='T', init_age=65, init_state=0, params=US_HRS_5, gender=0, i=8, cohort = 10000)
+# simulation of 10000 males aged 65 initially healthy under the trend model
+trans_probs <- get_trans_probs(n_states=5, model_type='T', param_file=US_HRS_5, init_age=65, female=0, year = 2012, wave_index = 8, latent = 0)
+simulated_path <- simulate_health_state_paths(trans_probs, init_age=65, init_state = 0, cohort = 10000)
 
 # time until entering M state, ill health but not functionally disabled
 time_to_M <- health5_first_time_stats(simulated_path, 1)

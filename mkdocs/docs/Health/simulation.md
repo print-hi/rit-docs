@@ -56,7 +56,7 @@ the probabilities given at each age. Death state, -1, is absorbing. The other st
 &nbsp;&nbsp; **Usage:**
 
 ```r
-# simulation for 10000 males aged 65, initially healthy under the frailty model
+# simulation for 10000 males aged 65, initially healthy under the static model
 trans_probs <- get_trans_probs(n_states=5, model_type='S', param_file=US_HRS_5, init_age=65, female=0, year = 2012, wave_index = 8, latent = 0)
 simulated_path <- simulate_health_state_paths(trans_probs, init_age=65, init_state = 0, cohort = 10000)
 ```

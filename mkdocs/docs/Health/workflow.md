@@ -18,7 +18,7 @@ trans_probs_3 <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, 
 
 # using the transition probabilities, we can generate life tables
 lifetable <- create_life_table(trans_probs_3, init_age=87, init_state = 0, cohort = 100000)
-head(life_table)
+head(lifetable)
 ```
 
 <figure markdown>
@@ -42,19 +42,19 @@ sim_paths_3 <- simulate_health_state_paths(trans_probs_3, init_age=87, init_stat
 # statistics (mean and standard deviation): 
 
 # average future lifetime
-future_life <- afl(87, init_state = 0, trans_probs_3)
+future_life <- health3_afl(87, init_state = 0, trans_probs_3)
 
 # healthy future lifetime
-healthy_life <- hfl(87, init_state = 0, trans_probs_3)
+healthy_life <- health3_hfl(87, init_state = 0, trans_probs_3)
 
 # average future lifetime spent in disabled state
-disabled_life <- afld(87, init_state = 0, trans_probs_3)
+disabled_life <- health3_dfl(87, init_state = 0, trans_probs_3)
 
 # time until onset of disability 
-first_disabled <- time_to_disabled(87, trans_probs_3)
+first_disabled <- health3_time_to_disabled(87, trans_probs_3)
 
 # all survival statistics (essentially all of the above outputted in one dataframe)
-survival_stats(87, init_state = 0, trans_probs_3)
+health3_survival_stats(87, init_state = 0, trans_probs_3)
 ```
 
 <figure markdown>

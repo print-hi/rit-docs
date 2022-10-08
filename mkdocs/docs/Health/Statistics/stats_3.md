@@ -7,14 +7,14 @@ The functions can use either of the different inputs below to produce the requir
 
 * list of transition probability matrices from `get_trans_probs`
 
-* simulated path matrix from `simulate_path`
+* simulated path matrix from `simulate_health_state_paths`
 
 If the first option is used, the functions use simulation to find expected value and variance. 
 Hence, there is a stochastic component to these results. If both inputs are provided, then the
 simulated path wil be used, and no simulation will occur within the function.
 
 Each function comes with a frailty version, which has the same name with an 'F' attached to it (eg. 
-`afl` -> `aflF`). The frailty version simulates 'n' unique latent paths, which adds another
+`health3_afl` -> `health3_aflF`). The frailty version simulates 'n' unique latent paths, which adds another
 level of randomness in the statistic. It also requires the same parameters needed to produce a new
 set of transition probability matrices (see below examples). By default, frailty functions
 simulate 1000 unique latent factors. 
@@ -23,11 +23,11 @@ For all code examples below, we will use a male individual aged 65 in year 2022.
 
 ---
 
-### Average Future Lifetime: `afl` (`aflF`)
+### Average Future Lifetime: `health3_afl` (`health3_aflF`)
 
 The function calculates the average future lifetime for a given individual, and its variance.
 
-**afl(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
+**health3_afl(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -55,13 +55,13 @@ The function calculates the average future lifetime for a given individual, and 
 
 ```r
 # trend model
-trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+trans_probs <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, init_age=65, female=0, year = 2022)
 
 # calculate average future lifetime
-afl(65, init_state = 0, trans_probs)
+health3_afl(65, init_state = 0, trans_probs)
 ```
 
-**aflF(init_age, init_state, female, year, param_file, n = 1000)**
+**health3_aflF(init_age, init_state, female, year, param_file, n = 1000)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -96,16 +96,16 @@ afl(65, init_state = 0, trans_probs)
 &nbsp;&nbsp; **Usage:**
 
 ```r
-aflF(65, init_state = 0, female = 0, 2022, US_HRS)
+health3_aflF(65, init_state = 0, female = 0, 2022, US_HRS)
 ```
 
 ---
 
-### Healthy Future Lifetime `hfl` (`hflF`)
+### Healthy Future Lifetime `health3_hfl` (`health3_hflF`)
 
 This function calculates the average future lifetime spent in the healthy state, and its variance.
 
-**hfl(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
+**health3_hfl(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -133,13 +133,13 @@ This function calculates the average future lifetime spent in the healthy state,
 
 ```r
 # trend model
-trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+trans_probs <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, init_age=65, female=0, year = 2022)
 
 # calculate healthy future lifetime
-hfl(65, init_state = 0, trans_probs)
+health3_hfl(65, init_state = 0, trans_probs)
 ```
 
-**hflF(init_age, init_state, female, year, param_file, n = 1000)**
+**health3_hflF(init_age, init_state, female, year, param_file, n = 1000)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -149,7 +149,7 @@ hfl(65, init_state = 0, trans_probs)
 
 &nbsp;&nbsp;&nbsp;&nbsp; **init_state** : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of indiviudal: 0 for healthy, 1 for disabled*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *initial state of individual: 0 for healthy, 1 for disabled*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **female** : numeric
 
@@ -174,19 +174,19 @@ hfl(65, init_state = 0, trans_probs)
 &nbsp;&nbsp; **Usage:**
 
 ```r
-hflF(65, init_state = 0, female = 0, 2022, US_HRS)
+health3_hflF(65, init_state = 0, female = 0, 2022, US_HRS)
 ```
 
 ---
 
-### Average Future Lifetime in Disabled State: `afld` (`afldF`)
+### Average Disabled Future Lifetime: `health3_dfl` (`health3_dflF`)
 
 This function calculates the average future lifetime spent in the disabled state, and its variance.
 
 Not that under the same simulated lifetime, average future lifetime is equal to the sum of healthy 
     lifetime and disabled lifetime. 
 
-**afld(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
+**health3_dfl(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -214,13 +214,13 @@ Not that under the same simulated lifetime, average future lifetime is equal to 
 
 ```r
 # trend model
-trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+trans_probs <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, init_age=65, female=0, year = 2022)
 
 # calculate average future lifetime in disabled state
-afld(65, init_state = 0, trans_probs)
+health3_dfl(65, init_state = 0, trans_probs)
 ```
 
-**afldF(init_age, init_state, female, year, param_file, n = 1000)**
+**health3_dflF(init_age, init_state, female, year, param_file, n = 1000)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -255,19 +255,19 @@ afld(65, init_state = 0, trans_probs)
 &nbsp;&nbsp; **Usage:**
 
 ```r
-afldF(65, init_state = 0, female = 0, 2022, US_HRS)
+health3_dflF(65, init_state = 0, female = 0, 2022, US_HRS)
 ```
 
 ---
 
-### Time until onset of Disability: `time_to_disabled` (`time_to_disabledF`)
+### Time until onset of Disability: `health3_time_to_disabled` (`health3_time_to_disabledF`)
 
 This function calculates average time for onset of disability, given that the 
 individual becomes disabled. 
 
 Note that an initial state is not required for this function, as disabled initial state is  trivial. 
 
-**time_to_disabled(init_age, trans_probs = NULL, simulated_path = NULL)**
+**health3_time_to_disabled(init_age, trans_probs = NULL, simulated_path = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -291,13 +291,13 @@ Note that an initial state is not required for this function, as disabled initia
 
 ```r
 # trend model
-trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+trans_probs <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, init_age=65, female=0, year = 2022)
 
 # calculate time until onset of disability
-time_to_disabled(65, trans_probs)
+health3_time_to_disabled(65, trans_probs)
 ```
 
-**time_to_disabledF(init_age, female, year, param_file, n = 1000)**
+**health3_time_to_disabledF(init_age, female, year, param_file, n = 1000)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -328,12 +328,12 @@ time_to_disabled(65, trans_probs)
 &nbsp;&nbsp; **Usage:**
 
 ```r
-time_to_disabledF(65, female = 0, 2022, US_HRS)
+health3_time_to_disabledF(65, female = 0, 2022, US_HRS)
 ```
 
 ---
 
-### All Survival Stats: `survival_stats` (`survival_statsF`)
+### All Survival Stats: `health3_survival_stats` (`health3_survival_statsF`)
 
 A combination of all the above functions. If transition probabilities are provided, then
 one simulation is run and all the statistics are calculated from that simulation (this is 
@@ -343,7 +343,7 @@ Time until onset of disability is not returned if initial state is set to 1 as i
 
 The function returns all the information (mean and variance of each statistic) as a dataframe.
 
-**survival_stats(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
+**health3_survival_stats(init_age, init_state, trans_probs = NULL, simulated_path = NULL)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -371,13 +371,13 @@ The function returns all the information (mean and variance of each statistic) a
 
 ```r
 # trend model
-trans_probs <- get_trans_probs('T', US_HRS, 65, female = 0, 2022)
+trans_probs <- get_trans_probs(n_states=3, model_type='T', param_file=US_HRS, init_age=65, female=0, year = 2022)
 
 # calculate all statistics
-survival_stats(65, init_state = 0, trans_probs)
+health3_survival_stats(65, init_state = 0, trans_probs)
 ```
 
-**survival_statsF(init_age, init_state, female, year, param_file, n = 1000)**
+**health3_survival_statsF(init_age, init_state, female, year, param_file, n = 1000)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -412,7 +412,7 @@ survival_stats(65, init_state = 0, trans_probs)
 &nbsp;&nbsp; **Usage:**
 
 ```r
-survival_statsF(65, init_state = 0, female = 0, 2022, US_HRS)
+health3_survival_statsF(65, init_state = 0, female = 0, 2022, US_HRS)
 ```
 
 
