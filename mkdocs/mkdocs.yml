@@ -30,21 +30,19 @@ nav:
     - 'Aggregate Mortality/stats_functions.md'
   - Health State:
     - 'Health/overview.md'
-    - 3-State Model:
-      - 'Health/Health State 3/overview.md'
-      - 'Health/Health State 3/cox_model.md'
-      - 'Health/Health State 3/trans_probs.md'
-      - 'Health/Health State 3/lifetable.md'
-      - 'Health/Health State 3/simulation.md'
-      - 'Health/Health State 3/stats.md'
-      - 'Health/Health State 3/3state_examples.md'
-    - 5-State Model:
-      - 'Health/Health State 5/overview.md'
-      - 'Health/Health State 5/cox_model.md'
-      - 'Health/Health State 5/trans_probs.md'
-      - 'Health/Health State 5/lifetable.md'
-      - 'Health/Health State 5/simulation.md'
-      - 'Health/Health State 5/stats.md'
+    - Multi-State Model:
+      - 'Health/Multi State Model/3_state_model.md'
+      - 'Health/Multi State Model/5_state_model.md'
+    - Cox Hazard Regression:
+      - 'Health/Cox Hazard Regression/cox_model_3.md'
+      - 'Health/Cox Hazard Regression/cox_model_5.md'
+    - 'Health/trans_probs.md'
+    - 'Health/lifetable.md'
+    - 'Health/simulation.md'
+    - Statistics:
+      - 'Health/Statistics/stats_3.md'
+      - 'Health/Statistics/stats_5.md'
+    - 'Health/workflow.md'
   - Economic Scenario Generator:
     - 'Economic Scenario Generator/overview.md'
     - 'Economic Scenario Generator/discrete_esg.md'
