@@ -2,7 +2,7 @@
 
 The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: 
 
-(1) 3-month zero-coupon bond yields,
+(1) 3-month zero-coupon bond yields (`$zcp3m_yield`),
 
 (2) 10-year zero-coupon bond spread,
 
@@ -24,7 +24,7 @@ The discrete-time economic scenario generator simulates the trajectories of 11 A
 
 (11) Stochastic discount factors (pricing kernels).
 
-Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. 
+Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. 
 
 Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: 
 
@@ -80,7 +80,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE from 01-01-2021. See note (c) for explanations on the negativity of output values. 
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories from 01-01-2021 of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE. See note (c) for explanations on the negativity of output values. 
 
 &nbsp;&nbsp; **Usage:**
 
@@ -99,7 +99,7 @@ sim$zcp3m_yield[3,]
 
   (a) Procedure for parameter estimation: 
   
-  * Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. 
+  * Transformed factors (3),(5)-(8) to continuously compounded growth rates, tested for correlation, causality, and stationarity. 
         
   * Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. 
         
