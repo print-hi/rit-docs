@@ -1050,19 +1050,19 @@
 
 
 <h1 id="discrete-time-generator">Discrete-Time Generator</h1>
-<p>The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: </p>
-<p>(1) 3-month zero-coupon bond yields,</p>
-<p>(2) 10-year zero-coupon bond spread,</p>
-<p>(3) NSW home value index,</p>
-<p>(4) NSW home rental yields,</p>
-<p>(5) Australia GDP,</p>
-<p>(6) Australia CPI,</p>
-<p>(7) S&amp;P/ASX200 closing price,</p>
-<p>(8) Australian dollar trade-weighted index,</p>
-<p>(9) Australia mortgage rate,</p>
-<p>(10) NSW unemployment rate,</p>
-<p>(11) Stochastic discount factors (pricing kernels).</p>
-<p>Factors (3)(5)-(8) were transformed to continuously compounded growth rates for consistency. Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. </p>
+<p>The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables (in brackets are the <code>$names</code> of the output dataframes): </p>
+<p>(1) 3-month zero-coupon bond yields (<code>$zcp3m_yield</code>),</p>
+<p>(2) 10-year zero-coupon bond spread (<code>$zcp10y_spread</code>),</p>
+<p>(3) NSW home value index (<code>$home_index</code>),</p>
+<p>(4) NSW home rental yields (<code>$rental_yield</code>),</p>
+<p>(5) Australia GDP (<code>$GDP</code>),</p>
+<p>(6) Australia CPI (<code>$CPI</code>),</p>
+<p>(7) S&amp;P/ASX200 closing price (<code>$ASX200</code>),</p>
+<p>(8) Australian dollar trade-weighted index (<code>$AUD</code>),</p>
+<p>(9) Australia mortgage rate (<code>$mortgage_rate</code>),</p>
+<p>(10) NSW unemployment rate (<code>$unemployment_rate</code>),</p>
+<p>(11) Stochastic discount factors (<code>$discount_factors</code>).</p>
+<p>Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. </p>
 <p>Vector Autoregression (VAR) is a regression of a time series where the ouput depends linearly on the past values of itself, and the past values of other variables, up to some specfied order: </p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{z}_{t}&space;=&space;\mathbf{\mu}&space;&plus;&space;\Phi_{1}\mathbf{z}_{t-1}&plus;&space;\Phi_{2}\mathbf{z}_{t-2}&plus;\cdots&plus;&space;\Phi_{p}\mathbf{z}_{t-p}&space;&plus;&space;\mathbf{\epsilon}," /></p>
 <p>where  </p>
@@ -1082,24 +1082,24 @@
 </ul>
 <p>The stochastic discount factor is defined as: </p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right)," /></p>
-<p>where <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t" /> and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t" /> respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t" /> is the market price of risk process which is assumed to be affine over factors (1)-(8). </p>
+<p>where <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t" /> and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t" /> respectively denote the 3-month zero-coupon bond rates and white noises from the fitted VAR model, and <img alt="" src="https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t" /> is the market price of risk process which is assumed to be affine over factors (1)-(8). </p>
 <hr />
 <p><strong>esg_var_simulator(num_years = 5, num_paths = 10, frequency = 'quarter', perc_change = FALSE, return_sdf = TRUE, seed = NULL)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of years to forecast from 01-01-2021.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of years to forecast from 01-01-2021, default 5 years</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of simulations to make for each variable.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>integer denoting number of simulations to make for each variable, default 10 paths</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; frequency : character</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'year', 'quarter' or 'month' denoting the simulation frequency. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>'year', 'quarter' or 'month' denoting the simulation frequency, default 'quarter'. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE for outputs to be expressed as period-by-period percent change, default FALSE. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE to return the stochastic discount factors.</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>set TRUE to return the stochastic discount factors, default TRUE</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; seed : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Specify the seed for simulations</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Specify the seed for simulations, no default</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE from 01-01-2021. See note (c) for explanations on the negativity of output values. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories from 01-01-2021 of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if <code>return_sdf</code> is set TRUE. Rows are the trajectories (e.g., <code>trajectory_1</code>), columns are the time steps (e.g., <code>2021-01-01</code>). See note (c) for explanations on the negativity of output values. </p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># simulate 10 years of data</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">sim</span> <span class="o">&lt;-</span> <span class="nf">esg_var_simulator</span><span class="p">(</span><span class="n">num_years</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">num_paths</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="s">&#39;year&#39;</span><span class="p">)</span>
@@ -1114,7 +1114,7 @@
 <p>(a) Procedure for parameter estimation: </p>
 <ul>
 <li>
-<p>Transformed all inputs to continuously compounded rates, tested for correlation, causality, and stationarity. </p>
+<p>Transformed factors (3),(5)-(8) to continuously compounded growth rates, tested for correlation, causality, and stationarity. </p>
 </li>
 <li>
 <p>Found the optimal lag order for Vector Autoregression using AIC, SIC, HQC. </p>
