@@ -1,12 +1,12 @@
 # Continuous-Time Generator
 
-The continuous-time economic scenario generator simulates the trajectories of: 
+The continuous-time economic scenario generator simulates the trajectories of (in brackets are the `$names` of the output dataframes): 
 
-(1) Australia zero-coupon bond rates maturing every quarter from 3 months up to 10 years, i.e., 0.25 years, 0.5 years, 0.75 years, ..., 10 years, 
+(1) Australia zero-coupon bond rates maturing every quarter from 3 months up to 10 years, i.e., 0.25 years (`$maturity_1qtrs`), 0.5 years (`$maturity_2qtrs`), 0.75 years (`$maturity_3qtrs`), ..., 10 years (`$maturity_40qtrs`), 
 
-(2) NSW home value index,  
+(2) NSW home value index (`$house_index`), 
 
-(3) S&P/ASX200 price. 
+(3) S&P/ASX200 price (`$stock_price`). 
 
 The zero-coupon bond term structure is fitted using the arbitrage-free Nelson-Siegel model, while NSW home value index and S&P/ASX200 price are assumed to be Geometric Brownian Motions that are correlated with the zero-coupon bond rates. Further details on model parameter estimation and forecast can be found in note (a) below. 
 
@@ -76,7 +76,7 @@ The results are still depicted with the same simulation frequency options as the
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 40 dataframes containing simulated interest rates with maturities from 1 quarter up to 10 years, or 42 dataframes containing interest rates, NSW house value index, S&P/ASX200 closing prices if model is set to be interest_house_stock from 01-07-2021. See note (c) for explanations on the negativity of output values. 
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 40 dataframes containing simulated interest rates  from 01-07-2021 with maturities from 1 quarter up to 10 years if model is set to be `interest_rate`, or 42 dataframes containing interest rates, NSW house value index, S&P/ASX200 closing prices if model is set to be `interest_house_stock`. Rows are the trajectories (e.g., `trajectory_1`), columns are the time steps (e.g., `2021-07-01`). See note (c) for explanations on the negativity of output values. 
 
 &nbsp;&nbsp; **Usage:**
 
