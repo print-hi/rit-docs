@@ -1,28 +1,28 @@
 # Discrete-Time Generator
 
-The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables: 
+The discrete-time economic scenario generator simulates the trajectories of 11 Australian economic and financial variables (in brackets are the `$names` of the output dataframes): 
 
 (1) 3-month zero-coupon bond yields (`$zcp3m_yield`),
 
-(2) 10-year zero-coupon bond spread,
+(2) 10-year zero-coupon bond spread (`$zcp10y_spread`),
 
-(3) NSW home value index,
+(3) NSW home value index (`$home_index`),
 
-(4) NSW home rental yields,
+(4) NSW home rental yields (`$rental_yield`),
 
-(5) Australia GDP,
+(5) Australia GDP (`$GDP`),
 
-(6) Australia CPI,
+(6) Australia CPI (`$CPI`),
 
-(7) S&P/ASX200 closing price,
+(7) S&P/ASX200 closing price (`$ASX200`),
 
-(8) Australian dollar trade-weighted index,
+(8) Australian dollar trade-weighted index (`$AUD`),
 
-(9) Australia mortgage rate,
+(9) Australia mortgage rate (`$mortgage_rate`),
 
-(10) NSW unemployment rate,
+(10) NSW unemployment rate (`$unemployment_rate`),
 
-(11) Stochastic discount factors (pricing kernels).
+(11) Stochastic discount factors (`$discount_factors`).
 
 Factors (1)-(8) (in rates) were fitted using a Vector Autoregressive model (VAR), factors (9)-(10) were respectively expressed as a fixed margin over factors (1)-(2) due to strong correlations, while factor (11) is derived from the fitted VAR model with arbitrage-free assumptions. Further details on model parameter estimation and forecasts can be found in note (a) below. 
 
@@ -44,7 +44,7 @@ The stochastic discount factor is defined as:
 
 ![](https://latex.codecogs.com/svg.image?s_{t&plus;1}&space;=&space;\exp&space;\left(-&space;\mathbf{e}_1&space;^\top&space;\mathbf{z}_t&space;-&space;\frac{1}{2}&space;\mathbf{\lambda}_t^\top&space;\mathbf{\lambda}_t&space;-&space;\mathbf{\lambda}_t^\top&space;\mathbf{\epsilon}_{t&plus;1}&space;\right),)
 
-where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t) and ![](https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t) respectively denote the 3-month zero-coupon bond rates and  the white noises from the fitted VAR model, and ![](https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t) is the market price of risk process which is assumed to be affine over factors (1)-(8). 
+where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z}_t) and ![](https://latex.codecogs.com/svg.image?\mathbf{\epsilon}_t) respectively denote the 3-month zero-coupon bond rates and white noises from the fitted VAR model, and ![](https://latex.codecogs.com/svg.image?\mathbf{\lambda}_t) is the market price of risk process which is assumed to be affine over factors (1)-(8). 
 
 
 ---
@@ -80,7 +80,7 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp; **Returns:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories from 01-01-2021 of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if return_sdf is set TRUE. See note (c) for explanations on the negativity of output values. 
+&nbsp;&nbsp;&nbsp;&nbsp; A list of 10 dataframes containing simulated trajectories from 01-01-2021 of the 10 variables, or a list of 11 dataframes including the simulated stochastic discount factors if `return_sdf` is set TRUE. Rows are the trajectories (e.g., `trajectory_1`), columns are the time steps (e.g., `2021-01-01`). See note (c) for explanations on the negativity of output values. 
 
 &nbsp;&nbsp; **Usage:**
 
