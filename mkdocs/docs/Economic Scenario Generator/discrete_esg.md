@@ -56,27 +56,27 @@ where ![](https://latex.codecogs.com/svg.image?\mathbf{e}_1^\top&space;\mathbf{z
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-01-2021, default 5 years*
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of simulations to make for each variable, default 10 paths*
 
 &nbsp;&nbsp;&nbsp;&nbsp; frequency : character
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *'year', 'quarter' or 'month' denoting the simulation frequency, default 'quarter'. The base simulation time step is one quarter, Linear interpolation will be used if the required frequency is higher, whereas arithmetic average will be used if the frequency is lower.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; perc_change : logical
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as period-by-period percent change. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE for outputs to be expressed as period-by-period percent change, default FALSE. The reference level, i.e., the original values in the first output period, will be appended above the percentage changes for each variable and each trajectory. See note (b) below.*
 
 &nbsp;&nbsp;&nbsp;&nbsp; return_sdf : logical 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors.*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *set TRUE to return the stochastic discount factors, default TRUE*
 
 &nbsp;&nbsp;&nbsp;&nbsp; seed : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Specify the seed for simulations, no default*
 
 &nbsp;&nbsp; **Returns:**
 
