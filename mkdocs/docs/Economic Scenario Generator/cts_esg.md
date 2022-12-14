@@ -48,7 +48,7 @@ The results are still depicted with the same simulation frequency options as the
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_years : numeric
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 07-01-2021*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *integer denoting number of years to forecast from 01-07-2021*
 
 &nbsp;&nbsp;&nbsp;&nbsp; num_paths : numeric
 
