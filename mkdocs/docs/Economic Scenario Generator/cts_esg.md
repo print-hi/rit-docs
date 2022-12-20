@@ -99,13 +99,13 @@ sim$stock_price
 
 &nbsp;&nbsp; **Choosing an Appropriate Model:**
 
-* Choosing between models "interest_rate" and "interest_house_stock":  
+* Choosing between models `interest_rate` and `interest_house_stock`:  
     
-    The "interest_house_stock" model assumes dependency between interest rates, stock prices, and house indexes. Therefore, this model takes a more holistic view on the movements of those financial variables. 
+    The `interest_house_stock` model assumes dependency between interest rates, stock prices, and house indexes. Therefore, this model takes a more holistic view on the movements of those financial variables. 
         
-    However, a drawback is that the simulated "interest_house_stock" paths will be more volatile than the single "interest_rate" model, and the paths will take longer to revert to mean levels. 
+    However, a drawback is that the simulated `interest_house_stock` paths will be more volatile than the `interest_rate` model, and the paths will take longer to revert to mean levels. 
     
-    If users' intended area of usage is not influenced by stocks and house prices, the "interest_rate" model would be a good choice. If, otherwise, comovements among the financial variables are deemed important, the "interest_house_stock" model is suggested. 
+    If users' intended area of usage is not influenced by stocks and house prices, the `interest_rate` model would be a good choice. If, otherwise, comovements among the financial variables are deemed important, the `interest_house_stock` model is suggested. 
 
 * Choosing between "independent" and "correlated" factor models:
 
