@@ -13,7 +13,7 @@
     
     
       
-        <title>Policy Specification - Retirement Income Toolkit</title>
+        <title>Creating Policy Object - Retirement Income Toolkit</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#policy-specification" class="md-skip">
+        <a href="#creating-policy-object" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Policy Specification
+              Creating Policy Object
             
           </span>
         </div>
@@ -958,12 +958,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Policy Specification
+          Creating Policy Object
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Policy Specification
+        Creating Policy Object
       </a>
       
         
@@ -996,6 +996,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse-mortgage-nneg" class="md-nav__link">
+    Reverse Mortgage (NNEG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#life-annuity" class="md-nav__link">
     Life Annuity
   </a>
@@ -1023,13 +1030,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#reverse-mortgage-nneg" class="md-nav__link">
-    Reverse Mortgage (NNEG)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1046,7 +1046,7 @@
   
     <li class="md-nav__item">
       <a href="../cashflow/" class="md-nav__link">
-        Cashflow Simulation
+        Simulating Cashflows
       </a>
     </li>
   
@@ -1060,7 +1060,7 @@
   
     <li class="md-nav__item">
       <a href="../pricing/" class="md-nav__link">
-        Valuation
+        Pricing / Valuation
       </a>
     </li>
   
@@ -1128,6 +1128,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse-mortgage-nneg" class="md-nav__link">
+    Reverse Mortgage (NNEG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#life-annuity" class="md-nav__link">
     Life Annuity
   </a>
@@ -1155,13 +1162,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#reverse-mortgage-nneg" class="md-nav__link">
-    Reverse Mortgage (NNEG)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1179,7 +1179,7 @@
 </a>
 
 
-<h1 id="policy-specification">Policy Specification</h1>
+<h1 id="creating-policy-object">Creating Policy Object</h1>
 <p>To begin, we need to initialise a policy object which contains all 
 relevant parameters describing the policy.</p>
 <h2 id="functions">Functions</h2>
@@ -1193,10 +1193,6 @@ relevant parameters describing the policy.</p>
 </ul>
 <p><a name="ABP"></a></p>
 <h2 id="account-based-pension">Account Based Pension</h2>
-<ul>
-<li><strong>Payout structure</strong>: Inflation-adjusted expense amount withdrawn from account (or total remaining amount if funds are insufficient).</li>
-<li><strong>Stopping condition</strong>: Death of policyholder or account balance reaches zero. </li>
-</ul>
 <p><strong>create_policy_AP(balance, expenses)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>balance</strong> : numeric </p>
@@ -1208,16 +1204,29 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">ap</span> <span class="o">&lt;-</span> <span class="nf">create_policy_AP</span><span class="p">(</span><span class="m">400000</span><span class="p">,</span> <span class="m">60000</span><span class="p">)</span>
 </code></pre></div>
+<p><a name="RM"></a></p>
+<h2 id="reverse-mortgage-nneg">Reverse Mortgage (NNEG)</h2>
+<p><strong>create_policy_RM(value, LVR, trans_cost, margin)</strong></p>
+<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>value</strong> : numeric </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Initial value of property</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>LVR</strong> : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loan to Value ratio for PH</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>trans_cost</strong> : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Transaction cost associated with sale</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>margin</strong> : numeric</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Lending margin</em></p>
+<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
+<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">rm</span> <span class="o">&lt;-</span> <span class="nf">create_policy_RM</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">0.4</span><span class="p">,</span> <span class="m">0.01</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+</code></pre></div>
 <p><a name="LA"></a></p>
 <h2 id="life-annuity">Life Annuity</h2>
-<ul>
-<li><strong>Payout structure</strong>: Annual benefit of policy. </li>
-<li><strong>Stopping condition</strong>: Death of policyholder.</li>
-</ul>
 <p><strong>create_policy_LA(benefit, defer = 0, increase = 0, loading)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : numeric </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Base Annual benefit for policy</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual benefit for policy</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>defer</strong> : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(Optional) Deferment period of policy</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>increase</strong> : numeric</p>
@@ -1227,14 +1236,14 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">la</span> <span class="o">&lt;-</span> <span class="nf">create_policy_LA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">la</span> <span class="o">&lt;-</span> <span class="nf">create_policy_LA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
 </code></pre></div>
 <p><a name="CA"></a></p>
 <h2 id="care-annuity-ltc">Care Annuity (LTC)</h2>
-<ul>
-<li><strong>Payout structure</strong>: Annual benefit of each eligible policy. </li>
-<li><strong>Stopping condition</strong>: Death of policyholder.</li>
-</ul>
+<p>Note: Care annuities are evaluated based on the 3-State or 5-State model 
+outlined in the <a href="../../Health/overview/">Health State module</a>. Parameters should be vectors of length
+2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
+remaining states).</p>
 <p><strong>create_policy_CA(benefit, increase, min, loading)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : vector </p>
@@ -1247,19 +1256,11 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for each policy</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
-<p>Note: Care annuities are evaluated based on the 3-State or 5-State model 
-outlined in the <a href="../../Health/overview/">Health State module</a>. Parameters should be vectors of length
-2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
-remaining states).</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">ca</span> <span class="o">&lt;-</span> <span class="nf">create_policy_CA</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1200</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.04</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">ca</span> <span class="o">&lt;-</span> <span class="nf">create_policy_CA</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1200</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.04</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">))</span>
 </code></pre></div>
 <p><a name="PA"></a></p>
 <h2 id="pooled-annuity">Pooled Annuity</h2>
-<ul>
-<li><strong>Payout structure</strong>: Annual benefit from pool. </li>
-<li><strong>Stopping condition</strong>: Death of policyholder.</li>
-</ul>
 <p><strong>create_policy_PA(benefit, size, interest, loading)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>balance</strong> : numeric </p>
@@ -1273,14 +1274,10 @@ remaining states).</p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">pa</span> <span class="o">&lt;-</span> <span class="nf">create_policy_PA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">pa</span> <span class="o">&lt;-</span> <span class="nf">create_policy_PA</span><span class="p">(</span><span class="m">60000</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">0.04</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
 </code></pre></div>
 <p><a name="VA"></a></p>
 <h2 id="variable-annuity-gmwb">Variable Annuity (GMWB)</h2>
-<ul>
-<li><strong>Payout structure</strong>: Maximum amount that be can be withdrawn from fund. </li>
-<li><strong>Stopping condition</strong>: Death of policyholder.</li>
-</ul>
 <p><strong>create_policy_VA(value, length, prop, g_fee) </strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>value</strong> : numeric </p>
@@ -1294,28 +1291,7 @@ remaining states).</p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">va</span> <span class="o">&lt;-</span> <span class="nf">create_policy_VA</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">40</span><span class="p">,</span> <span class="m">0.4</span><span class="p">,</span> <span class="m">0.02</span><span class="p">)</span>
-</code></pre></div>
-<p><a name="RM"></a></p>
-<h2 id="reverse-mortgage-nneg">Reverse Mortgage (NNEG)</h2>
-<p><strong>create_policy_RM(value, LVR, trans_cost, margin)</strong></p>
-<ul>
-<li><strong>Payout structure</strong>: Maximum of (Sale Value - Loan Repayment, 0) at year of sale. </li>
-<li><strong>Stopping condition</strong>: Death of policyholder or policyholder becomes disabled. </li>
-</ul>
-<p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>value</strong> : numeric </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Initial value of property</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>LVR</strong> : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loan to Value ratio for PH</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>trans_cost</strong> : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Transaction cost associated with sale</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>margin</strong> : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Lending margin</em></p>
-<p>&nbsp;&nbsp; <strong>Returns:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
-<p>&nbsp;&nbsp; <strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">rm</span> <span class="o">&lt;-</span> <span class="nf">create_policy_RM</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">0.4</span><span class="p">,</span> <span class="m">0.01</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">va</span> <span class="o">&lt;-</span> <span class="nf">create_policy_VA</span><span class="p">(</span><span class="m">100000</span><span class="p">,</span> <span class="m">40</span><span class="p">,</span> <span class="m">0.4</span><span class="p">,</span> <span class="m">0.02</span><span class="p">)</span>
 </code></pre></div>
 
               
@@ -1346,13 +1322,13 @@ remaining states).</p>
       
       
         
-        <a href="../cashflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Cashflow Simulation" rel="next">
+        <a href="../cashflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Simulating Cashflows" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Cashflow Simulation
+              Simulating Cashflows
             </div>
           </div>
           <div class="md-footer__button md-icon">
