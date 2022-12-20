@@ -47,6 +47,7 @@ nav:
     - 'Economic Scenario Generator/overview.md'
     - 'Economic Scenario Generator/discrete_esg.md'
     - 'Economic Scenario Generator/cts_esg.md'
+    - 'Economic Scenario Generator/summary_esg.md'
   - Policy Valuation:
     - 'Policy Valuation/overview.md'
     - 'Policy Valuation/policy.md'
