@@ -1074,7 +1074,7 @@
   
     <li class="md-nav__item">
       <a href="../pricing/" class="md-nav__link">
-        Pricing / Valuation
+        Valuation
       </a>
     </li>
   
@@ -1237,7 +1237,7 @@ relevant parameters describing the policy.</p>
 </code></pre></div>
 <p><a name="LA"></a></p>
 <h2 id="life-annuity">Life Annuity</h2>
-<p><strong>create_policy_LA(benefit, defer = 0, increase = 0, loading)</strong></p>
+<p><strong>create_policy_LA(benefit, defer = 0, increase = 0)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : numeric </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual benefit for policy</em></p>
@@ -1245,8 +1245,6 @@ relevant parameters describing the policy.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(Optional) Deferment period of policy</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>increase</strong> : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(Optional) Annual rate of increase for policy</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>loading</strong> : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for contract</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
@@ -1254,11 +1252,14 @@ relevant parameters describing the policy.</p>
 </code></pre></div>
 <p><a name="CA"></a></p>
 <h2 id="care-annuity-ltc">Care Annuity (LTC)</h2>
-<p>Note: Care annuities are evaluated based on the 3-State or 5-State model 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Care annuities are evaluated based on the 3-State or 5-State model 
 outlined in the <a href="../../Health/overview/">Health State module</a>. Parameters should be vectors of length
-2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
+2 or 4 (as no benefits paid whilst PH is dead, policies are only characterized by 
 remaining states).</p>
-<p><strong>create_policy_CA(benefit, increase, min, loading)</strong></p>
+</div>
+<p><strong>create_policy_CA(benefit, increase, min)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : vector </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual benefit for each policy</em></p>
@@ -1266,8 +1267,6 @@ remaining states).</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Annual rate of increase for each policy</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>min</strong> : vector</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Minimum guaranteed period for each policy</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>loading</strong> : vector</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for each policy</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>
@@ -1275,16 +1274,14 @@ remaining states).</p>
 </code></pre></div>
 <p><a name="PA"></a></p>
 <h2 id="pooled-annuity">Pooled Annuity</h2>
-<p><strong>create_policy_PA(benefit, size, interest, loading)</strong></p>
+<p><strong>create_policy_PA(benefit, size, interest)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>balance</strong> : numeric </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>benefit</strong> : numeric </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Initial annual benefit for policy</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>size</strong> : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Size of pool</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>interest</strong> : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Assumed investment earnings rate (flat)</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>loading</strong> : numeric</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Loading factor for contract</em></p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; Policy object</p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong></p>

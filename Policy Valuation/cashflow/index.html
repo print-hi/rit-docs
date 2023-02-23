@@ -1001,7 +1001,7 @@
   
     <li class="md-nav__item">
       <a href="../pricing/" class="md-nav__link">
-        Pricing / Valuation
+        Valuation
       </a>
     </li>
   
@@ -1068,6 +1068,18 @@
 will use generated mortality, health state and economic variables to generate
 cashflows for <em>n</em> different pathways. This can be used either directly for calculations, 
 or passed into the <em>value_policy</em> function for pricing statistics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each policy, the benefit paid at each time period is defined as below:</p>
+<ul>
+<li><strong>Account Based Pension</strong>: If the policyholder is alive, pays the inflation-adjusted expense. If the benefit exceeds the remaining balance, the remaining balance is paid. Otherwise, no benefit is paid.</li>
+<li><strong>Life Annuity</strong>: If the deferment period has elapsed and policyholder is alive, pays benefit after flat-rate increase adjustment. Otherwise, no benefit is paid.</li>
+<li><strong>Care Annuity</strong>: If policyholder is alive or minimum guaranteed period is still active, pays sum of all benefits a policyholder is eligible for under LTC after flat-rate increase adjustment. Otherwise, no benefit is paid.</li>
+<li><strong>Variable Annuity</strong>: If policyholder is alive, pays benefit of the maximum withdrawal amount permissible under the contract. If the benefit exceeds the remaining balance, the remaining balance is paid. Otherwise, no benefit is paid.</li>
+<li><strong>Pooled Annuity</strong>: If the policyholder is alive, pays benefit after factoring mortality experience adjustment <span class="arithmatex">\((p_{x+t}/p_{x+t}^*)\)</span> and interest rate adjustment <span class="arithmatex">\((1+r_{x+t}^*)/(1+r_{x+t})\)</span>. Otherwise, no benefit is paid.</li>
+<li><strong>Reverse Mortgage</strong>: If the policyholder dies during the time period, pays the surplus of the loan value deducted by house value after adjusting for cost-of-sale. If the surplus is negative or policyholder doesn't die during period, no benefit is paid.</li>
+</ul>
+</div>
 <p><strong>simulate_cf(policy, age, sex, seed, n)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>policy</strong> : Policy object </p>
@@ -1081,22 +1093,51 @@ or passed into the <em>value_policy</em> function for pricing statistics.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>n</strong> : numeric</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Number of paths to simulate (Monte-Carlo method)</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>state</strong> : matrix</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(Optional) Matrix of health states for n pathways</em> (see <a href="../Health/Health State 3/simulation.md">Health State</a> / <a href="../../Aggregate%20Mortality/simulation/">Aggregate Mortality</a>)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Matrix of health states for <span class="arithmatex">\(n\)</span> pathways over <span class="arithmatex">\(m\)</span> periods</em> (see <a href="../Health/Health State 3/simulation.md">Health State</a> / <a href="../../Aggregate%20Mortality/simulation/">Mortality</a>)</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>econ_var</strong> : list</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>(Optional) Simulated economic variables</em> (see <a href="../../Economic%20Scenario%20Generator/discrete_esg/">Economic Scenario Generator</a>)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>List of matrices for each economic variables required by the chosen policy, these include:</em> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <em>$sdf: stochastic discount factor</em> -&gt; required by All Policies</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <em>$infla: inflation index</em> -&gt; required by Account Based Pension</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <em>$stock: stock price</em> -&gt; required by Account Based Pension, Pooled Annuity, Variable Annuity</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <em>$zcp3m: zero-coupon bond yield (3-month)</em> -&gt; required by Reverse Mortgage</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <em>$house: house price</em> -&gt; required by Reverse Mortgage</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (see <a href="../../Economic%20Scenario%20Generator/discrete_esg/">Economic Scenario Generator</a> for example implementation)</p>
 <p>&nbsp;&nbsp; <strong>Returns:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#simcf">SimCashflow</a> object </p>
 <p>&nbsp;&nbsp; <strong>Usage:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">ap</span> <span class="o">&lt;-</span> <span class="nf">create_policy_AP</span><span class="p">(</span><span class="m">400000</span><span class="p">,</span> <span class="m">60000</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">cf</span> <span class="o">&lt;-</span> <span class="nf">simulate_cf</span><span class="p">(</span><span class="n">policy</span> <span class="o">=</span> <span class="n">ap</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="m">65</span><span class="p">,</span> <span class="n">sex</span> <span class="o">=</span> <span class="s">&quot;M&quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">1000</span><span class="p">)</span>
 </code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>state</strong> &amp; <strong>econ_var</strong> use <span class="arithmatex">\(n × m\)</span> matrices, where <span class="arithmatex">\(n\)</span> is the number of simulated paths
+and <span class="arithmatex">\(m\)</span> is the number of periods. Any periodicity can be used as long as all matrices are
+consistent, i.e. each time-step can represent a month, year, or other length (simulation defaults to annual period).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Economic variables needed by each policy:</p>
+<ul>
+<li><strong>Account Based Pension</strong>: requires stochastic discount factors (<em>$sdf</em>), inflation rate (<em>$infla</em>) &amp; investment return (<em>$stock</em>).</li>
+<li><strong>Life Annuity</strong>: requires stochastic discount factors (<em>$sdf</em>).</li>
+<li><strong>Care Annuity</strong>: requires stochastic discount factors (<em>$sdf</em>).</li>
+<li><strong>Variable Annuity</strong>: requires stochastic discount factors (<em>$sdf</em>), investment return (<em>$stock</em>).</li>
+<li><strong>Pooled Annuity</strong>: requires stochastic discount factors (<em>$sdf</em>), investment return (<em>$stock</em>).</li>
+<li><strong>Reverse Mortgage</strong>: requires stochastic discount factors (<em>$sdf</em>), 3-month zero-coupon bond yield (<em>$zcp3m</em>) &amp; change in house price (<em>$house</em>).</li>
+</ul>
+</div>
 <p><a name ="simcf"></a>
 <strong>SimCashflow</strong></p>
 <p>&nbsp;&nbsp; <strong>Attributes:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>cf</strong> : Matrix </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Simulated cashflows</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>SDF</strong> : Matrix</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Simulated stochastic discount factors</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Simulated cashflows</em> for each pathway at every time step</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>sdf</strong> : Matrix</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Stochastic discount factors for each pathway at every time step</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>cf</strong> &amp; <strong>sdf</strong> are <span class="arithmatex">\(n × m\)</span> matrices, where <span class="arithmatex">\(n\)</span> is the number of simulated paths
+and <span class="arithmatex">\(m\)</span> is the number of periods.</p>
+</div>
 
               
             </article>
@@ -1126,13 +1167,13 @@ or passed into the <em>value_policy</em> function for pricing statistics.</p>
       
       
         
-        <a href="../pricing/" class="md-footer__link md-footer__link--next" aria-label="Next: Pricing / Valuation" rel="next">
+        <a href="../pricing/" class="md-footer__link md-footer__link--next" aria-label="Next: Valuation" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Pricing / Valuation
+              Valuation
             </div>
           </div>
           <div class="md-footer__button md-icon">

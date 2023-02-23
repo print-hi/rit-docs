@@ -13,7 +13,7 @@
     
     
       
-        <title>Pricing / Valuation - Retirement Income Toolkit</title>
+        <title>Valuation - Retirement Income Toolkit</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pricing-valuation" class="md-skip">
+        <a href="#valuation" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pricing / Valuation
+              Valuation
             
           </span>
         </div>
@@ -1000,7 +1000,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Pricing / Valuation
+        Valuation
       </a>
       
     </li>
@@ -1063,9 +1063,8 @@
 </a>
 
 
-<h1 id="pricing-valuation">Pricing / Valuation</h1>
-<p>Conducts valuation of a given policy, providing summary statistics. Generates
-convergence + distribution plots</p>
+<h1 id="valuation">Valuation</h1>
+<p>Conducts valuation of a given policy, providing summary statistic &amp; plots on the <strong>total discounted value of all cashflows received</strong> by each pathway.</p>
 <p><strong>value_policy(policy, cashflows, seed)</strong></p>
 <p>&nbsp;&nbsp; <strong>Parameters:</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>policy</strong> : Policy object </p>
@@ -1109,11 +1108,13 @@ convergence + distribution plots</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>paths</strong> : Vector </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Valuation of individual cashflows by path</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>stats</strong> : List</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Summary statistics of valuation</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Summary statistics of discounted cashflow</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>conv</strong> : Plot</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Convergence plot of simulation using random sampling</em></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>dist</strong> : Plot</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Distribution plot of valuations by path</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Distribution plot of present value by path</em></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <strong>scat</strong> : Plot</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>Scatter plot of present value by path</em></p>
 
               
             </article>
