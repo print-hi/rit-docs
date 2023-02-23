@@ -904,6 +904,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary_esg/" class="md-nav__link">
+        Summary statistics
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1068,7 +1082,7 @@
 <p><img alt="" src="https://latex.codecogs.com/svg.image?dX_t^3&space;=&space;[\theta_3&space;-&space;\sum_{i=1}^3&space;\kappa_{3i}&space;X_t^i]&space;dt&space;&space;&plus;&space;\sum_{i=1}^3&space;\sigma_{3i}&space;dW_t^i," /></p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?dX_t^4&space;=&space;[\theta_4&space;&plus;&space;X_t^1&space;&plus;&space;X_t^2]&space;dt&space;&plus;&space;\sum_{i=1}^4&space;\sigma_{4i}&space;dW_t^i," /></p>
 <p><img alt="" src="https://latex.codecogs.com/svg.image?dX_t^5&space;=&space;[\theta_5&space;&plus;&space;X_t^1&space;&plus;&space;X_t^2]&space;dt&space;&plus;&space;\sum_{i=1}^5&space;\sigma_{5i}&space;dW_t^i." /></p>
-<p>The vector <img alt="" src="https://latex.codecogs.com/svg.image?(\theta_1,&space;\cdots,&space;\theta_5)^\top" /> is interpreted as the mean vector, <img alt="" src="https://latex.codecogs.com/svg.image?K&space;=&space;(\kappa_{ij})" /> is the mean-reversion matrix, and <img alt="" src="https://latex.codecogs.com/svg.image?\Sigma&space;=&space;(\sigma_{ij})" /> is the covariance matrix. Estimation of these parameters are in note (a). </p>
+<p>The <code>interest_rate</code> models return paths generated from the first 3 equations, while the <code>interest_house_stock</code> models return paths generated from all 5 equations. The vector <img alt="" src="https://latex.codecogs.com/svg.image?(\theta_1,&space;\cdots,&space;\theta_5)^\top" /> is interpreted as the mean vector, <img alt="" src="https://latex.codecogs.com/svg.image?K&space;=&space;(\kappa_{ij})" /> is the mean-reversion matrix, and <img alt="" src="https://latex.codecogs.com/svg.image?\Sigma&space;=&space;(\sigma_{ij})" /> is the covariance matrix. Estimation of these parameters are in note (a). </p>
 <p>The results are still depicted with the same simulation frequency options as the discrete case, but the calculations are based in continuous time. </p>
 <hr />
 <p><strong>esg_afns_simulator(num_years = 5, num_paths = 10, frequency = 'month', perc_change = FALSE, type = 'independent', model = 'interest_rate',seed = NULL)</strong></p>
@@ -1108,10 +1122,10 @@
 <p>&nbsp;&nbsp; <strong>Choosing an Appropriate Model:</strong></p>
 <ul>
 <li>
-<p>Choosing between models "interest_rate" and "interest_house_stock":  </p>
-<p>The "interest_house_stock" model assumes dependency between interest rates, stock prices, and house indexes. Therefore, this model takes a more holistic view on the movements of those financial variables. </p>
-<p>However, a drawback is that the simulated "interest_house_stock" paths will be more volatile than the single "interest_rate" model, and the paths will take longer to revert to mean levels. </p>
-<p>If users' intended area of usage is not influenced by stocks and house prices, the "interest_rate" model would be a good choice. If, otherwise, comovements among the financial variables are deemed important, the "interest_house_stock" model is suggested. </p>
+<p>Choosing between models <code>interest_rate</code> and <code>interest_house_stock</code>:  </p>
+<p>The <code>interest_house_stock</code> model assumes dependency between interest rates, stock prices, and house indexes. Therefore, this model takes a more holistic view on the movements of those financial variables. </p>
+<p>However, a drawback is that the simulated <code>interest_house_stock</code> paths will be more volatile than the <code>interest_rate</code> model, and the paths will take longer to revert to mean levels. </p>
+<p>If users' intended area of usage is not influenced by stocks and house prices, the <code>interest_rate</code> model would be a good choice. If, otherwise, comovements among the financial variables are deemed important, the <code>interest_house_stock</code> model is suggested. </p>
 </li>
 <li>
 <p>Choosing between "independent" and "correlated" factor models:</p>
@@ -1172,13 +1186,13 @@
       
       
         
-        <a href="../../Policy%20Valuation/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+        <a href="../summary_esg/" class="md-footer__link md-footer__link--next" aria-label="Next: Summary statistics" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Overview
+              Summary statistics
             </div>
           </div>
           <div class="md-footer__button md-icon">
