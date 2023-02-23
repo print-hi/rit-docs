@@ -76,7 +76,7 @@ rm <- create_policy_RM(100000, 0.4, 0.01, 0.05)
 
 ## Life Annuity
 
-**create_policy_LA(benefit, defer = 0, increase = 0, loading)**
+**create_policy_LA(benefit, defer = 0, increase = 0)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -92,10 +92,6 @@ rm <- create_policy_RM(100000, 0.4, 0.01, 0.05)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(Optional) Annual rate of increase for policy*
 
-&nbsp;&nbsp;&nbsp;&nbsp; **loading** : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Loading factor for contract*
-
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; Policy object
@@ -110,12 +106,13 @@ la <- create_policy_LA(60000, 5, 0.04, 0.05)
 
 ## Care Annuity (LTC)
 
-Note: Care annuities are evaluated based on the 3-State or 5-State model 
-outlined in the [Health State module](../Health/overview.md). Parameters should be vectors of length
-2 or 4 (no benefits paid whilst PH is dead, policies are characterized by 
-remaining states).
+!!! note
+    Care annuities are evaluated based on the 3-State or 5-State model 
+    outlined in the [Health State module](../Health/overview.md). Parameters should be vectors of length
+    2 or 4 (as no benefits paid whilst PH is dead, policies are only characterized by 
+    remaining states).
 
-**create_policy_CA(benefit, increase, min, loading)**
+**create_policy_CA(benefit, increase, min)**
 
 &nbsp;&nbsp; **Parameters:**
 
@@ -131,10 +128,6 @@ remaining states).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Minimum guaranteed period for each policy*
 
-&nbsp;&nbsp;&nbsp;&nbsp; **loading** : vector
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Loading factor for each policy*
-
 &nbsp;&nbsp; **Returns:**
 
 &nbsp;&nbsp;&nbsp;&nbsp; Policy object
@@ -149,11 +142,11 @@ ca <- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
 
 ## Pooled Annuity
 
-**create_policy_PA(benefit, size, interest, loading)**
+**create_policy_PA(benefit, size, interest)**
 
 &nbsp;&nbsp; **Parameters:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; **balance** : numeric 
+&nbsp;&nbsp;&nbsp;&nbsp; **benefit** : numeric 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Initial annual benefit for policy*
 
@@ -164,10 +157,6 @@ ca <- create_policy_CA(c(60000, 1200), c(0, 0.04), c(8, 0), c(0.04, 0.05))
 &nbsp;&nbsp;&nbsp;&nbsp; **interest** : numeric
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Assumed investment earnings rate (flat)*
-
-&nbsp;&nbsp;&nbsp;&nbsp; **loading** : numeric
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Loading factor for contract*
 
 &nbsp;&nbsp; **Returns:**
 

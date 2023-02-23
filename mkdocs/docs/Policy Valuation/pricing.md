@@ -1,7 +1,6 @@
-# Pricing / Valuation
+# Valuation
 
-Conducts valuation of a given policy, providing summary statistics. Generates
-convergence + distribution plots
+Conducts valuation of a given policy, providing summary statistic & plots on the **total discounted value of all cashflows received** by each pathway.
 
 **value_policy(policy, cashflows, seed)**
 
@@ -63,7 +62,7 @@ Kurtosis    : 5.47
 
 &nbsp;&nbsp;&nbsp;&nbsp; **stats** : List
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Summary statistics of valuation*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Summary statistics of discounted cashflow*
 
 &nbsp;&nbsp;&nbsp;&nbsp; **conv** : Plot
 
@@ -71,5 +70,8 @@ Kurtosis    : 5.47
 
 &nbsp;&nbsp;&nbsp;&nbsp; **dist** : Plot
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Distribution plot of valuations by path*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Distribution plot of present value by path*
 
+&nbsp;&nbsp;&nbsp;&nbsp; **scat** : Plot
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Scatter plot of present value by path*
